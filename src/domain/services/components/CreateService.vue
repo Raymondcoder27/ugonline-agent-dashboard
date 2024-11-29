@@ -87,7 +87,15 @@ watch(
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Name</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Name</label>
+          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
+      </div>
+
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Customer Name</label>
           <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
                  required />
         </div>
