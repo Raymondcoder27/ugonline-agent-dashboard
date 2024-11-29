@@ -13,7 +13,7 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">3</p>
-        <p class="text-xs">Total Branches</p>
+        <p class="text-xs">Services Provided</p>
       </div>
     </div>
 
