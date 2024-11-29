@@ -26,7 +26,7 @@
 
     <div class="w-full">
       <div class="w-12/12 count">
-        <p class="text-xl font-bold py-2">123</p>
+        <p class="text-xl font-bold py-2">33</p>
         <p class="text-xs">Total Service Transactions</p>
       </div>
     </div>
