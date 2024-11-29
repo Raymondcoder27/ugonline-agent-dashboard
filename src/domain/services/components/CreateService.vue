@@ -130,7 +130,7 @@ watch(
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Description</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Note</label>
           <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
                  required />
         </div>
