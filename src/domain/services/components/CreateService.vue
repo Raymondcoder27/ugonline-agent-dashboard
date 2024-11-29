@@ -137,7 +137,7 @@ watch(
       </div>
 
 
-      <div class="flex my-5">
+      <!-- <div class="flex my-5">
         <div class="w-full">
           <div class="flex">
             <p class="font-bold px-1">Basic User Requirements</p>
@@ -159,7 +159,7 @@ watch(
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
