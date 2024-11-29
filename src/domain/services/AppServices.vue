@@ -145,9 +145,9 @@ watch(
         <thead>
           <tr class="header-tr">
             <th class="t-header">#</th>
-            <th class="t-header">Name</th>
+            <th class="t-header">Service Name</th>
             <th class="t-header">Provider</th>
-            <th class="text-center">Access Tier</th>
+            <!-- <th class="text-center">Customer Name</th> -->
             <th class="text-center">Availability</th>
             <th class="text-center">Status</th>
             <th class="text-center">Date</th>
