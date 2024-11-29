@@ -6,7 +6,7 @@
     <div class="w-full">
       <div class="w-12/12 count">
         <p class="text-xl font-bold py-2">13</p>
-        <p class="text-xs">Total Agents</p>
+        <p class="text-xs">Total Customers</p>
       </div>
     </div>
 
