@@ -88,8 +88,9 @@ watch(
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Name</label>
-          <input type="text" v-model="form.name" class="noFocus form-element e-input w-full"
-                 required />
+          <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
+            <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
+          </select>
         </div>
       </div>
 
@@ -109,23 +110,23 @@ watch(
         </div>
       </div>
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Provider</label>
           <select v-model="form.providerId" class="noFocus form-element e-input w-full">
             <option v-for="(provider, idx) in providerStore.providers" :key="idx" :value="provider.id">{{provider.name}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Accessibility Tier</label>
           <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
             <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
           </select>
         </div>
-      </div>
+      </div> -->
 
       <div class="flex">
         <div class="cell-full">
