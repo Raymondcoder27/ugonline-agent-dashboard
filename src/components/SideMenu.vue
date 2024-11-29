@@ -36,11 +36,11 @@ const sideMenu: SideMenuLink[] = [
   //  label: "Agents",
    // iconClass: "fa-solid fa-people-group",
   //},
-  {
-    name: "app-branches",
-    label: "Branches",
-    iconClass: "fa-solid fa-code-branch",
-  },
+  // {
+  //   name: "app-branches",
+  //   label: "Branches",
+  //   iconClass: "fa-solid fa-code-branch",
+  // },
   {
     name: "app-services",
     label: "Services",
