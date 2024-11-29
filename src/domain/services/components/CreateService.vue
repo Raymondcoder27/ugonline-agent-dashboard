@@ -89,7 +89,7 @@ watch(
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Name</label>
           <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
-            <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option>
+            <!-- <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option> -->
           </select>
         </div>
       </div>
