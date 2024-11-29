@@ -136,7 +136,7 @@ watch(
       </div>
       <div class="flex">
         <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-          <i class="px-1 fa-solid fa-plus"></i> Add Service
+          <i class="px-1 fa-solid fa-plus"></i> Request Service
         </button>
       </div>
     </div>
