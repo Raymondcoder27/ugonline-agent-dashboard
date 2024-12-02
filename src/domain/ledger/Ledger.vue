@@ -3,6 +3,7 @@ import AppModal from "@/components/AppModal.vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { onMounted, type Ref, ref, watch, reactive } from "vue";
 import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
+import RequestFloat from "@/domain/accounts/components/RequestFloat.vue";
 import moment from "moment/moment";
 import type { IGoFilter } from "@/types"
 import { useDebounceFn } from "@vueuse/core"
@@ -129,6 +130,12 @@ watch(
           class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
+      <div class="justify-center">
+        <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+            <i class="px-1 fa-solid fa-plus"></i> Request Float
+          </button>
+      </div>
+
     </div>
 
     <!-- Table -->
@@ -238,7 +245,7 @@ watch(
     <!-- Put here whatever makes you smile -->
 
     <!-- Chances are high that you're starting with a form -->
-    <CreateAccount @cancel="close" />
+    <RequestFloat @cancel="close" />
     <!-- That's also okay -->
   </AppModal>
   <!-- /Modal -->
