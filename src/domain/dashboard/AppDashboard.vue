@@ -1,4 +1,3 @@
-
 <script lang="ts">
 import { defineComponent } from 'vue';
 
@@ -31,7 +30,63 @@ export default defineComponent({
           phone: '0800211700',
           address: 'National Independence Grounds, Kololo Airstrip',
         },
-        // Add more services as needed
+        {
+          id: 4,
+          name: 'Ministry of Lands and Urban Development',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@mlhud.go.ug',
+          phone: '0414355355',
+          address: 'Dewinton Road',
+        },
+        {
+          id: 5,
+          name: 'Uganda Registration Services Bureau',
+          // thumbnail: 'https://obrs.ursb.go.ug/img/full_logo.9fe8e881.jpg',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'ursb@ursb.go.ug',
+          phone: '0312211211',
+          address: 'Plot 1 Baskerville Avenue',
+        },
+        {
+          id: 6,
+          name: 'Ministry of Foreign Affairs',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@mofa.go.ug',
+          phone: '0312411403',
+          address: 'Parliamentary Avenue',
+        },
+        {
+          id: 7,
+          name: 'Ministry of Agriculture, Animal Industry and Fisheries',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@maaif.go.ug',
+          phone: '0312123123',
+          address: 'Kabanyoro',
+        },
+        {
+          id: 8,
+          name: 'National Water and Sewage Corporation',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@nwsc.go.ug',
+          phone: '0312123123',
+          address: '',
+        },
+        {
+          id: 9,
+          name: 'Ministry of Internal Affairs',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@moia.go.ug',
+          phone: '0312123123',
+          address: '',
+        },
+        {
+          id: 10,
+          name: 'Ministry of Gender, Labour and Social Development',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@moglsd.go.ug',
+          phone: '0312123123',
+          address: '',
+        },
       ],
     };
   },
@@ -43,8 +98,6 @@ export default defineComponent({
   @apply bg-white p-4 rounded-lg hover:bg-gray-200 transition duration-300;
 }
 </style>
-
-
 
 <template>
   <div class="grid grid-cols-4 gap-4 p-4">
