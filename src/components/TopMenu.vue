@@ -21,11 +21,11 @@ const route = useRoute();
 const router = useRouter();
 const accountStore = useAccountStore();
 const sideMenu: SideMenuLink[] = [
-  // {
-  //   name: "app-dashboard",
-  //   label: "Dashboard",
-  //   iconClass: "fa-solid fa-gauge",
-  // },
+  {
+    name: "app-dashboard",
+    label: "Home",
+    iconClass: "fa-solid fa-home",
+  },
   // {
   //   name: "app-entities",
   //   label: "Customers",
@@ -33,7 +33,7 @@ const sideMenu: SideMenuLink[] = [
   // },
   {
     name: "app-reports",
-    label: "Reports",
+    label: "Ledger",
     iconClass: "fa-solid fa-chart-line",
   },
   {
