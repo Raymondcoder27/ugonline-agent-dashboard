@@ -12,43 +12,50 @@ const sideMenuOpen = ref(useStorage("sms", true));
 
 <template>
   <nav
-    class="top-0 relative z-50 w-full md:flex-row md:flex-nowrap md:justify-start flex flex-wrap items-center justify-between px-2 py-3 navbar-expand-lg border-b border-primary-200 bg-white"
+    class="top-0 relative z-50 w-full md:flex-row md:flex-nowrap md:justify-start flex items-center px-2 py-3 navbar-expand-lg border-b border-primary-200 bg-white"
   >
-    <div
-      class="w-full mx-auto items-center flex justify-between md:flex-nowrap flex-wrap px-4"
-    >
-      <!-- Logo -->
-      <div class="flex">
-        <div class="w-full">
-          <div class="flex flex-grow">
-            <span
-              @click="sideMenuOpen = !sideMenuOpen"
-              class="text-primary text-xl block cursor-pointer"
-            >
-              <i
-                :class="
-                  sideMenuOpen
-                    ? 'transition ease-in-out rotate-0 duration-200'
-                    : 'transition ease-in-out -rotate-180 duration-200'
-                "
-                class="fa-solid fa-angles-left"
-              ></i>
-            </span>
-            <div class="flex">
-              <div class="w-full">
-                <span
-                  class="my-auto mx-2 text-white rounded font-bold text-xl shadow"
-                >
-                  <b class="rounded-l bg-black-800 p-1">ug</b>
-                  <b class="bg-yellow-500 p-1">On</b>
-                  <b class="rounded-r bg-primary-700 p-1">line</b>
-                </span>
-              </div>
-            </div>
-            <!-- <p>Hello world</p> -->
-            <TopMenu />
-          </div>
+    <div class="flex items-center justify-between w-full px-4">
+      <!-- Left side: Logo and sidebar toggle button -->
+      <div class="flex items-center">
+        <span
+          @click="sideMenuOpen = !sideMenuOpen"
+          class="text-primary text-xl block cursor-pointer mr-4"
+        >
+          <i
+            :class="
+              sideMenuOpen
+                ? 'transition ease-in-out rotate-0 duration-200'
+                : 'transition ease-in-out -rotate-180 duration-200'
+            "
+            class="fa-solid fa-angles-left"
+          ></i>
+        </span>
+        <div class="flex items-center">
+          <span
+            class="my-auto mx-2 text-white rounded font-bold text-xl shadow"
+          >
+            <b class="rounded-l bg-black-800 p-1">ug</b>
+            <b class="bg-yellow-500 p-1">On</b>
+            <b class="rounded-r bg-primary-700 p-1">line</b>
+          </span>
         </div>
+      </div>
+
+      <!-- Centered TopMenu -->
+      <div class="flex flex-grow justify-center items-center">
+        <TopMenu />
+      </div>
+
+      <!-- Right side: Person icon and logout button -->
+      <div class="flex items-center ml-auto">
+        <i class="fa-solid fa-user text-xl mr-4"></i>
+        <p class="text-sm font-bold">Username</p>
+        <button
+          class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
+          @click="logout"
+        >
+          Logout
+        </button>
       </div>
     </div>
   </nav>
