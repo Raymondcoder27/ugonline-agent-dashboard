@@ -147,12 +147,12 @@ function logout() {
     });
 }
 
-// watch for changes in the filter object
-watch(
-  () => filter,
-  () => updateFilter(),
-  { deep: true }
-)
+// // watch for changes in the filter object
+// watch(
+//   () => filter,
+//   () => updateFilter(),
+//   { deep: true }
+// )
 </script>
 
 <!-- -->
@@ -177,8 +177,8 @@ watch(
           <!-- Link Section-->
           <div class="flex space-x-10">
             <!-- <p>SEARCH SERVICE</p> -->
-            <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" />
+            <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+            class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
             <div
               v-for="(link, idx) in sideMenu"
               @click="navigate(link)"
