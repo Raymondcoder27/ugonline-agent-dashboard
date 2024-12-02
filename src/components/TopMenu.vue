@@ -31,21 +31,6 @@ const sideMenu: SideMenuLink[] = [
     label: "Customers",
     iconClass: "fa-solid fa-people-group",
   },
-  //{
-  // name: "app-agents",
-  //  label: "Agents",
-  // iconClass: "fa-solid fa-people-group",
-  //},
-  // {
-  //   name: "app-branches",
-  //   label: "Branches",
-  //   iconClass: "fa-solid fa-code-branch",
-  // },
-  // {
-  //   name: "app-services",
-  //   label: "Services",
-  //   iconClass: "fa-solid fa-list",
-  // },
   {
     name: "app-reports",
     label: "Reports",
