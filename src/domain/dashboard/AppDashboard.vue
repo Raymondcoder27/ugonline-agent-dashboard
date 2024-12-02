@@ -1,5 +1,7 @@
 <script setup lang="ts">
-import { ref, watch } from 'vue';
+import { ref, watch, reactive } from 'vue';
+import { useDebounceFn } from "@vueuse/core"
+
 
 interface Service {
   id: number;
@@ -98,11 +100,12 @@ const filter: IGoFilter = reactive({
   ]
 })
 
-// watch for changes in the filter object
-watch(
-  () => filter,
-  () => updateFilter(),
-  { deep: true }
+const updateFilter = useDebounceFn(
+  () => {
+    fetch()
+  },
+  300,
+  { maxWait: 5000 }
 )
 
 // watch for changes in the filter object
@@ -114,10 +117,13 @@ watch(
 </script>
 
 <template>
+   <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+    class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" />
+
   <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
 
-    <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-    class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" />
+    <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+    class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
 
 
     <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-200 transition duration-300">
