@@ -21,6 +21,7 @@ import AppGateway from "../domain/gateway/AppGateway.vue";
 import AppFinances from "../domain/finances/AppFinances.vue";
 import ServicesDetails from "../domain/servicesdetails/ServicesDetails.vue";
 import Branches from "../domain/branches/AppBranches.vue";
+import Ledger from "../domain/ledger/Ledger.vue";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -76,9 +77,9 @@ const appRoutes: RouteRecordRaw[] = [
         component: Settings
       },
       {
-        name: "app-reports",
-        path: "/home/data-analytics",
-        component: DataAnalytics
+        name: "app-ledger",
+        path: "/home/ledger",
+        component: Ledger
       },
       {
         name: "app-services-details",
