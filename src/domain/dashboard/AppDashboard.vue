@@ -8,6 +8,7 @@ export default defineComponent({
       services: [
         {
           id: 1,
+          service: 'Post Office Account',
           name: 'Posta Uganda',
           thumbnail: '/assets/coa-19c4edfc.png',
           email: 'info@ugapost.co.ug',
@@ -51,6 +52,7 @@ export default defineComponent({
         },
         {
           id: 6,
+          service: 'Name Reservation',
           name: 'Ministry of Foreign Affairs',
           thumbnail: '/assets/coa-19c4edfc.png',
           email: 'info@mofa.go.ug',
