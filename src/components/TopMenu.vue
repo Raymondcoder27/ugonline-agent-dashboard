@@ -48,6 +48,39 @@ const sideMenu: SideMenuLink[] = [
     iconClass: "fa-solid fa-clipboard-list",
   },
 ];
+
+
+const filter: IGoFilter = reactive({
+  limit: 100,
+  offset: 0,
+  page:0,
+  sort: [
+    {
+      field: "firstname",
+      order: "ASC"
+    }
+  ],
+  filter: [
+    {
+      field: "firstname",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "username",
+      operand: "",
+      operator: "CONTAINS"
+    },
+    {
+      field: "phone",
+      operand: "",
+      operator: "CONTAINS"
+    },
+  ]
+})
+
+
+
 const navigate: (link: SideMenuLink) => void = (link: SideMenuLink) => {
   //hide sidemenu if viewed on a mobile device
   isMobile.value ? (menuOpen.value = false) : "";
