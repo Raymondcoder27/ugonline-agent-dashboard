@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Logo from "@/assets/images/banner.png";
 import TopMenu from "@/components/TopMenu.vue";
+import ProfileSection from "@/components/ProfileSection.vue";
 import { useStorage } from "@vueuse/core";
 import { computed, unref, ref } from "vue";
 import type { ComputedRef } from "vue";
@@ -36,7 +37,7 @@ const sideMenuOpen = ref(useStorage("sms", true));
 
       <!-- Right side: Center TopMenu -->
       <div class="flex items-center justify-end ml-auto">
-        <LogoutSection />
+        <ProfileSection />
       </div>
     </div>
   </nav>
