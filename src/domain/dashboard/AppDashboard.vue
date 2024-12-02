@@ -117,6 +117,6 @@ export default defineComponent({
 
 <style scoped>
 .service {
-  @apply bg-gray-100 p-4 rounded-lg hover:bg-gray-200 transition duration-300;
+  @apply bg-white p-4 rounded-lg hover:bg-gray-200 transition duration-300;
 }
 </style>
