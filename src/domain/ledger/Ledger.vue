@@ -5,9 +5,12 @@ import { onMounted, type Ref, ref, watch, reactive } from "vue";
 // import CreateAccount from "@/domain/accounts/components/CreateAccount.vue";
 import RequestFloat from "@/domain/ledger/components/RequestFloat.vue";
 import moment from "moment/moment";
-import type { IGoFilter } from "@/types"
-import { useDebounceFn } from "@vueuse/core"
-import type { IResendVerificationPayload, TAccountVerificationType } from "./types"
+import type { IGoFilter } from "@/types";
+import { useDebounceFn } from "@vueuse/core";
+import type {
+  IResendVerificationPayload,
+  TAccountVerificationType,
+} from "./types";
 
 const store = useAccounts();
 const modalOpen: Ref<boolean> = ref(false);
@@ -22,46 +25,46 @@ const filter: IGoFilter = reactive({
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
-})
+  ],
+});
 
 onMounted(() => {
-  fetch()
-})
+  fetch();
+});
 
 function fetch() {
-  filter.limit = limit.value
-  filter.page = page.value
-  store.fetchUserAccounts(filter)
+  filter.limit = limit.value;
+  filter.page = page.value;
+  store.fetchUserAccounts(filter);
 }
 
-function next(){
-  page.value += 1
-  fetch()
+function next() {
+  page.value += 1;
+  fetch();
 }
 
-function previous(){
-  page.value -= 1
-  fetch()
+function previous() {
+  page.value -= 1;
+  fetch();
 }
 
 function open() {
@@ -69,7 +72,7 @@ function open() {
 }
 
 function convertDate(date: string) {
-  return moment(date).format("DD-MM-YYYY")
+  return moment(date).format("DD-MM-YYYY");
 }
 
 function close() {
@@ -78,22 +81,22 @@ function close() {
 
 const reVerifyForm: IResendVerificationPayload = reactive({
   purpose: "",
-  username: ""
-})
+  username: "",
+});
 const resend = (purpose: TAccountVerificationType, username: string) => {
-  if (username.length === 0) return
-  reVerifyForm.purpose = purpose
-  reVerifyForm.username = username
-  store.resendAccountVerification(reVerifyForm)
-}
+  if (username.length === 0) return;
+  reVerifyForm.purpose = purpose;
+  reVerifyForm.username = username;
+  store.resendAccountVerification(reVerifyForm);
+};
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 // watch state of the modal
 watch(
@@ -102,7 +105,7 @@ watch(
     if (!isOpen) {
       // do something if that's something you're interested in
     }
-  },
+  }
 );
 
 // watch for changes in the filter object
@@ -110,44 +113,59 @@ watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
+);
 </script>
 
 <template>
-<!-- <div class="min-h-screen bg-gray-100 p-2"> -->
-<div class="bg-white p-2">
-
-  
-  <!-- Header -->
-  <div class="max-w-7xl mx-auto bg-white">
-    <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
-      <!-- <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1> -->
-      <div>
-        <!-- <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
+  <!-- <div class="min-h-screen bg-gray-100 p-2"> -->
+  <div class="bg-white p-2">
+    <!-- Header -->
+    <div class="max-w-7xl mx-auto bg-white">
+      <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
+        <!-- <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1> -->
+        <div>
+          <!-- <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
         <input
           type="date"
           id="date-range"
           class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         /> -->
-      </div>
-      <div class="justify-center flex p-2">
-       <div class="flex">
-        <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
+        </div>
+        <div class="justify-center flex p-2">
+          <div class="flex pr-2">
+            <div class="from">
+              <label
+                for="date-range"
+                class="mr-2 text-sm text-gray-600 align-center text-center"
+                >From:</label
+              >
+              <input
+                type="date"
+                id="date-range"
+                class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
+            <div class="to">
+              <label for="date-range" class="mr-2 text-sm text-gray-600 align-center text-center">To:</label>
         <input
           type="date"
           id="date-range"
           class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-       </div>
-        <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+            </div>
+          </div>
+          <button
+            @click="modalOpen = true"
+            class="button btn-sm my-auto"
+            type="button"
+          >
             <i class="px-1 fa-solid fa-plus"></i> Request Float
           </button>
+        </div>
       </div>
 
-    </div>
-
-    <!-- Table -->
-    <!-- <div class="overflow-x-auto  p-2">
+      <!-- Table -->
+      <!-- <div class="overflow-x-auto  p-2">
       <table class="w-full border-collapse border text-left">
         <thead>
           <tr class="bg-gray-100">
@@ -180,23 +198,18 @@ watch(
         </tfoot>
       </table>
     </div> -->
-  </div>
+    </div>
 
-
-
-
-
-  <div class="flex my-1">
+    <div class="flex my-1">
       <table class="table">
         <thead>
           <tr class="header-tr">
-
             <th class="text-center">Date</th>
             <th class="text-center">Description</th>
             <th class="text-center">Amount</th>
             <th class="text-center">Balance</th>
           </tr>
-        </thead> 
+        </thead>
         <tbody>
           <tr>
             <td class="text-center text-gray-700">2024-11-28</td>
@@ -257,8 +270,7 @@ watch(
         </tbody>
       </table>
     </div>
-</div>
-
+  </div>
 
   <!-- Modal -->
   <AppModal v-model="modalOpen" xl2>
