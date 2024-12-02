@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import Logo from "@/assets/images/banner.png"
+import TopMenu from "@/components/TopMenu.vue"
 import { useStorage } from "@vueuse/core";
 import { computed, unref, ref } from "vue";
 import type { ComputedRef } from "vue";

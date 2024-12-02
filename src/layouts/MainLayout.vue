@@ -44,7 +44,7 @@ onMounted(() => {
       <main class="h-full flex flex-col">
         <div class="flex flex-row h-full">
           <!-- <SideMenu /> -->
-          <TopMenu />
+          <!-- <TopMenu /> -->
           <div class="flex flex-col flex-grow">
             <!-- Main Content Goes Here -->
             <div class="relative w-full flex-grow bg-gray-50 p-2">
