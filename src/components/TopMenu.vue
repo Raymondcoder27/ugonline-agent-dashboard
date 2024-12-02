@@ -119,7 +119,7 @@ function logout() {
 
 <template>
   <!-- Desktop Menu: Centered Horizontally -->
-  <div v-if="!isMobile" class="flex justify-center w-full"> <!-- Center the entire container for desktop -->
+  <div v-if="!isMobile" class="flex justify-center text-center w-full"> <!-- Center the entire container for desktop -->
     <Transition
       enter-from-class="-translate-x-0"
       enter-active-class="transition-all duration-300 ease-in-out"
