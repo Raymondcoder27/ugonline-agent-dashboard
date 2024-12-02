@@ -24,7 +24,7 @@ const accountStore = useAccountStore();
 const sideMenu: SideMenuLink[] = [
   {
     name: "app-dashboard",
-    label: "HOME",
+    label: "SERVICES",
     iconClass: "fa-solid fa-home",
   },
   // {
@@ -37,11 +37,11 @@ const sideMenu: SideMenuLink[] = [
     label: "LEDGER",
     iconClass: "fa-solid fa-money-check",
   },
-  {
-    name: "app-services-details",
-    label: "SERVICES DETAILS",
-    iconClass: "fa-solid fa-list",
-  },
+  // {
+  //   name: "app-services-details",
+  //   label: "SERVICES DETAILS",
+  //   iconClass: "fa-solid fa-list",
+  // },
   //add activity log
   {
     name: "app-activity-log",
