@@ -114,13 +114,13 @@ watch(
 
 <template>
 <!-- <div class="min-h-screen bg-gray-100 p-2"> -->
-<div class="">
+<div class="bg-white p-2">
 
   
   <!-- Header -->
   <div class="max-w-7xl mx-auto bg-white">
-    <div class="flex items-center justify-between border-b pb-4 mb-4 p-2">
-      <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1>
+    <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
+      <!-- <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1> -->
       <div>
         <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
         <input
@@ -132,8 +132,8 @@ watch(
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto p-2">
-      <table class="w-full border-collapse border border-gray-200 text-left">
+    <!-- <div class="overflow-x-auto  p-2">
+      <table class="w-full border-collapse border text-left">
         <thead>
           <tr class="bg-gray-100">
             <th class="border border-gray-200 px-4 py-2 text-gray-600">Date</th>
@@ -155,7 +155,6 @@ watch(
             <td class="px-4 py-2 text-right text-red-600">- 300</td>
             <td class="px-4 py-2 text-right text-gray-800">700</td>
           </tr>
-          <!-- Repeat rows as necessary -->
         </tbody>
         <tfoot>
           <tr class="bg-gray-50">
@@ -165,8 +164,72 @@ watch(
           </tr>
         </tfoot>
       </table>
-    </div>
+    </div> -->
   </div>
+
+
+
+
+
+  <div class="flex my-1">
+      <table class="table">
+        <thead>
+          <tr class="header-tr">
+
+            <th class="text-center">Date</th>
+            <th class="text-center">Description</th>
+            <th class="text-center">Amount</th>
+            <th class="text-center">Balance</th>
+          </tr>
+        </thead> 
+        <tbody>
+          <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
+            v-for="(account, idx) in store.backofficeAccounts" :key="idx">
+<!--            <td width="10px">{{ idx + 1 }}.</td>-->
+            <td>
+              <label class="font-bold py-1">
+                {{ account.firstName }} {{ account.lastName }}
+                {{ account.middleNames }}
+              </label>
+              <i class="fa-solid fa-exclamation-triangle" v-if="account.blockedAt"></i>
+            </td>
+            <td>
+              <a class="underline" :href="'smtp:' + account.username">
+                {{ account.username }}
+              </a>
+              <i class="fa-solid fa-exclamation-triangle text-red-600" v-if="!account.emailVerified"></i>
+            </td>
+            <td>
+              {{ account.phone }} <i class="fa-solid fa-exclamation-triangle text-red-600"
+                v-if="!account.phoneVerified"></i>
+            </td>
+            <td class="text-center">
+              {{ account.role }}
+            </td>
+            <td class="text-center">
+              <label v-if="account.blockedAt" class="text-red-600 font-bold">BLOCKED</label>
+              <label v-else class="text-green-600 font-bold">ACTIVE</label>
+            </td>
+            <td class="text-center">
+              <i v-if="account.activatedAt" class="fa-solid fa-check-square text-green-600"></i>
+              <i v-else class="fa-solid fa-times-square text-red-600"></i>
+            </td>
+            <td class="text-center">{{ convertDate(account.createdAt) }}</td>
+            <td class="text-center">
+              <div class="flex flex-row space-x-2 w-full justify-center" v-if="!account.blockedAt">
+                <i class="text-gray-600 fa-solid fa-pencil px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
+                  @click="open()"></i>
+                <i class="text-gray-600 fa-solid fa-reply px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
+                  @click="open()"></i>
+                <i v-if="account.phoneVerified && !account.activatedAt"
+                  class="text-gray-600 fa-solid fa-unlock-keyhole px-1 border border-gray-300 p-1 hover:text-white hover:bg-gray-600"
+                  @click="resend('change-password', account.username)" title="Change Password"></i>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
 </div>
 
 
