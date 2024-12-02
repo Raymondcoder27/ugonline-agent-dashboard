@@ -38,7 +38,7 @@ function submit() {
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount</label>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
           <input autocomplete="off" type="text" v-model="form.firstName" class="noFocus form-element e-input w-full"
             required />
         </div>
