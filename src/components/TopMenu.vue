@@ -34,7 +34,7 @@ const sideMenu: SideMenuLink[] = [
   {
     name: "app-reports",
     label: "Ledger",
-    iconClass: "fa-solid fa-chart-line",
+    iconClass: "fa-solid fa-money-check",
   },
   {
     name: "app-services-details",
@@ -130,7 +130,7 @@ function logout() {
         :class="{ 'w-full': menuOpen, 'group w-auto hover:w-full': !menuOpen }"
         class="relative bg-white flex items-center justify-between z-10 pt-2"
       >
-        <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
+        <div class="flex flex-row items-center w-full space-x-6 px-4 py-2 text-xl">
           <!-- User Profile and Logout Section -->
 
           <!-- Link Section-->
