@@ -123,14 +123,22 @@ watch(
     <div class="flex items-center justify-between border-b pb-4 mb-4 mt-3">
       <!-- <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1> -->
       <div>
+        <!-- <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
+        <input
+          type="date"
+          id="date-range"
+          class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+        /> -->
+      </div>
+      <div class="justify-center flex p-2">
+       <div class="flex">
         <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
         <input
           type="date"
           id="date-range"
           class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
-      </div>
-      <div class="justify-center">
+       </div>
         <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Request Float
           </button>
