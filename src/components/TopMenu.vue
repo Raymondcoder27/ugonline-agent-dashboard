@@ -23,7 +23,7 @@ const accountStore = useAccountStore();
 const sideMenu: SideMenuLink[] = [
   {
     name: "app-dashboard",
-    label: "Home",
+    label: "HOME",
     iconClass: "fa-solid fa-home",
   },
   // {
@@ -33,18 +33,18 @@ const sideMenu: SideMenuLink[] = [
   // },
   {
     name: "app-reports",
-    label: "Ledger",
+    label: "LEDGER",
     iconClass: "fa-solid fa-money-check",
   },
   {
     name: "app-services-details",
-    label: "Services Details",
+    label: "SERVICES DETAILS",
     iconClass: "fa-solid fa-list",
   },
   //add activity log
   {
     name: "app-activity-log",
-    label: "Activity Log",
+    label: "ACTIVITY LOG",
     iconClass: "fa-solid fa-clipboard-list",
   },
 ];
@@ -134,7 +134,7 @@ function logout() {
           <!-- User Profile and Logout Section -->
 
           <!-- Link Section-->
-          <div class="flex space-x-6">
+          <div class="flex space-x-10">
             <div
               v-for="(link, idx) in sideMenu"
               @click="navigate(link)"
