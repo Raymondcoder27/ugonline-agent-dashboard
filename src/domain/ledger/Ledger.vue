@@ -133,7 +133,7 @@ watch(
         </div>
         <div class="justify-center flex p-2">
           <div class="flex pr-2">
-            <div class="from">
+            <div class="flex">
               <label
                 for="date-range"
                 class="mr-2 text-sm text-gray-600 align-center text-center"
@@ -145,7 +145,7 @@ watch(
                 class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
               />
             </div>
-            <div class="to">
+            <div class="flex">
               <label for="date-range" class="mr-2 text-sm text-gray-600 align-center text-center">To:</label>
         <input
           type="date"
