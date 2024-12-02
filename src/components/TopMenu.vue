@@ -142,7 +142,8 @@ function logout() {
 
 
 <template>
-  <div class="flex items-center justify-between text-center">
+  <!-- Desktop Menu: Centered Horizontally -->
+  <div v-if="!isMobile" class="flex justify-center w-full"> <!-- Center the entire container for desktop -->
     <Transition
       enter-from-class="-translate-x-0"
       enter-active-class="transition-all duration-300 ease-in-out"
@@ -155,7 +156,6 @@ function logout() {
       >
         <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
           <!-- User Profile and Logout Section -->
-         
 
           <!-- Link Section-->
           <div class="flex space-x-6">
@@ -174,7 +174,6 @@ function logout() {
               <span class="my-auto text-sm">{{ link.label }}</span>
             </div>
           </div>
-
 
           <div class="flex items-center space-x-4">
             <i class="fa-solid fa-user text-xl"></i>
@@ -199,7 +198,48 @@ function logout() {
       </div>
     </Transition>
   </div>
+
+  <!-- Mobile Menu: Toggled State -->
+  <div v-else class="block">
+    <Transition
+      enter-from-class="-translate-x-0"
+      enter-active-class="transition-all duration-300 ease-in-out"
+      leave-to-class="translate-x-0"
+      leave-active-class="transition-all duration-150 ease-in-out"
+    >
+      <div
+        v-if="menuOpen"
+        class="relative h-full bg-white shadow-xl flex flex-col items-stretch justify-between w-64 z-10 py-4 md:pb-6"
+      >
+        <div class="flex flex-col min-h-full px-0 w-full mx-auto">
+          <!-- Link Section-->
+          <div class="flex flex-col flex-grow overflow-y-auto mt-1">
+            <div
+              v-for="(link, idx) in sideMenu"
+              @click="navigate(link)"
+              :key="idx"
+              class="cursor-pointer items-center flex flex-row space-x-2 py-2"
+              :class="
+                isRouteActive(link)
+                  ? 'text-primary-700 border-l-4 border-primary-700 pl-5 bg-blue-50'
+                  : 'text-neutral-500 hover:bg-neutral-100 pl-6'
+              "
+            >
+              <i class="my-auto text-sm fa-fw" :class="link.iconClass"></i
+              ><span
+                class="my-auto text-sm align-middle"
+                :class="isRouteActive(link) ? 'font-bold' : ''"
+                >{{ link.label }}</span
+              >
+            </div>
+          </div>
+          <!-- /Link Section-->
+        </div>
+      </div>
+    </Transition>
+  </div>
 </template>
+
 
 <style scoped>
 @import "@/assets/styles/button.css";
