@@ -112,6 +112,13 @@ function logout() {
       console.log(error);
     });
 }
+
+// watch for changes in the filter object
+watch(
+  () => filter,
+  () => updateFilter(),
+  { deep: true }
+)
 </script>
 
 <!-- -->
