@@ -196,6 +196,13 @@ watch(
             <td class="text-center text-green-600">+ 1,000</td>
             <td class="text-center text-gray-800">1,000</td>
           </tr>
+
+          <tr>
+            <td class="text-center text-gray-700">2024-11-29</td>
+            <td class="text-center text-gray-700">Purchase Supplies</td>
+            <td class="text-center text-red-600">- 300</td>
+            <td class="text-center text-gray-800">700</td>
+          </tr>
           <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.backofficeAccounts" :key="idx">
             <td>
