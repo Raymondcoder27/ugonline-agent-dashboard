@@ -47,11 +47,6 @@ const sideMenu: SideMenuLink[] = [
     iconClass: "fa-solid fa-list",
   },
   {
-    name: "app-finances",
-    label: "Finances Vault",
-    iconClass: "fa-solid fa-money-bill",
-  },
-  {
     name: "app-reports",
     label: "Reports",
     iconClass: "fa-solid fa-chart-line",
