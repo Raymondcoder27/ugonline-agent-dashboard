@@ -118,7 +118,7 @@ watch(
 
 <template>
    <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-    class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" />
+    class="filter-element e-input mr-2" type="text" placeholder="SEARCH SERVICE" />
 
   <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
 
