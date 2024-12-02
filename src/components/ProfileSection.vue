@@ -120,18 +120,21 @@ function logout() {
 <template>
   <!-- Desktop Menu: Centered Horizontally -->
   <div v-if="!isMobile" class="flex justify-center w-full"> <!-- Center the entire container for desktop -->
+
     <Transition
       enter-from-class="-translate-x-0"
       enter-active-class="transition-all duration-300 ease-in-out"
       leave-to-class="translate-x-0"
       leave-active-class="transition-all duration-150 ease-in-out"
     >
+    
       <div
         :class="{ 'w-full': menuOpen, 'group w-auto hover:w-full': !menuOpen }"
         class="relative bg-white flex items-center justify-between z-10 pt-2"
       >
         <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
           <!-- User Profile and Logout Section -->
+    <p>BALANCE: 675,000</p>
 
 
           <div class="flex items-center space-x-4">

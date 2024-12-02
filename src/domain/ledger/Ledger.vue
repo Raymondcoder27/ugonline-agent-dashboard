@@ -118,8 +118,8 @@ watch(
 
   
   <!-- Header -->
-  <div class="max-w-7xl mx-auto bg-white  shadow">
-    <div class="flex items-center justify-between border-b pb-4 mb-4">
+  <div class="max-w-7xl mx-auto bg-white">
+    <div class="flex items-center justify-between border-b pb-4 mb-4 p-2">
       <h1 class="text-2xl font-bold text-gray-700">Float Ledger</h1>
       <div>
         <label for="date-range" class="mr-2 text-sm text-gray-600">Date Range:</label>
@@ -132,7 +132,7 @@ watch(
     </div>
 
     <!-- Table -->
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto p-2">
       <table class="w-full border-collapse border border-gray-200 text-left">
         <thead>
           <tr class="bg-gray-100">
