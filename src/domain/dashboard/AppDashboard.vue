@@ -25,7 +25,8 @@ export default defineComponent({
         {
           id: 3,
           name: 'National Identification & Registration Authority',
-          thumbnail: 'https://nira.go.ug/assets/exports/nira_logo_black@2x.png',
+          // thumbnail: 'https://nira.go.ug/assets/exports/nira_logo_black@2x.png',
+          thumbnail: '/assets/coa-19c4edfc.png',
           email: 'info@nira.com',
           phone: '0800211700',
           address: 'National Independence Grounds, Kololo Airstrip',
