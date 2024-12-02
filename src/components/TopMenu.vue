@@ -147,7 +147,7 @@ function logout() {
               "
             >
               <i class="my-auto text-sm fa-fw" :class="link.iconClass"></i>
-              <span class="my-auto text-sm">{{ link.label }}</span>
+              <span class="my-auto text-lg font-semibold">{{ link.label }}</span>
             </div>
           </div>
 

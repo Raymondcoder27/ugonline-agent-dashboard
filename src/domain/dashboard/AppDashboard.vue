@@ -111,7 +111,8 @@ export default defineComponent({
   <div class="grid grid-cols-4 gap-4 p-4">
     <div v-for="service in services" :key="service.id" class="service service-active p-4 bg-white shadow rounded">
       <div class="flex justify-between items-center">
-        <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover">
+        <!-- <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover"> -->
+        <img  class="w-10 h-10 object-cover">
         <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
       </div>
       <hr class="my-2">
