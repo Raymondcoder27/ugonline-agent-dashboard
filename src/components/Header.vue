@@ -18,6 +18,10 @@ const sideMenuOpen = ref(useStorage("sms", true));
       <!-- Left side: Logo and sidebar toggle button -->
       <div class="flex items-center">
         <div class="flex items-center">
+          <!-- <span @click="sideMenuOpen = !sideMenuOpen" class="text-primary text-xl block cursor-pointer">
+                <i :class="sideMenuOpen ? 'transition ease-in-out rotate-0 duration-200' : 'transition ease-in-out -rotate-180 duration-200'"
+                   class="fa-solid fa-angles-left"></i>
+             </span> -->
           <span
             class="my-auto mx-2 text-white rounded font-bold text-xl shadow"
           >
