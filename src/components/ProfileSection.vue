@@ -133,25 +133,8 @@ function logout() {
         <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
           <!-- User Profile and Logout Section -->
 
-          <!-- Link Section-->
-          <div class="flex space-x-6">
-            <div
-              v-for="(link, idx) in sideMenu"
-              @click="navigate(link)"
-              :key="idx"
-              class="cursor-pointer items-center flex space-x-2 py-2"
-              :class="
-                isRouteActive(link)
-                  ? 'text-primary-700 border-b-2 border-primary-700'
-                  : 'text-neutral-500 hover:bg-neutral-100'
-              "
-            >
-              <i class="my-auto text-sm fa-fw" :class="link.iconClass"></i>
-              <span class="my-auto text-sm">{{ link.label }}</span>
-            </div>
-          </div>
 
-          <!-- <div class="flex items-center space-x-4">
+          <div class="flex items-center space-x-4">
             <i class="fa-solid fa-user text-xl"></i>
             <p class="text-sm font-bold">
               {{ accountStore.profile?.firstName }}
@@ -168,7 +151,7 @@ function logout() {
                 <div></div>
               </span>
             </button>
-          </div> -->
+          </div>
         </div>
       </div>
     </Transition>
