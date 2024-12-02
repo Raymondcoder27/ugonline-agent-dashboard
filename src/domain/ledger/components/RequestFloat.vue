@@ -34,7 +34,7 @@ function submit() {
 <template>
   <div class="bg-white py-5">
     <p class="text-xl font-bold"> Request Float</p>
-    <p class="text-sm text-gray-500">Administrators who will manage this portal and handle providers and services</p>
+    <p class="text-sm text-gray-500">The allocation of funds by a Super Agent to a designated branch or till to ensure liquidity for transactions and service delivery.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
