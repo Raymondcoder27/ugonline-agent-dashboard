@@ -191,10 +191,10 @@ watch(
         </thead> 
         <tbody>
           <tr>
-            <td class="px-4 py-2 text-gray-700">2024-11-28</td>
-            <td class="px-4 py-2 text-gray-700">Opening Balance</td>
-            <td class="px-4 py-2 text-right text-green-600">+ 1,000</td>
-            <td class="px-4 py-2 text-right text-gray-800">1,000</td>
+            <td class="text-center text-gray-700">2024-11-28</td>
+            <td class="text-center text-gray-700">Opening Balance</td>
+            <td class="text-center text-green-600">+ 1,000</td>
+            <td class="text-center text-gray-800">1,000</td>
           </tr>
           <!-- <tr :class="account.blockedAt ? 'body-tr-blocked' : 'body-tr'"
             v-for="(account, idx) in store.backofficeAccounts" :key="idx">
