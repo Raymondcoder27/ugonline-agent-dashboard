@@ -12,7 +12,7 @@ const sideMenuOpen = ref(useStorage("sms", true));
 
 <template>
   <nav
-    class="top-0 relative z-50 w-full md:flex-row md:flex-nowrap md:justify-start flex items-center px-2 py-3 navbar-expand-lg border-b border-primary-200 bg-white"
+    class="top-0 relative z-50 w-full md:flex-row md:flex-nowrap flex items-center px-2 py-3 navbar-expand-lg border-b border-primary-200 bg-white"
   >
     <div class="flex items-center justify-between w-full px-4">
       <!-- Left side: Logo and sidebar toggle button -->
@@ -42,12 +42,12 @@ const sideMenuOpen = ref(useStorage("sms", true));
       </div>
 
       <!-- Centered TopMenu -->
-      <div class="flex flex-grow justify-center items-center">
+      <div class="flex-1 flex justify-center items-center">
         <TopMenu />
       </div>
 
       <!-- Right side: Person icon and logout button -->
-      <div class="flex items-center ml-auto">
+      <div class="flex items-center">
         <i class="fa-solid fa-user text-xl mr-4"></i>
         <p class="text-sm font-bold">Username</p>
         <button
