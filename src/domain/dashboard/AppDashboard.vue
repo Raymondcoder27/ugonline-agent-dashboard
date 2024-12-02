@@ -17,6 +17,7 @@ export default defineComponent({
         },
         {
           id: 2,
+          service: 'Agricultural Research',
           name: 'National Agricultural Research Organization',
           thumbnail: '/assets/coa-19c4edfc.png',
           email: 'info@naro.go.ug',
@@ -25,6 +26,7 @@ export default defineComponent({
         },
         {
           id: 3,
+          service: 'National ID Registration',
           name: 'National Identification & Registration Authority',
           // thumbnail: 'https://nira.go.ug/assets/exports/nira_logo_black@2x.png',
           thumbnail: '/assets/coa-19c4edfc.png',
@@ -32,14 +34,15 @@ export default defineComponent({
           phone: '0800211700',
           address: 'National Independence Grounds, Kololo Airstrip',
         },
-        // {
-        //   id: 4,
-        //   name: 'Ministry of Lands and Urban Development',
-        //   thumbnail: '/assets/coa-19c4edfc.png',
-        //   email: 'info@mlhud.go.ug',
-        //   phone: '0414355355',
-        //   address: 'Dewinton Road',
-        // },
+        {
+          id: 4,
+          service: 'Land Title Registration',
+          name: 'Ministry of Lands and Urban Development',
+          thumbnail: '/assets/coa-19c4edfc.png',
+          email: 'info@mlhud.go.ug',
+          phone: '0414355355',
+          address: 'Dewinton Road',
+        },
         {
           id: 5,
           service: 'Name Reservation',
@@ -77,6 +80,7 @@ export default defineComponent({
         // },
         {
           id: 9,
+          service: 'Passport Application',
           name: 'Ministry of Internal Affairs',
           thumbnail: '/assets/coa-19c4edfc.png',
           email: 'info@moia.go.ug',
