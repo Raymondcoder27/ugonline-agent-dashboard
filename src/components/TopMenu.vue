@@ -32,7 +32,7 @@ const sideMenu: SideMenuLink[] = [
   //   iconClass: "fa-solid fa-people-group",
   // },
   {
-    name: "app-reports",
+    name: "app-ledger",
     label: "LEDGER",
     iconClass: "fa-solid fa-money-check",
   },
