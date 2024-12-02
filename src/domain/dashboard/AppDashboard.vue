@@ -41,7 +41,8 @@ export default defineComponent({
         },
         {
           id: 5,
-          name: 'Uganda Registration Services Bureau',
+          service: 'Name Reservation',
+          name: 'URSB',
           // thumbnail: 'https://obrs.ursb.go.ug/img/full_logo.9fe8e881.jpg',
           thumbnail: '/assets/coa-19c4edfc.png',
           email: 'ursb@ursb.go.ug',
@@ -108,9 +109,13 @@ export default defineComponent({
         <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
       </div>
       <hr class="my-2">
-      <p class="font-bold text-gray-700 my-1">{{ service.name }}</p>
+      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
       <table class="text-sm text-gray-600">
         <tbody>
+          <tr>
+            <td class="font-semibold">Provider:</td>
+            <td class="px-2">{{ service.name }}</td>
+          </tr>
           <tr>
             <td class="font-semibold">Email:</td>
             <td class="px-2">{{ service.email }}</td>
