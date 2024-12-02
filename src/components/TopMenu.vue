@@ -26,11 +26,11 @@ const sideMenu: SideMenuLink[] = [
   //   label: "Dashboard",
   //   iconClass: "fa-solid fa-gauge",
   // },
-  {
-    name: "app-entities",
-    label: "Customers",
-    iconClass: "fa-solid fa-people-group",
-  },
+  // {
+  //   name: "app-entities",
+  //   label: "Customers",
+  //   iconClass: "fa-solid fa-people-group",
+  // },
   {
     name: "app-reports",
     label: "Reports",
