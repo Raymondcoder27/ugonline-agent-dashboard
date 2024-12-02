@@ -7,6 +7,7 @@ import {
   type ComputedRef,
   type Ref,
   onMounted,
+  reactive,
 } from "vue";
 import { useStorage, useWindowSize } from "@vueuse/core";
 import { type SideMenuLink } from "@/types";
