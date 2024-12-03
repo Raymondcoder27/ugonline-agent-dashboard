@@ -44,7 +44,7 @@ const sideMenu: SideMenuLink[] = [
   // },
   //add activity log
   {
-    name: "app-activity-log",
+    name: "app-submissions",
     label: "SUBMISSIONS",
     iconClass: "fa-solid fa-clipboard-list",
   },

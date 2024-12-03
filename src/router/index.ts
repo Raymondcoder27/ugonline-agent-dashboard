@@ -22,6 +22,7 @@ import AppFinances from "../domain/finances/AppFinances.vue";
 import ServicesDetails from "../domain/servicesdetails/ServicesDetails.vue";
 import Branches from "../domain/branches/AppBranches.vue";
 import Ledger from "../domain/ledger/Ledger.vue";
+import Submissions from "../domain/submissions/Submissions.vue";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -95,6 +96,11 @@ const appRoutes: RouteRecordRaw[] = [
         name: "app-gateway",
         path: "/home/gateway",
         component: AppGateway
+      },
+      {
+        name: "app-submissions",
+        path: "/home/submissions",
+        component: Submissions
       },
     ]
   },
