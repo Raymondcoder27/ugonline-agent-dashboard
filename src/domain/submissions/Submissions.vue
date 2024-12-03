@@ -193,7 +193,7 @@ watch(
                   class="cursor-pointer font-bold hover:text-primary-700 mx-2"
                 >
                   <span class="hover:underline">{{
-                    submission.servicename
+                    submission.service
                   }}</span>
                 </label>
               </td>
