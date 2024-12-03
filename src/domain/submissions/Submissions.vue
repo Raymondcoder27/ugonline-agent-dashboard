@@ -149,9 +149,9 @@ watch(() => filter, () => updateFilter(), { deep: true });
           <thead>
             <tr class="header-tr">
               <th class="t-header">#</th>
-              <th class="t-header">Description</th>
-              <th class="text-right t-header">Amount</th>
+              <th class="t-header">Service</th>
               <th class="text-right t-header">Balance</th>
+              <th class="text-right t-header">Fee</th>
               <th class="t-header">Date</th>
             </tr>
           </thead>
