@@ -4,7 +4,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 import type { Transaction, FloatLedger } from "@/domain/billing/types";
 
-export const useBilling = defineStore("billing", () => {
+export const useSubmissions = defineStore("billing", () => {
   // Dummy data for testing
   const dummyTransactions: Transaction[] = [
     { id: 1, amount: 100, description: "Sample Transaction 1" },

@@ -4,15 +4,23 @@
 import { Account } from "@/types";
 import { AccountVerificationTypes } from "../constants";
 
-// Billing-related types
-// export interface Transaction {
-//   id: string;
-//   date: string;
-//   description: string;
-//   amount: number;
-//   balance: number;
-//   createdAt: string; 
-// }
+// <thead>
+//             <tr class="header-tr">
+//               <th class="t-header">#</th>
+//               <th class="t-header">Service</th>
+//               <th class="text-right t-header">Provider</th>
+//               <th class="text-right t-header">Fee</th>
+//               <th class="t-header">Date</th>
+//             </tr>
+//           </thead>
+
+export interface Submission {
+  id: string;
+  service: string;
+  provider: string;
+  fee: number;
+  date: string;
+}
 
 export type Transaction = {
     id: string;
