@@ -30,9 +30,9 @@ export const useSubmissions = defineStore("billing", () => {
 //           </thead>
 
   const dummySubmissions: Submission[] = [
-    { id: 1, service: "Service 1", provider: "Provider 1", fee: 100, date: "2021-10-01" },
-    { id: 2, service: "Service 2", provider: "Provider2", fee: 200, date: "2021-10-02" },
-    { id: 3, service: "Service 3", provider: "Provider 3", fee: 300, date: "2021-10-03" },
+    { id: 1, service: "National ID Registration", provider: "Provider 1", fee: 100, date: "2021-10-01" },
+    { id: 2, service: "Name Reservation", provider: "Provider2", fee: 200, date: "2021-10-02" },
+    { id: 3, service: "Company Incorporation", provider: "Provider 3", fee: 300, date: "2021-10-03" },
     ];
 
   // State variables

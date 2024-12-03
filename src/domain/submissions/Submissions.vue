@@ -202,7 +202,7 @@ watch(
                 <span>{{ submission.provider }}</span>
               </td>
               <td class="text-left text-green-600">
-                <span>{{ submission.servicefee }}</span>
+                <span>{{ submission.fee }}</span>
               </td>
               <td class="text-left">
                 <span class="text-xs">{{
