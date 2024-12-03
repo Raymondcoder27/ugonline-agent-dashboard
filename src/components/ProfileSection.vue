@@ -134,7 +134,11 @@ function logout() {
       >
         <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
           <!-- User Profile and Logout Section -->
-    <p class="font-semibold text-gray-500 text-sm">BALANCE: 675,000/=</p>
+    <div class="block">
+      <p class="font-semibold text-gray-500 text-xs">MWEBE RAYMOND </p>
+    <p class="font-semibold text-gray-500 text-xs">mwebraymond13@gmail.com</p>
+    <!-- <p class="font-semibold text-gray-500 text-xs">BALANCE: 675,000/=</p> -->
+    </div>
 
 
           <div class="flex items-center space-x-4">
