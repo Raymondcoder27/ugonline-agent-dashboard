@@ -187,13 +187,13 @@ watch(() => filter, () => updateFilter(), { deep: true });
               </td>
             </tr>
           </tbody>
-          <tfoot>
+          <!-- <tfoot>
             <tr class="bg-gray-50">
               <td colspan="3" class="text-left font-bold text-gray-600">Totals:</td>
               <td class="text-left font-bold text-gray-800">{{ store.totalAmount }}</td>
               <td class="text-left font-bold text-gray-800">{{ store.totalBalance }}</td>
             </tr>
-          </tfoot>
+          </tfoot> -->
         </table>
       </div>
 
