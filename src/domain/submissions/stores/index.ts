@@ -3,6 +3,7 @@
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import type { Transaction, FloatLedger } from "@/domain/billing/types";
+import type { Submission } from "@/domain/submissions/types";
 
 export const useSubmissions = defineStore("billing", () => {
   // Dummy data for testing
@@ -18,11 +19,28 @@ export const useSubmissions = defineStore("billing", () => {
     { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
   ];
 
+//   <thead>
+//             <tr class="header-tr">
+//               <th class="t-header">#</th>
+//               <th class="t-header">Service</th>
+//               <th class="text-right t-header">Provider</th>
+//               <th class="text-right t-header">Fee</th>
+//               <th class="t-header">Date</th>
+//             </tr>
+//           </thead>
+
+  const dummySubmissions: Submission[] = [
+    { id: 1, service: "Service 1", provider: "Provider 1", fee: 100, date: "2021-10-01" },
+    { id: 2, service: "Service 2", provider: "Provider2", fee: 200, date: "2021-10-02" },
+    { id: 3, service: "Service 3", provider: "Provider 3", fee: 300, date: "2021-10-03" },
+    ];
+
   // State variables
   const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
   const totalAmount = ref(600); // Set a test value
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
+    const submissions = ref<Submission[]>(dummySubmissions); // Use dummy data for now
 
   // Actions to fetch data
   async function fetchTransactions(filter: any) {
@@ -43,12 +61,22 @@ export const useSubmissions = defineStore("billing", () => {
     floatLedgers.value = dummyFloatLedgers;
   }
 
+  async function fetchSubmissions(filter: any) {
+    // Simulate API call
+    // const response = await fetch(`/api/submissions?limit=${filter.limit}&page=${filter.page}`);
+    // const data = await response.json();
+    // Use dummy data for now
+    submissions.value = dummySubmissions;
+  }
+
   return {
     transactions,
     totalAmount,
     totalBalance,
     floatLedgers,
+    submissions,
     fetchTransactions,
     fetchFloatLedgers,
+    fetchSubmissions,
   };
 });
