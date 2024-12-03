@@ -5,6 +5,7 @@ import { useBilling } from "@/domain/ledger/stores"; // Import the appropriate s
 import { useDebounceFn } from "@vueuse/core";
 import type { Transaction, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
 import moment from "moment/moment";
+import RequestFloat from "./components/RequestFloat.vue";
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
 const modalOpen = ref(false);
@@ -138,8 +139,13 @@ watch(() => filter, () => updateFilter(), { deep: true });
         v-model="filter.toDate"
       />
     </div>
+
+    <button @click="modalOpen = true" class="button btn-sm my-auto mt-6" type="button">
+            <i class="px-1 fa-solid fa-plus"></i> Request Float
+          </button>
   </div>
 </div>
+
 
 
       <!-- Table -->
@@ -196,6 +202,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
     <!-- Modal -->
     <AppModal v-model="modalOpen" xl2>
       <!-- Your modal content goes here -->
+       <RequestFloat :close="close" />
     </AppModal>
   </div>
 </template>
