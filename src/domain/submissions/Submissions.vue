@@ -45,10 +45,10 @@ const filter = reactive({
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
-  fetchTransactions();
+  fetchSubmissions();
 });
 
-function fetchTransactions() {
+function fetchSubmissions() {
   filter.limit = limit.value;
   filter.page = page.value;
 
@@ -61,17 +61,17 @@ function fetchTransactions() {
     });
   }
 
-  store.fetchTransactions(filter); // Fetch transactions based on filter
+  store.fetchSubmissions(filter); // Fetch transactions based on filter
 }
 
 function next() {
   page.value += 1;
-  fetchTransactions();
+  fetchSubmissions();
 }
 
 function previous() {
   page.value -= 1;
-  fetchTransactions();
+  fetchSubmissions();
 }
 
 function open() {
@@ -88,7 +88,7 @@ function convertDateTime(date: string) {
 
 // Debounced filter update function
 const updateFilter = useDebounceFn(() => {
-  fetchTransactions();
+  fetchSubmissions();
 }, 300, { maxWait: 5000 });
 
 // Watch for changes in the modal state
@@ -150,7 +150,7 @@ watch(() => filter, () => updateFilter(), { deep: true });
             <tr class="header-tr">
               <th class="t-header">#</th>
               <th class="t-header">Service</th>
-              <th class="text-right t-header">Balance</th>
+              <th class="text-right t-header">Provider</th>
               <th class="text-right t-header">Fee</th>
               <th class="t-header">Date</th>
             </tr>
@@ -163,22 +163,23 @@ watch(() => filter, () => updateFilter(), { deep: true });
             </tr>
           </thead>
           <tbody>
-            <tr v-for="(transaction, idx) in store.transactions" :key="transaction.id" class="body-tr">
+            <tr v-for="(submission, idx) in store.submissions" :key="submission.id" class="body-tr">
               <td class="text-left">{{ idx + 1 }}</td>
              
               <td class="text-left">
                 <label class="cursor-pointer font-bold hover:text-primary-700 mx-2">
-                  <span class="hover:underline">{{ transaction.description }}</span>
+                  <span class="hover:underline">{{ submission.servicename }}</span>
                 </label>
               </td>
-              <td class="text-left text-green-600">
-                <span>{{ transaction.amount }}</span>
-              </td>
+             
               <td class="text-left text-gray-800">
-                <span>{{ transaction.balance }}</span>
+                <span>{{ submission.provider }}</span>
+              </td>
+              <td class="text-left text-green-600">
+                <span>{{ submission.servicefee }}</span>
               </td>
               <td class="text-left">
-                <span class="text-xs">{{ convertDateTime(transaction.createdAt) }}</span>
+                <span class="text-xs">{{ convertDateTime(submission.createdAt) }}</span>
               </td>
             </tr>
           </tbody>
