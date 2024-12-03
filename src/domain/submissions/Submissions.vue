@@ -146,7 +146,7 @@ watch(
               v-model="filter.fromDate"
             />
           </div>
-          <div> class="block"
+          <div class="block"> 
             <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
             <input
               type="date"
