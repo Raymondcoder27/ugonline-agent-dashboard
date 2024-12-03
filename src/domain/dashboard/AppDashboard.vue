@@ -126,7 +126,7 @@ watch(
     class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
 
 
-    <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-200 transition duration-300">
+    <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-50 hover:cursor-pointer transition duration-300">
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover" />
         <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
