@@ -135,7 +135,7 @@ watch(
       </div> -->
       <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
         <div class="flex space-x-4">
-          <div>
+          <div class="block">
             <label for="date-from" class="mr-2 text-sm text-gray-600"
               >From:</label
             >
@@ -146,7 +146,7 @@ watch(
               v-model="filter.fromDate"
             />
           </div>
-          <div>
+          <div> class="block"
             <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
             <input
               type="date"

@@ -132,13 +132,14 @@ function logout() {
         :class="{ 'w-full': menuOpen, 'group w-auto hover:w-full': !menuOpen }"
         class="relative bg-white flex items-center justify-between z-10 pt-2"
       >
-        <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
-          <!-- User Profile and Logout Section -->
-    <div class="block">
+      <div class="block">
       <p class="font-semibold text-gray-500 text-xs">MWEBE RAYMOND </p>
-    <p class="font-semibold text-gray-500 text-xs">mwebraymond13@gmail.com</p>
+    <p class="font-light text-gray-500 text-xs">mwebraymond13@gmail.com</p>
     <!-- <p class="font-semibold text-gray-500 text-xs">BALANCE: 675,000/=</p> -->
     </div>
+        <div class="flex flex-row items-center w-full space-x-6 px-4 py-2">
+          <!-- User Profile and Logout Section -->
+  
 
 
           <div class="flex items-center space-x-4">
@@ -146,7 +147,7 @@ function logout() {
             <p class="text-sm font-bold">
               {{ accountStore.profile?.firstName }}
             </p>
-            <button
+            <!-- <button
               class="px-2 border border-primary-500 text-primary-700 rounded text-xs hover:bg-primary hover:text-white"
               @click="logout"
             >
@@ -157,7 +158,7 @@ function logout() {
                 <div></div>
                 <div></div>
               </span>
-            </button>
+            </button> -->
           </div>
         </div>
       </div>
