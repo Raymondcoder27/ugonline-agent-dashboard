@@ -1,9 +1,9 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch } from "vue";
-import { useBilling } from "@/domain/submissions/stores"; // Import the appropriate store
+import { useBilling } from "@/domain/billing/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
-import type { Transaction, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
+import type { Submission, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
 import moment from "moment/moment";
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
