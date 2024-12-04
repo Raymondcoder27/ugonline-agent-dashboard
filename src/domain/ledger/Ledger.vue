@@ -156,7 +156,7 @@ onMounted(() => {
             <tr class="header-tr">
               <!-- <th class="t-header">#</th> -->
               <th class="t-header">Date</th>
-              <th class="t-header">Item</th>
+              <th class="t-header">Reason</th>
               <th class="text-right t-header">Amount</th>
               <th class="text-right t-header">Balance</th>
             </tr>
