@@ -2,12 +2,12 @@
 
 // import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive, onMounted, defineEmits } from "vue";
-import { useBilling } from "@/domain/billing/stores";
+import { useSubmissions } from "@/domain/billing/stores";
 import { useNotificationsStore } from "@/stores/notifications";
-import { useBranchStore } from "@/domain/branches/stores"; 
+// import { useBranchStore } from "@/domain/branches/stores"; 
 import type { AllocateFloat } from "@/types";
 
-const branchStore = useBranchStore();
+// const branchStore = useBranchStore();
 
 // allocate float form
 const form: AllocateFloat = reactive({
@@ -19,7 +19,7 @@ const form: AllocateFloat = reactive({
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
 const emit = defineEmits(['cancel', 'floatAllocated'])
-const store = useBilling()
+const store = useSubmissions()
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
@@ -65,12 +65,12 @@ function submit() {
   loading.value = false;
 }
 
-onMounted(() => {
+// onMounted(() => {
   // loading.value = true;
-  branchStore
-    .fetchBranches()
+//   branchStore
+    // .fetchBranches()
     // .finally(() => (loading.value = false));
-});
+// });
 </script>
 
 <template>
