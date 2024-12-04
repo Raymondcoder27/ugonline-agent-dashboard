@@ -146,22 +146,6 @@ watch(
             <td class="font-semibold">Provider:</td>
             <td class="px-2">{{ service.description }}</td>
           </tr>
-          <!-- <tr>
-            <td class="font-semibold">Provider:</td>
-            <td class="px-2">{{ service.name }}</td>
-          </tr> -->
-          <!-- <tr>
-            <td class="font-semibold">Email:</td>
-            <td class="px-2">{{ service.email }}</td>
-          </tr>
-          <tr>
-            <td class="font-semibold">Phone:</td>
-            <td class="px-2">{{ service.phone }}</td>
-          </tr>
-          <tr v-if="service.address">
-            <td class="font-semibold">Address:</td>
-            <td class="px-2">{{ service.address || 'N/A' }}</td>
-          </tr> -->
         </tbody>
       </table>
     </div>
