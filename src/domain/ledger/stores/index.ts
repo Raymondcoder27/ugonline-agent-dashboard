@@ -12,10 +12,17 @@ export const useBilling = defineStore("billing", () => {
     { id: 3, amount: 300, description: "Sample Transaction 3" },
   ];
 
+  // const dummyFloatLedgers: FloatLedger[] = [
+  //   { id: 1, name: "Sample FloatLedger 1", balance: 500 },
+  //   { id: 2, name: "Sample FloatLedger 2", balance: 1000 },
+  //   { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
+  // ];
+
+
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, name: "Sample FloatLedger 1", balance: 500 },
-    { id: 2, name: "Sample FloatLedger 2", balance: 1000 },
-    { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
+    { id: 1, date: "2021-09-01", description: "Float from Ministry of ICT", amount: 100000000, balance: 100000000 },
+    { id: 2, date: "2021-09-02", description: "Float to Branch 1", amount: -20000000, balance: 80000000 },
+    { id: 3, date: "2021-09-03", description: "Float to Branch 2", amount: -30000000, balance: 50000000 },
   ];
 
   // State variables
