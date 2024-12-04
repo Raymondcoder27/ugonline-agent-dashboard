@@ -3,7 +3,7 @@ import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch } from "vue";
 import { useSubmissions } from "@/domain/submissions/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
-import TransactionDetails from "@/domain/submissions/components/TransactionDetails.vue";
+// import TransactionDetails from "@/domain/submissions/components/TransactionDetails.vue";
 
 import type {
   Submission,
