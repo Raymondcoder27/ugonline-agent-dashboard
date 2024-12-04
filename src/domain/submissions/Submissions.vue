@@ -18,6 +18,14 @@ const modalOpen = ref(false);
 const page = ref(1);
 const limit = ref(15);
 
+const transactionDetailsModalOpen: Ref<boolean> = ref(false);
+  function transactionDetails(id: string) {
+  // Logic to open the modal or start the process
+  // console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+  transactionDetailsModalOpen.value = true;
+}
+
 // Billing-specific filter
 const filter = reactive({
   limit: 100,
