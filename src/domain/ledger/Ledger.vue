@@ -147,10 +147,82 @@ watch(() => filter, () => updateFilter(), { deep: true });
 </div>
 
 
+<div class="flex my-1">
+        <table class="table w-full">
+          <thead>
+            <tr class="header-tr">
+              <!-- <th class="t-header">#</th> -->
+              <th class="t-header">Date</th>
+              <th class="t-header">Description</th>
+              <th class="text-right t-header">Amount</th>
+              <th class="text-right t-header">Balance</th>
+            </tr>
+          </thead>
+          <thead v-if="loading">
+            <tr>
+              <th colspan="12" style="padding: 0">
+                <div
+                  class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
+                ></div>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="(transaction) in store.floatLedgers"
+              :key="transaction.id"
+              class="body-tr"
+            >
+              <!-- <td class="text-left">{{ idx + 1 }}</td> -->
+              <td class="text-left">
+                <span class="text-xs">{{
+                  convertDateTime(transaction.createdAt)
+                }}</span>
+              </td>
+              <td class="text-left">
+                <label
+                  class="cursor-pointer font-bold hover:text-primary-700 mx-2"
+                >
+                  <span class="hover:underline">{{
+                    transaction.description
+                  }}</span>
+                </label>
+              </td>
+              <!-- <td class="text-left text-green-600">
+                <span>{{ transaction.amount }}</span>
+              </td> -->
+              <!-- v-bind for red incase negative transaction and green incase positive transaction -->
+              <td
+                class="text-left text-green-600"
+                :class="{ 'text-red-600': transaction.amount < 0 }"
+              >
+                <span>{{ transaction.amount }}</span>
+              </td>
+              <td class="text-left text-gray-800">
+                <span>{{ transaction.balance }}</span>
+              </td>
+            </tr>
+          </tbody>
+          <!-- <tfoot>
+            <tr class="bg-gray-50">
+              <td colspan="3" class="text-left font-bold text-gray-600">
+                Totals:
+              </td>
+              <td class="text-left font-bold text-gray-800">
+                {{ store.totalAmount }}
+              </td>
+              <td class="text-left font-bold text-gray-800">
+                {{ store.totalBalance }}
+              </td>
+            </tr>
+          </tfoot> -->
+        </table>
+      </div>
+
 
       <!-- Table -->
      <!-- Table -->
-     <div class="flex my-1">
+     <!-- <div class="flex my-1">
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
@@ -187,15 +259,15 @@ watch(() => filter, () => updateFilter(), { deep: true });
               </td>
             </tr>
           </tbody>
-          <!-- <tfoot>
+          <tfoot>
             <tr class="bg-gray-50">
               <td colspan="3" class="text-left font-bold text-gray-600">Totals:</td>
               <td class="text-left font-bold text-gray-800">{{ store.totalAmount }}</td>
               <td class="text-left font-bold text-gray-800">{{ store.totalBalance }}</td>
             </tr>
-          </tfoot> -->
+          </tfoot>
         </table>
-      </div>
+      </div> -->
 
     </div>
 
