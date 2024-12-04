@@ -182,7 +182,7 @@ onMounted(() => {
                   convertDateTime(transaction.createdAt)
                 }}</span>
               </td>
-              <td class="text-left">
+              <!-- <td class="text-left">
                 <label
                   class="cursor-pointer font-bold hover:text-primary-700 mx-2"
                 >
@@ -190,11 +190,11 @@ onMounted(() => {
                     transaction.description
                   }}</span>
                 </label>
-              </td>
+              </td> -->
 
               <td>
                 <span
-                class="text-left bg-blue-200 text-blue-600 rounded-md px-1"
+                class="text-left bg-blue-200 text-blue-600 rounded-sm font-semibold px-2 py-1"
                 :class="{ 'text-red-600 bg-red-200 rounded-md px-1': transaction.amount < 0 }">{{ transaction.description }}</span>
               </td>
               <!-- <td class="text-left text-green-600">
@@ -208,7 +208,7 @@ onMounted(() => {
                 <span>{{ transaction.amount }}</span>
               </td> -->
               <td
-                class="text-left text-green-600"
+                class="text-left text-blue-600"
                 :class="{ 'text-red-600': transaction.amount < 0 }"
               >
                 <span>{{ transaction.amount }}</span>

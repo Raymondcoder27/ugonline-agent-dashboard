@@ -161,65 +161,61 @@ watch(
       <!-- Table -->
       <!-- Table -->
       <div class="flex my-1">
-        <table class="table w-full">
-          <thead>
-            <tr class="header-tr">
-              <th class="t-header">#</th>
-              <th class="t-header">Service</th>
-              <th class="text-right t-header">Provider</th>
-              <th class="text-right t-header">Fee</th>
-              <th class="t-header">Date</th>
-            </tr>
-          </thead>
-          <thead v-if="loading">
-            <tr>
-              <th colspan="12" style="padding: 0">
-                <div
-                  class="w-full bg-primary-300 h-1 p-0 m-0 animate-pulse"
-                ></div>
-              </th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr
-              v-for="(submission, idx) in store.submissions"
-              :key="submission.id"
-              class="body-tr"
-            >
-              <td class="text-left">{{ idx + 1 }}</td>
+      <table class="table tr">
+        <thead>
+          <tr class="text-left">
+            <!-- <th>#</th> -->
+            <th>Tracking Number</th>
+            <th>Service</th>
+            <th>Provider</th>
+            <th>Till</th>
+            <!-- <th>Transaction Type</th> -->
+            <th>Fee</th>
+            <!-- <th>Status</th> -->
+            <th>Date</th>
+            <!-- <th>Actions</th> -->
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            class="text-left"
+            v-for="(transaction, idx) in billingStore.transactions"
+            :key="idx"
+            :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
+          >
+            <!-- <td>{{ idx + 1 }}</td> -->
+            <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</td>
+            <td>{{ transaction.service }}</td>
+            <td class="text-left">{{ transaction.provider }}</td>
+            <td>{{ transaction.till }}</td>
+            <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
+            <td class="text-left">{{ transaction.fee }}</td>
+            <!-- <td class="text-left">{{ transaction.status }}</td> -->
+            <td class="text-left">{{ convertDate(transaction.date) }}</td>
+            <!-- <td class="text-left"> -->
+            <!-- <button @click="openTransaction(transaction)">Edit</button> -->
+            <!-- actions -->
 
-              <td class="text-left">
-                <label
-                  class="cursor-pointer font-bold hover:text-primary-700 mx-2"
-                >
-                  <span class="hover:underline">{{
-                    submission.service
-                  }}</span>
-                </label>
-              </td>
+            <!-- </td> -->
 
-              <td class="text-left text-gray-800">
-                <span>{{ submission.provider }}</span>
-              </td>
-              <td class="text-left text-green-600">
-                <span>{{ submission.fee }}</span>
-              </td>
-              <td class="text-left">
-                <span class="text-xs">{{
-                  convertDateTime(submission.createdAt)
-                }}</span>
-              </td>
-            </tr>
-          </tbody>
-          <!-- <tfoot>
-            <tr class="bg-gray-50">
-              <td colspan="3" class="text-left font-bold text-gray-600">Totals:</td>
-              <td class="text-left font-bold text-gray-800">{{ store.totalAmount }}</td>
-              <td class="text-left font-bold text-gray-800">{{ store.totalBalance }}</td>
-            </tr>
-          </tfoot> -->
-        </table>
-      </div>
+            <!-- <td class="text-left">
+              <i
+                class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
+                @click="open(transaction)"
+              ></i>
+              <i
+                class="fa-solid fa-pen p-1 mx-1 text-green-600 bg-green-100 border border-green-200 hover:text-green-700"
+                @click="edit(transaction)"
+              ></i>
+              <i
+                class="fa-solid fa-trash p-1 mx-1 text-red-600 bg-red-100 border border-red-200 hover:text-red-700"
+                @click="deleteBranch(transaction)"
+              ></i>
+            </td> -->
+          </tr>
+        </tbody>
+      </table>
+    </div>
     </div>
 
     <!-- Modal -->
