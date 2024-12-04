@@ -6,67 +6,74 @@ import { useDebounceFn } from "@vueuse/core"
 interface Service {
   id: number;
   service: string;
-  name: string;
-  thumbnail: string;
-  email: string;
-  phone: string;
-  address: string;
+  description: string;
+  // name: string;
+  // thumbnail: string;
+  // email: string;
+  // phone: string;
+  // address: string;
 }
 
 const services = ref<Service[]>([
   {
     id: 1,
     service: 'Post Office Account',
-    name: 'Posta Uganda',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@ugapost.co.ug',
-    phone: '+256784944479',
-    address: 'Plot 35 Kampala Road, Kampala',
+    description: 'Open a Post Office Account',
+    // name: 'Posta Uganda',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@ugapost.co.ug',
+    // phone: '+256784944479',
+    // address: 'Plot 35 Kampala Road, Kampala',
   },
   {
     id: 2,
     service: 'Agricultural Research',
-    name: 'National Agricultural Research Organization',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@naro.go.ug',
-    phone: '+256-41-320512',
-    address: 'Plot 11-13, Lugard Avenue, Entebbe',
+    description: 'Get agricultural research services',
+    // name: 'National Agricultural Research Organization',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@naro.go.ug',
+    // phone: '+256-41-320512',
+    // address: 'Plot 11-13, Lugard Avenue, Entebbe',
   },
   {
     id: 3,
     service: 'National ID Registration',
-    name: 'National Identification & Registration Authority',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@nira.com',
-    phone: '0800211700',
-    address: 'National Independence Grounds, Kololo Airstrip',
+    description: 'Register for a National ID',
+    // name: 'National Identification & Registration Authority',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@nira.com',
+    // phone: '0800211700',
+    // address: 'National Independence Grounds, Kololo Airstrip',
   },
   {
     id: 4,
     service: 'Land Title Registration',
-    name: 'Ministry of Lands and Urban Development',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@mlhud.go.ug',
-    phone: '0414355355',
-    address: 'Dewinton Road',
+    description: 'Register a land title',
+    // name: 'Ministry of Lands and Urban Development',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@mlhud.go.ug',
+    // phone: '0414355355',
+    // address: 'Dewinton Road',
   },
   {
     id: 5,
     service: 'Name Reservation',
-    name: 'URSB',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'ursb@ursb.go.ug',
-    phone: '0312211211',
-    address: 'Plot 1 Baskerville Avenue',
+    description: 'Reserve a company name',
+    // name: 'URSB',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'ursb@ursb.go.ug',
+    // phone: '0312211211',
+    // address: 'Plot 1 Baskerville Avenue',
   },
   {
     id: 9,
     service: 'Passport Application',
-    name: 'Ministry of Internal Affairs',
-    thumbnail: '/assets/coa-19c4edfc.png',
-    email: 'info@moia.go.ug',
-    phone: '0312123123',
-    address: '',
+    description: 'Apply for a passport',
+    // name: 'Ministry of Internal Affairs',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@moia.go.ug',
+    // phone: '0312123123',
+    // address: '',
   },
 ]);
 
@@ -137,9 +144,13 @@ watch(
         <tbody>
           <tr>
             <td class="font-semibold">Provider:</td>
-            <td class="px-2">{{ service.name }}</td>
+            <td class="px-2">{{ service.description }}</td>
           </tr>
-          <tr>
+          <!-- <tr>
+            <td class="font-semibold">Provider:</td>
+            <td class="px-2">{{ service.name }}</td>
+          </tr> -->
+          <!-- <tr>
             <td class="font-semibold">Email:</td>
             <td class="px-2">{{ service.email }}</td>
           </tr>
@@ -150,7 +161,7 @@ watch(
           <tr v-if="service.address">
             <td class="font-semibold">Address:</td>
             <td class="px-2">{{ service.address || 'N/A' }}</td>
-          </tr>
+          </tr> -->
         </tbody>
       </table>
     </div>

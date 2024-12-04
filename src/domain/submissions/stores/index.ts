@@ -5,7 +5,7 @@ import { ref } from "vue";
 import type { Transaction, FloatLedger } from "@/domain/billing/types";
 import type { Submission } from "@/domain/submissions/types";
 
-export const useSubmissions = defineStore("billing", () => {
+export const useSubmissions = defineStore("submissions", () => {
   // Dummy data for testing
   const dummyTransactions: Transaction[] = [
     { id: 1, amount: 100, description: "Sample Transaction 1" },
