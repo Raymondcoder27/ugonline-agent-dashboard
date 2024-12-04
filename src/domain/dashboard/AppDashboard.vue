@@ -151,22 +151,23 @@ watch(
 
     <!-- <div class="block"> -->
   <!-- Styled Search Bar -->
-  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
-   <div class="w-2/3">
+  <div class="flex px-4 py-3 shadow-md rounded-lg justify-between items-center mb-6">
+   <div class="w-1/3 bg-gray-50 rounded-md flex items-center justify-center  border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-red-500 ">
     <input
       type="text"
       placeholder="Search..."
-      class="w-full md:w-2/3 lg:w-1/2 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
-
+      class="w-full text-lg border-none outline-none bg-gray-50"
     />
-    <button
+    <i class="fas fa-search p-2 cursor-pointer text-red-700 text-lg"></i>
+
+    <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
       @click="search"
     >
       Search
-    </button>
+    </button> -->
    </div>
-   <div class="font-semibold">BALANCE: 16,000,000/=</div>
+   <div class="font-semibold text-gray-500 text-md">BALANCE: 16,000,000/=</div>
   </div>
 
   <!-- Service Cards Section -->
