@@ -152,6 +152,7 @@ watch(
     <!-- <div class="block"> -->
   <!-- Styled Search Bar -->
   <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
+   <div>
     <input
       type="text"
       placeholder="Search..."
@@ -163,6 +164,8 @@ watch(
     >
       Search
     </button>
+   </div>
+   <div>BALANCE: 16,000,000/=</div>
   </div>
 
   <!-- Service Cards Section -->
