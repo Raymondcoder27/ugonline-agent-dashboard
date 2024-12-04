@@ -149,7 +149,7 @@ watch(
       </table>
     </div> -->
 
-    <div class="block">
+    <!-- <div class="block"> -->
   <!-- Styled Search Bar -->
   <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
     <input
@@ -166,11 +166,11 @@ watch(
   </div>
 
   <!-- Service Cards Section -->
-  <div class="grid grid-cols-3 gap-3 mt-3">
+  <div class="grid grid-cols-4 gap-3 mt-3">
     <div
       v-for="service in services"
       :key="service.id"
-      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
+      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
@@ -187,12 +187,12 @@ watch(
       <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
     </div>
   </div>
-</div>
+<!-- </div> -->
   <!-- </div> -->
 </template>
 
 <style scoped>
 .service {
-  @apply bg-white p-4 rounded-lg hover:bg-gray-200 transition duration-300;
+  @apply bg-white p-4 rounded-lg transition duration-300;
 }
 </style>
