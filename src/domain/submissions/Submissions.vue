@@ -19,7 +19,8 @@ const page = ref(1);
 const limit = ref(15);
 
 const transactionDetailsModalOpen: Ref<boolean> = ref(false);
-  function transactionDetails(id: string) {
+
+function transactionDetails(id: string) {
   // Logic to open the modal or start the process
   // console.log(`Assigning manager for branch: ${branch.name}`);
   // Example: modalOpen.value = true;
@@ -159,7 +160,7 @@ watch(
               v-model="filter.fromDate"
             />
           </div>
-          <div class="block"> 
+          <div class="block">
             <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
             <input
               type="date"
@@ -174,44 +175,49 @@ watch(
       <!-- Table -->
       <!-- Table -->
       <div class="flex my-1">
-      <table class="table tr">
-        <thead>
-          <tr class="text-left">
-            <!-- <th>#</th> -->
-            <th>Tracking Number</th>
-            <th>Service</th>
-            <th>Provider</th>
-            <th>Till</th>
-            <!-- <th>Transaction Type</th> -->
-            <th>Fee</th>
-            <!-- <th>Status</th> -->
-            <th>Date</th>
-            <!-- <th>Actions</th> -->
-          </tr>
-        </thead>
-        <tbody>
-          <tr
-            class="text-left"
-            v-for="(transaction, idx) in store.submissions"
-            :key="idx"
-            :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
-          >
-            <!-- <td>{{ idx + 1 }}</td> -->
-            <td class="rounded-md font-semibold text-red-700 hover:underline" @click="transactionDetails(transaction.id)">{{ transaction.trackingNumber }}</td>
-            <td>{{ transaction.service }}</td>
-            <td class="text-left">{{ transaction.provider }}</td>
-            <td>{{ transaction.till }}</td>
-            <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
-            <td class="text-left">{{ transaction.fee }}</td>
-            <!-- <td class="text-left">{{ transaction.status }}</td> -->
-            <td class="text-left">{{ convertDate(transaction.date) }}</td>
-            <!-- <td class="text-left"> -->
-            <!-- <button @click="openTransaction(transaction)">Edit</button> -->
-            <!-- actions -->
+        <table class="table tr">
+          <thead>
+            <tr class="text-left">
+              <!-- <th>#</th> -->
+              <th>Tracking Number</th>
+              <th>Service</th>
+              <th>Provider</th>
+              <th>Till</th>
+              <!-- <th>Transaction Type</th> -->
+              <th>Fee</th>
+              <!-- <th>Status</th> -->
+              <th>Date</th>
+              <!-- <th>Actions</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              class="text-left"
+              v-for="(transaction, idx) in store.submissions"
+              :key="idx"
+              :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
+            >
+              <!-- <td>{{ idx + 1 }}</td> -->
+              <td
+                class="rounded-md font-semibold text-red-700 hover:underline"
+                @click="transactionDetails(transaction.id)"
+              >
+                {{ transaction.trackingNumber }}
+              </td>
+              <td>{{ transaction.service }}</td>
+              <td class="text-left">{{ transaction.provider }}</td>
+              <td>{{ transaction.till }}</td>
+              <!-- <td class="text-left">{{ transaction.transactionType }}</td> -->
+              <td class="text-left">{{ transaction.fee }}</td>
+              <!-- <td class="text-left">{{ transaction.status }}</td> -->
+              <td class="text-left">{{ convertDate(transaction.date) }}</td>
+              <!-- <td class="text-left"> -->
+              <!-- <button @click="openTransaction(transaction)">Edit</button> -->
+              <!-- actions -->
 
-            <!-- </td> -->
+              <!-- </td> -->
 
-            <!-- <td class="text-left">
+              <!-- <td class="text-left">
               <i
                 class="fa-solid fa-eye p-1 mx-1 text-blue-600 bg-blue-100 border border-blue-200 hover:text-blue-700"
                 @click="open(transaction)"
@@ -225,10 +231,10 @@ watch(
                 @click="deleteBranch(transaction)"
               ></i>
             </td> -->
-          </tr>
-        </tbody>
-      </table>
-    </div>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </div>
 
     <!-- Modal -->
@@ -236,10 +242,10 @@ watch(
       <!-- Your modal content goes here -->
     </AppModal>
 
-      <!-- Tracking Number Modal to show transaction details -->
-  <AppModal v-model="transactionDetailsModalOpen" xl2>
-    <TransactionDetails @transactionViewed="close" @cancel="close" />
-  </AppModal>
+    <!-- Tracking Number Modal to show transaction details -->
+    <AppModal v-model="transactionDetailsModalOpen" xl2>
+      <TransactionDetails @transactionViewed="close" @cancel="close" />
+    </AppModal>
   </div>
 </template>
 
