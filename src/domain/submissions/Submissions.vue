@@ -100,6 +100,9 @@ const updateFilter = useDebounceFn(
   { maxWait: 5000 }
 );
 
+// Date conversion utility
+const convertDate = (date: string) => moment(date).format("DD-MM-YYYY");
+
 // Watch for changes in the modal state
 watch(
   () => modalOpen.value,
@@ -179,7 +182,7 @@ watch(
         <tbody>
           <tr
             class="text-left"
-            v-for="(transaction, idx) in billingStore.transactions"
+            v-for="(transaction, idx) in store.submissions"
             :key="idx"
             :class="transaction.status === 'BLOCKED' ? 'blocked' : ''"
           >

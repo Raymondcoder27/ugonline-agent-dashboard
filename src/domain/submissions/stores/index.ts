@@ -29,11 +29,41 @@ export const useSubmissions = defineStore("submissions", () => {
 //             </tr>
 //           </thead>
 
+  // const dummySubmissions: Submission[] = [
+  //   { id: 1, service: "National ID Registration", provider: "NIRA", fee: 100, date: "2021-10-01" },
+  //   { id: 2, service: "Company Name Reservation", provider: "URSB", fee: 200, date: "2021-10-02" },
+  //   { id: 3, service: "Company Incorporation", provider: "URSB", fee: 300, date: "2021-10-03" },
+  //   ];
+
+  // use this to generate new dummy submissions
+  // const dummyTransactions: Transaction[] = [
+  //   { id: 1, trackingNumber: "TA123456",
+  //     service: "Name Reservation", provider: "URSB", till: "Till 001",
+  //     fee: 25000, date: "2021-09-01" 
+  //   },
+  //   { id: 2, trackingNumber: "TB123457",
+  //     service: "Create Postal Account", provider: "Posta Uganda",
+  //      till: "Till 002", fee: 20000, date: "2021-09-02"
+  //     },
+  //   { id: 3, trackingNumber: "TC123458",
+  //     service: "National ID registration", provider: "NIRA",
+  //      till: "Till 003", fee: 35000, date: "2021-09-03" },
+  // ];
+
   const dummySubmissions: Submission[] = [
-    { id: 1, service: "National ID Registration", provider: "NIRA", fee: 100, date: "2021-10-01" },
-    { id: 2, service: "Company Name Reservation", provider: "URSB", fee: 200, date: "2021-10-02" },
-    { id: 3, service: "Company Incorporation", provider: "URSB", fee: 300, date: "2021-10-03" },
-    ];
+    { id: 1, trackingNumber: "TA123456",
+      service: "Name Reservation", provider: "URSB", till: "Till 001",
+      fee: 25000, date: "2021-09-01" 
+    },
+    { id: 2, trackingNumber: "TB123457",
+      service: "Create Postal Account", provider: "Posta Uganda",
+       till: "Till 002", fee: 20000, date: "2021-09-02"
+      },
+    { id: 3, trackingNumber: "TC123458",
+      service: "National ID registration", provider: "NIRA",
+       till: "Till 003", fee: 35000, date: "2021-09-03" },
+  ];
+
 
   // State variables
   const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
