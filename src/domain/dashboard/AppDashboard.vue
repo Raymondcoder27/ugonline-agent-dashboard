@@ -184,7 +184,7 @@ watch(
           </tr>
         </tbody>
       </table>
-      <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
+      <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
     </div>
   </div>
 <!-- </div> -->
