@@ -18,7 +18,7 @@ const form: AllocateFloat = reactive({
 
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel', 'floatAllocated'])
+const emit = defineEmits(['cancel', 'floatAllocated']);
 const store = useSubmissions()
 // function submit() {
 //   loading.value = true
