@@ -133,7 +133,7 @@ watch(
     class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
 
 
-    <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-50 hover:cursor-pointer transition duration-300">
+    <!-- <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-50 hover:cursor-pointer transition duration-300">
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover" />
         <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
@@ -148,7 +148,47 @@ watch(
           </tr>
         </tbody>
       </table>
+    </div> -->
+
+    <div class="block">
+  <!-- Styled Search Bar -->
+  <div class="flex px-4 py-3 bg-white shadow-md rounded-lg justify-between items-center mb-6">
+    <input
+      type="text"
+      placeholder="Search..."
+      class="w-full md:w-2/3 lg:w-1/2 px-4 py-2 border border-gray-300 rounded-lg text-sm focus:ring-2 focus:ring-blue-500"
+    />
+    <button
+      class="ml-4 px-6 py-2 bg-red-600 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
+      @click="search"
+    >
+      Search
+    </button>
+  </div>
+
+  <!-- Service Cards Section -->
+  <div class="grid grid-cols-3 gap-3 mt-3">
+    <div
+      v-for="service in services"
+      :key="service.id"
+      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105"
+    >
+      <div class="flex justify-between items-center">
+        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
+      </div>
+      <hr class="my-2" />
+      <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
+      <table class="text-sm text-gray-600">
+        <tbody>
+          <tr>
+            <td class="font-semibold">{{ service.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p>
     </div>
+  </div>
+</div>
   </div>
 </template>
 
