@@ -123,8 +123,8 @@ watch(
 </script>
 
 <template>
-   <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-    class="filter-element e-input ml-5 border border-black-700 rounded-md text-center" type="text" placeholder="Search Service" />
+   <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+    class="filter-element e-input ml-5 border border-black-700 rounded-md text-center" type="text" placeholder="Search Service" /> -->
 
   <!-- <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4"> -->
 
