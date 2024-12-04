@@ -3,6 +3,8 @@ import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch } from "vue";
 import { useSubmissions } from "@/domain/submissions/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
+import TransactionDetails from "@/domain/sumbmissions/components/TransactionDetails.vue";
+
 import type {
   Submission,
   FloatLedger,
@@ -225,6 +227,11 @@ watch(
     <AppModal v-model="modalOpen" xl2>
       <!-- Your modal content goes here -->
     </AppModal>
+
+      <!-- Tracking Number Modal to show transaction details -->
+  <AppModal v-model="transactionDetailsModalOpen" xl2>
+    <TransactionDetails @transactionViewed="close" @cancel="close" />
+  </AppModal>
   </div>
 </template>
 
