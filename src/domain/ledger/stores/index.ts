@@ -20,9 +20,10 @@ export const useBilling = defineStore("billing", () => {
 
 
   const dummyFloatLedgers: FloatLedger[] = [
-    { id: 1, date: "2021-09-01", description: "Float from Ministry of ICT", amount: 100000000, balance: 100000000 },
-    { id: 2, date: "2021-09-02", description: "Float to Branch 1", amount: -20000000, balance: 80000000 },
-    { id: 3, date: "2021-09-03", description: "Float to Branch 2", amount: -30000000, balance: 50000000 },
+    { id: 1, date: "2021-09-01", description: "Service Fee", amount: 25000, balance: 5000000 },
+    { id: 2, date: "2021-09-02", description: "Float Deposit", amount: 500000, balance: 5500000 },
+    { id: 3, date: "2021-09-03", description: "Service Fee", amount: 40000, balance: 5460000 },
+    { id: 4, date: "2021-09-04", description: "Service Fee", amount: 30000, balance: 5430000 },
   ];
 
   // State variables
