@@ -1,7 +1,6 @@
 <script setup lang="ts">
-import { ref, watch, reactive } from 'vue';
-import { useDebounceFn } from "@vueuse/core"
-
+import { ref, watch, reactive } from "vue";
+import { useDebounceFn } from "@vueuse/core";
 
 interface Service {
   id: number;
@@ -17,8 +16,8 @@ interface Service {
 const services = ref<Service[]>([
   {
     id: 1,
-    service: 'Post Office Account',
-    description: 'Open a Post Office Account',
+    service: "Post Office Account",
+    description: "Open a Post Office Account",
     // name: 'Posta Uganda',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@ugapost.co.ug',
@@ -27,8 +26,8 @@ const services = ref<Service[]>([
   },
   {
     id: 2,
-    service: 'Agricultural Research',
-    description: 'Get agricultural research services',
+    service: "Agricultural Research",
+    description: "Get agricultural research services",
     // name: 'National Agricultural Research Organization',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@naro.go.ug',
@@ -37,8 +36,8 @@ const services = ref<Service[]>([
   },
   {
     id: 3,
-    service: 'National ID Registration',
-    description: 'Register for a National ID',
+    service: "National ID Registration",
+    description: "Register for a National ID",
     // name: 'National Identification & Registration Authority',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@nira.com',
@@ -47,8 +46,8 @@ const services = ref<Service[]>([
   },
   {
     id: 4,
-    service: 'Land Title Registration',
-    description: 'Register a land title',
+    service: "Land Title Registration",
+    description: "Register a land title",
     // name: 'Ministry of Lands and Urban Development',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@mlhud.go.ug',
@@ -57,8 +56,8 @@ const services = ref<Service[]>([
   },
   {
     id: 5,
-    service: 'Name Reservation',
-    description: 'Reserve a company name',
+    service: "Name Reservation",
+    description: "Reserve a company name",
     // name: 'URSB',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'ursb@ursb.go.ug',
@@ -67,8 +66,8 @@ const services = ref<Service[]>([
   },
   {
     id: 9,
-    service: 'Passport Application',
-    description: 'Apply for a passport',
+    service: "Passport Application",
+    description: "Apply for a passport",
     // name: 'Ministry of Internal Affairs',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@moia.go.ug',
@@ -81,53 +80,53 @@ const services = ref<Service[]>([
 const filter: IGoFilter = reactive({
   limit: 100,
   offset: 0,
-  page:0,
+  page: 0,
   sort: [
     {
       field: "firstname",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "firstname",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "username",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "phone",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
-  ]
-})
+  ],
+});
 
 const updateFilter = useDebounceFn(
   () => {
-    fetch()
+    fetch();
   },
   300,
   { maxWait: 5000 }
-)
+);
 
 // watch for changes in the filter object
 watch(
   () => filter,
   () => updateFilter(),
   { deep: true }
-)
+);
 </script>
 
 <template>
    <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
     class="filter-element e-input ml-5 border border-black-700 rounded-md text-center" type="text" placeholder="Search Service" />
 
-  <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4">
+  <!-- <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4"> -->
 
     <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
     class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
@@ -189,7 +188,7 @@ watch(
     </div>
   </div>
 </div>
-  </div>
+  <!-- </div> -->
 </template>
 
 <style scoped>
