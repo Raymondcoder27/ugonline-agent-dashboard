@@ -44,11 +44,7 @@ const filter = reactive({
   toDate: "" // Add toDate
 });
 
-// Fetch billing data (transactions, float ledgers)
-onMounted(() => {
-  fetchTransactions();
-  fetchFloatLedgers();
-});
+
 
 function fetchTransactions() {
   filter.limit = limit.value;
@@ -102,6 +98,12 @@ watch(() => modalOpen.value, (isOpen) => {
 
 // Watch for changes in the filter object
 watch(() => filter, () => updateFilter(), { deep: true });
+
+// Fetch billing data (transactions, float ledgers)
+onMounted(() => {
+  fetchTransactions();
+  store.fetchFloatLedgers();
+});
 </script>
 
 
