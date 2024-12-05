@@ -126,6 +126,30 @@ watch(
         </div>
       </div> -->
 
+      <div class="flex my-5 align-right">
+        <div class="w-full">
+          <div class="flex">
+            <p class="font-bold px-1">Basic User Requirements</p>
+          </div>
+          <div class="flex">
+            <div class="w-9/12" v-if="form.requirements.length > 0">
+              <div class="flex" v-for="(requirement, idx) in form.requirements" :key="idx">
+                <div class="cell-full">
+                  <input type="text" :id="requirement" class="noFocus form-element e-input w-full" v-model="form.requirements[idx]"
+                         required />
+                </div>
+                <i class="fa-solid fa-times text-red-600 pr-2" @click="removeRequirement(idx)"></i>
+              </div>
+            </div>
+            <div class="w-3/12">
+              <button class="button mt-2" type="button" @click="addRequirement">
+                <i class="fa-solid fa-plus"></i> Add Requirement
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Note</label>
