@@ -156,7 +156,7 @@ watch(
     <input
       type="text"
       placeholder="Search by Service Name or Provider"
-      class="w-full text-lg border-none outline-none bg-white"
+      class="w-full text-sm border-none outline-none bg-white"
     />
     <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
