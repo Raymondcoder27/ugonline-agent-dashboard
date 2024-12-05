@@ -24,6 +24,10 @@ function serviceForm(id: string) {
 serviceFormModalOpen.value = true;
 }
 
+const close = () => {
+  serviceFormModalOpen.value = false;
+};
+
 // services
 
 const services = ref<Service[]>([
