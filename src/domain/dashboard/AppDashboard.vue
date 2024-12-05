@@ -155,7 +155,7 @@ watch(
    <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
     <input
       type="text"
-      placeholder="Search..."
+      placeholder="Search by Service Name or Provider"
       class="w-full text-lg border-none outline-none bg-white"
     />
     <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
@@ -167,7 +167,7 @@ watch(
       Search
     </button> -->
    </div>
-   <div class="font-semibold text-gray-500 text-xs">BALANCE: 16,000,000/=</div>
+   <div class="font-semibold text-gray-500 text-sm">BALANCE: 16,000,000/=</div>
   </div>
 
   <!-- Service Cards Section -->
