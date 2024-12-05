@@ -191,3 +191,75 @@ watch(
   @apply w-full px-1 my-2;
 }
 </style>
+<script setup lang="ts">
+import { ref } from "vue";
+
+type Service = {
+  id: number;
+  service: string;
+  description: string;
+  name?: string;
+  thumbnail?: string;
+  email?: string;
+  phone?: string;
+  address?: string;
+};
+
+const services = ref<Service[]>([
+  {
+    id: 1,
+    service: "Post Office Account",
+    description: "Open a Post Office Account",
+  },
+  {
+    id: 2,
+    service: "Agricultural Research",
+    description: "Get agricultural research services",
+  },
+  {
+    id: 3,
+    service: "National ID Registration",
+    description: "Register for a National ID",
+  },
+  {
+    id: 4,
+    service: "Land Title Registration",
+    description: "Register a land title",
+  },
+  {
+    id: 5,
+    service: "Name Reservation",
+    description: "Reserve a company name",
+  },
+  {
+    id: 9,
+    service: "Passport Application",
+    description: "Apply for a passport",
+  },
+]);
+</script>
+
+<template>
+  <div class="bg-white py-5">
+    <p class="text-xl font-bold">Service Details</p>
+    <div v-for="service in services" :key="service.id" class="py-2">
+      <p class="text-lg font-semibold">{{ service.service }}</p>
+      <p class="text-sm text-gray-500">{{ service.description }}</p>
+    </div>
+  </div>
+</template>
+
+<style scoped>
+@import "@/assets/styles/button.css";
+@import "@/assets/styles/forms.css";
+@import "@/assets/styles/ring.css";
+@import "@/assets/styles/ripple.css";
+
+.cell {
+  @apply w-6/12 px-1 my-2;
+}
+
+.cell-full {
+  @apply w-full px-1 my-2;
+}
+</style>
