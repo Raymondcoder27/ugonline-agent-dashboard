@@ -95,36 +95,6 @@ function submit() {
         </div>   -->
       </div>
 
-      <!-- <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select Branch</label>
-          <select autocomplete="off" v-model="form.role" class="noFocus form-element e-input w-full">
-            <option value="public">Branch</option>
-            <option value="public">Branch</option>
-          </select>
-        </div>
-      </div> -->
-
-
-      <!-- <div class="">
-        <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
-          >Select Branch</label
-        >
-        <select
-          v-model="form.branchId"
-          class="noFocus form-element e-input w-full"
-        >
-          <option :value="null">-- Select Branch --</option>
-          <option
-            v-for="(branch, idx) in branchStore.branches"
-            :key="idx"
-            :value="branch.name"
-          >
-            {{ branch.name }}
-          </option>
-        </select>
-      </div>
-
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
           <button class="button-outline" type="button" @click="emit('cancel')">
