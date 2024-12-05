@@ -13,6 +13,8 @@ interface Service {
   // address: string;
 }
 
+// services
+
 const services = ref<Service[]>([
   {
     id: 1,
@@ -175,7 +177,8 @@ watch(
     <div
       v-for="service in services"
       :key="service.id"
-      class="service service-active border border-gray-50 p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+      @click="serviceModal(service)"
+      class="service service-active border border-gray-200 bg-white hover:shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
