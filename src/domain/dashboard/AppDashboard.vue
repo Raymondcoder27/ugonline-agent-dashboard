@@ -151,14 +151,14 @@ watch(
 
     <!-- <div class="block"> -->
   <!-- Styled Search Bar -->
-  <div class="flex px-4 py-3 shadow-md rounded-lg justify-between items-center mb-6">
-   <div class="w-1/3 bg-gray-50 rounded-md flex items-center justify-center  border border-gray-300 px-4 py-2 focus:ring-2 focus:ring-red-500 ">
+  <div class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white">
+   <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
     <input
       type="text"
       placeholder="Search..."
-      class="w-full text-lg border-none outline-none bg-gray-50"
+      class="w-full text-lg border-none outline-none bg-white"
     />
-    <i class="fas fa-search p-2 cursor-pointer text-red-700 text-lg"></i>
+    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
     <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
@@ -175,7 +175,7 @@ watch(
     <div
       v-for="service in services"
       :key="service.id"
-      class="service service-active p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+      class="service service-active border border-gray-50 p-4 bg-white shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">

@@ -15,7 +15,7 @@ const sideMenuOpen = ref(useStorage("sms", true));
   <nav
     class="top-0 relative z-50 w-full md:flex-row md:flex-nowrap md:justify-start flex items-center justify-between px-2 py-3 navbar-expand-lg border-b border-primary-200 bg-white"
   >
-    <div class="flex items-center justify-between w-full px-4">
+    <div class="flex items-center justify-between w-full">
       <!-- Left side: Logo and sidebar toggle button -->
       <div class="flex items-center">
         <div class="flex items-center">
