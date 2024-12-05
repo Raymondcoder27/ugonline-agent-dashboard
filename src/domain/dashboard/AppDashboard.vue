@@ -167,7 +167,7 @@ watch(
       Search
     </button> -->
    </div>
-   <div class="font-semibold text-gray-500 text-md">BALANCE: 16,000,000/=</div>
+   <div class="font-semibold text-gray-500 text-xs">BALANCE: 16,000,000/=</div>
   </div>
 
   <!-- Service Cards Section -->
