@@ -13,6 +13,16 @@ interface Service {
   // address: string;
 }
 
+const serviceFormModalOpen: Ref<boolean> = ref(false);
+
+
+function serviceForm(id: string) {
+// Logic to open the modal or start the process
+// console.log(`Assigning manager for branch: ${branch.name}`);
+// Example: modalOpen.value = true;
+serviceFormModalOpen.value = true;
+}
+
 // services
 
 const services = ref<Service[]>([
@@ -180,7 +190,7 @@ watch(
     <div
       v-for="service in services"
       :key="service.id"
-      @click="serviceModal(service)"
+      @click="serviceForm(service)"
       class="service service-active border border-gray-200 bg-white hover:shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
