@@ -126,6 +126,15 @@ watch(
         </div>
       </div> -->
 
+
+      <div class="flex">
+        <div class="cell-full">
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Note</label>
+          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
+                 required />
+        </div>
+      </div>
+
       <div class="flex my-5 align-right">
         <div class="w-full">
           <div class="flex">
@@ -147,14 +156,6 @@ watch(
               </button>
             </div>
           </div>
-        </div>
-      </div>
-
-      <div class="flex">
-        <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Note</label>
-          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
-                 required />
         </div>
       </div>
 
