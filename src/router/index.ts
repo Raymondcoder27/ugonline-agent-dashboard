@@ -47,8 +47,8 @@ const appRoutes: RouteRecordRaw[] = [
 
     children: [
       {
-        name: "app-dashboard",
-        path: "/home/dashboard",
+        name: "app-services",
+        path: "/home/services",
         component: AppDashboard,
       },
       {
