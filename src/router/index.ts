@@ -37,7 +37,7 @@ const appRoutes: RouteRecordRaw[] = [
     redirect: { name: "app-home" },
   },
   {
-    path: "/home",
+    path: "/agent",
     name: "app-home",
     component: MainLayout,
     meta: { requiresAuth: false },
@@ -48,62 +48,62 @@ const appRoutes: RouteRecordRaw[] = [
     children: [
       {
         name: "app-dashboard",
-        path: "/home/dashboard",
+        path: "/agent/dashboard",
         component: AppDashboard,
       },
       {
         name: "app-entities",
-        path: "/home/entities",
+        path: "/agent/entities",
         component: AppEntities,
       },
       {
         name: "app-agents",
-        path: "/home/agents",
+        path: "/agent/agents",
         component: AppAgents,
       },
       {
         name: "app-services",
-        path: "/home/services",
+        path: "/agent/services",
         component: Services,
       },
       {
         name: "app-branches",
-        path: "/home/branches",
+        path: "/agent/branches",
         component: Branches,
       },
       {
         name: "app-accounts",
-        path: "/home/accounts",
+        path: "/agent/accounts",
         component: Accounts
       },
       {
         name: "app-configurations",
-        path: "/home/configurations",
+        path: "/agent/configurations",
         component: Settings
       },
       {
         name: "app-ledger",
-        path: "/home/ledger",
+        path: "/agent/ledger",
         component: Ledger
       },
       {
         name: "app-services-details",
-        path: "/home/services-details",
+        path: "/agent/services-details",
         component: ServicesDetails
       },
       {
         name: "app-finances",
-        path: "/home/finances",
+        path: "/agent/finances",
         component: AppFinances
       },
       {
         name: "app-gateway",
-        path: "/home/gateway",
+        path: "/agent/gateway",
         component: AppGateway
       },
       {
         name: "app-submissions",
-        path: "/home/submissions",
+        path: "/agent/submissions",
         component: Submissions
       },
     ]

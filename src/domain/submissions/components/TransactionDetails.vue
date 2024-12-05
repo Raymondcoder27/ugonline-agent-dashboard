@@ -94,27 +94,6 @@ function submit() {
             required />
         </div>   -->
       </div>
-
-      <div class="flex my-2 py-5">
-        <div class="w-6/12 px-1">
-          <button class="button-outline" type="button" @click="emit('cancel')">
-            <i class="fa-solid fa-ban"></i> Cancel
-          </button>
-        </div>
-        <div class="w-6/12 px-1">
-          <button class="button" type="submit">
-            <i class="fa-solid fa-hand-pointer"></i> Submit
-
-            <span class="lds-ring mx-1" v-if="loading">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </span>
-
-          </button>
-        </div>
-      </div> -->
     </form>
   </div>
 </template>
