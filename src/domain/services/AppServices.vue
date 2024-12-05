@@ -2,6 +2,8 @@
 import { ref, watch, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
+import AppModal from "@/components/AppModal.vue";
+
 
 interface Service {
   id: number;
