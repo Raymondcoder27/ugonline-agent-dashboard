@@ -46,7 +46,7 @@ const sideMenu: SideMenuLink[] = [
   {
     name: "app-submissions",
     label: "SUBMISSIONS",
-    iconClass: "fa-solid fa-clipboard-list",
+    iconClass: "fa-solid fa-upload",
   },
 ];
 
