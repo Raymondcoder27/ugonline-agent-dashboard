@@ -43,12 +43,12 @@ const appRoutes: RouteRecordRaw[] = [
     meta: { requiresAuth: false },
 
     // component: () => import("@/domain/dashboard/AppDashboard.vue"),
-        redirect: "/home/services",
+        redirect: "/home/dashboard",
 
     children: [
       {
-        name: "app-services",
-        path: "/home/services",
+        name: "app-dashboard",
+        path: "/home/dashboard",
         component: AppDashboard,
       },
       {

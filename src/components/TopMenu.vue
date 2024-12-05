@@ -23,7 +23,7 @@ const router = useRouter();
 const accountStore = useAccountStore();
 const sideMenu: SideMenuLink[] = [
   {
-    name: "app-services",
+    name: "app-dashboard",
     label: "SERVICES",
     iconClass: "fa-solid fa-home",
   },
