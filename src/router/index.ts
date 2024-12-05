@@ -23,6 +23,7 @@ import ServicesDetails from "../domain/servicesdetails/ServicesDetails.vue";
 import Branches from "../domain/branches/AppBranches.vue";
 import Ledger from "../domain/ledger/Ledger.vue";
 import Submissions from "../domain/submissions/Submissions.vue";
+import AppServices from "../domain/services/AppServices.vue";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -43,13 +44,13 @@ const appRoutes: RouteRecordRaw[] = [
     meta: { requiresAuth: false },
 
     // component: () => import("@/domain/dashboard/AppDashboard.vue"),
-        redirect: "/agent/dashboard",
+        redirect: "/agent/services",
 
     children: [
       {
-        name: "app-dashboard",
-        path: "/agent/dashboard",
-        component: AppDashboard,
+        name: "app-services",
+        path: "/agent/services",
+        component: AppServices,
       },
       {
         name: "app-entities",
