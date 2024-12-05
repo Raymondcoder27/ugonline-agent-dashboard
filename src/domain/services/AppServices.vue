@@ -200,6 +200,10 @@ watch(
   </div>
   <!-- </div> -->
   <!-- </div> -->
+
+  <AppModal v-model="transactionDetailsModalOpen" xl2>
+    <ServiceForm @serviceSubmitted="close" @cancel="close" />
+  </AppModal>
 </template>
 
 <style scoped>
