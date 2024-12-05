@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import {onMounted, reactive, ref, type Ref, watch} from "vue";
 import {useServicesStore} from "@/domain/services/stores";
 import {useProviderStore} from "@/domain/entities/stores";
