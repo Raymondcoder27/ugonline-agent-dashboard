@@ -125,16 +125,15 @@ watch(
 </script>
 
 <template>
-   <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+  <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
     class="filter-element e-input ml-5 border border-black-700 rounded-md text-center" type="text" placeholder="Search Service" /> -->
 
   <!-- <div class="grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 p-4"> -->
 
-    <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
+  <!-- <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
     class="filter-element e-input" type="text" placeholder="SEARCH SERVICE" /> -->
 
-
-    <!-- <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-50 hover:cursor-pointer transition duration-300">
+  <!-- <div v-for="service in services" :key="service.id" class="service p-4 bg-white shadow rounded hover:bg-gray-50 hover:cursor-pointer transition duration-300">
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="Service Thumbnail" class="w-10 h-10 object-cover" />
         <i class="fa-solid fa-square-arrow-up-right text-lg text-gray-600"></i>
@@ -151,25 +150,29 @@ watch(
       </table>
     </div> -->
 
-    <!-- <div class="block"> -->
+  <!-- <div class="block"> -->
   <!-- Styled Search Bar -->
-  <div class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white">
-   <div class="w-1/3 bg-white rounded-full flex items-center justify-center  border border-gray-50 px-4 focus:ring-2 focus:ring-red-500 ">
-    <input
-      type="text"
-      placeholder="Search by Service Name or Provider"
-      class="w-full text-sm border-none outline-none bg-white"
-    />
-    <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
+  <div
+    class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
+  >
+    <div
+      class="w-1/3 bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
+    >
+      <input
+        type="text"
+        placeholder="Search by Service Name or Provider"
+        class="w-full text-sm border-none outline-none bg-white"
+      />
+      <i class="fas fa-search p-2 cursor-pointer text-gray-500 text-lg"></i>
 
-    <!-- <button
+      <!-- <button
       class="ml-4 px-6 py-2 bg-red-700 text-white rounded-md text-sm hover:bg-primary-600 transition duration-300 ease-in-out"
       @click="search"
     >
       Search
     </button> -->
-   </div>
-   <div class="font-semibold text-gray-500 text-sm">BALANCE: 16,000,000/=</div>
+    </div>
+    <div class="font-semibold text-gray-500 text-sm">BALANCE: 16,000,000/=</div>
   </div>
 
   <!-- Service Cards Section -->
@@ -181,7 +184,7 @@ watch(
       class="service service-active border border-gray-200 bg-white hover:shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
-        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover">
+        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover" />
       </div>
       <hr class="my-2" />
       <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>
@@ -195,7 +198,7 @@ watch(
       <!-- <p class="font-bold text-xs text-gray-600 bg-gray-100 rounded-md w-1/3 text-center">PENDING</p> -->
     </div>
   </div>
-<!-- </div> -->
+  <!-- </div> -->
   <!-- </div> -->
 </template>
 
