@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { ref, watch, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
+import ServiceForm from "@/domain/services/components/CreateService.vue";
 
 interface Service {
   id: number;
