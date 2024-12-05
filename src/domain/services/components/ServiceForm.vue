@@ -81,16 +81,15 @@ watch(
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Create a Service</p>
+    <p class="text-xl font-bold">Service Name</p>
     <p class="text-sm text-gray-500">A public good consumed and/or paid for.</p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
-        <div class="cell-full">
+        <!-- <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Service Name</label>
           <select v-model="form.accessibilityTier" class="noFocus form-element e-input w-full">
-            <!-- <option v-for="(tier, idx) in settingsStore.accessibilityTiers" :key="idx" :value="tier.value">{{tier.text}}</option> -->
           </select>
-        </div>
+        </div> -->
       </div>
 
       <div class="flex">
