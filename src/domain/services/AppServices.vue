@@ -212,7 +212,7 @@ watch(
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
-        <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover" />
+        <img :src="service.thumbnail" alt="" class="w-7 h-7 object-cover" />
       </div>
       <hr class="my-2" />
       <p class="font-bold text-gray-700 my-1">{{ service.service }}</p>

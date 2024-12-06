@@ -122,7 +122,7 @@ onMounted(() => {
           />
         </div>
       </div> -->
-      <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
+      <div class="flex items-center justify-end border-b pb-4 mb-4">
   <div class="flex space-x-4">
     <div>
       <label for="date-from" class="mr-2 text-sm text-gray-600">From:</label>
