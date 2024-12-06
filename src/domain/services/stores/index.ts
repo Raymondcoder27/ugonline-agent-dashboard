@@ -4,6 +4,7 @@ import {defineStore} from "pinia";
 import api from "@/config/api";
 import type {Service, ServiceResponseInterface, ServiceSpecification} from "@/domain/services/types";
 
+
 export const useServicesStore = defineStore("services", () => {
   const services: Ref<Service[] | undefined> = ref()
   const service: Ref<Service | undefined> = ref()

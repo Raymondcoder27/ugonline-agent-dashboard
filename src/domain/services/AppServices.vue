@@ -3,6 +3,11 @@ import { ref, watch, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
+import niraThumbnail from '@/assets/images/nira.png';
+import epostaThumbnail from '@/assets/images/eposta.png';
+import naroThumbnail from '@/assets/images/naro.png';
+import ursbThumbnail from '@/assets/images/ursb.png';
+import ministryThumbnail from '@/assets/images/ministry.png';
 
 
 interface Service {
@@ -10,7 +15,7 @@ interface Service {
   service: string;
   description: string;
   // name: string;
-  // thumbnail: string;
+  thumbnail: string;
   // email: string;
   // phone: string;
   // address: string;
@@ -37,6 +42,7 @@ const services = ref<Service[]>([
     id: 1,
     service: "Post Office Account",
     description: "Open a Post Office Account",
+    thumbnail: epostaThumbnail,
     // name: 'Posta Uganda',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@ugapost.co.ug',
@@ -47,6 +53,7 @@ const services = ref<Service[]>([
     id: 2,
     service: "Agricultural Research",
     description: "Get agricultural research services",
+    thumbnail: naroThumbnail,
     // name: 'National Agricultural Research Organization',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@naro.go.ug',
@@ -57,6 +64,7 @@ const services = ref<Service[]>([
     id: 3,
     service: "National ID Registration",
     description: "Register for a National ID",
+    thumbnail: niraThumbnail,
     // name: 'National Identification & Registration Authority',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@nira.com',
@@ -67,6 +75,7 @@ const services = ref<Service[]>([
     id: 4,
     service: "Land Title Registration",
     description: "Register a land title",
+    thumbnail: ministryThumbnail,
     // name: 'Ministry of Lands and Urban Development',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@mlhud.go.ug',
@@ -77,6 +86,7 @@ const services = ref<Service[]>([
     id: 5,
     service: "Name Reservation",
     description: "Reserve a company name",
+    thumbnail: ursbThumbnail,
     // name: 'URSB',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'ursb@ursb.go.ug',
@@ -87,6 +97,7 @@ const services = ref<Service[]>([
     id: 9,
     service: "Passport Application",
     description: "Apply for a passport",
+    thumbnail: niraThumbnail,
     // name: 'Ministry of Internal Affairs',
     // thumbnail: '/assets/coa-19c4edfc.png',
     // email: 'info@moia.go.ug',
@@ -198,7 +209,7 @@ watch(
       v-for="service in services"
       :key="service.id"
       @click="serviceForm(service)"
-      class="service service-active border border-gray-200 bg-white hover:shadow rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
     >
       <div class="flex justify-between items-center">
         <img :src="service.thumbnail" alt="" class="w-10 h-10 object-cover" />
