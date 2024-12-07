@@ -214,7 +214,7 @@ onMounted(() => {
                 <span>{{ transaction.amount.toLocaleString() }}</span>
               </td>
               <td class="text-left text-gray-800">
-                <span>{{ transaction.balance }}</span>
+                <span>{{ transaction.balance.toLocaleString() }}</span>
               </td>
             </tr>
           </tbody>
