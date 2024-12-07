@@ -211,7 +211,7 @@ onMounted(() => {
                 class="text-left text-blue-600"
                 :class="{ 'text-red-600': transaction.amount < 0 }"
               >
-                <span>{{ transaction.amount }}</span>
+                <span>{{ transaction.amount.toLocaleString() }}</span>
               </td>
               <td class="text-left text-gray-800">
                 <span>{{ transaction.balance }}</span>
