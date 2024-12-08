@@ -3,6 +3,11 @@ import {ref, type Ref} from "vue";
 import {defineStore} from "pinia";
 import api from "@/config/api";
 import type {Service, ServiceResponseInterface, ServiceSpecification} from "@/domain/services/types";
+import niraThumbnail from "@/assets/images/nira.png";
+import epostaThumbnail from "@/assets/images/eposta.png";
+import naroThumbnail from "@/assets/images/naro.png";
+import ursbThumbnail from "@/assets/images/ursb.png";
+import ministryThumbnail from "@/assets/images/ministry.png";
 
 
 export const useServicesStore = defineStore("services", () => {
