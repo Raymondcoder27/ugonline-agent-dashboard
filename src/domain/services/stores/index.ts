@@ -131,6 +131,8 @@ const dummyServices = ref<Service[]>([
   },
 ]);
 
+const services: Ref<Service[] | undefined> = ref(dummyServices)
+
   const createService = async (payload:any) => {
     return api.post<ServiceResponseInterface>("/registry/v1/create", payload)
         .then((response:any) => {
