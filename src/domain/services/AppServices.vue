@@ -21,6 +21,8 @@ import { useServicesStore } from "@/domain/services/stores";
 //   // address: string;
 // }
 
+const store = useServiceStore();
+
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 
 function serviceForm(id: string) {
@@ -249,7 +251,7 @@ watch(
   <!-- Service Cards Section -->
   <div class="grid grid-cols-4 gap-3 mt-3">
     <div
-      v-for="service in services"
+      v-for="service in store.services"
       :key="service.id"
       @click="serviceForm(service)"
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
