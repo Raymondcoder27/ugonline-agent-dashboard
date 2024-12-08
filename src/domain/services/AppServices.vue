@@ -21,7 +21,7 @@ import { useServicesStore } from "@/domain/services/stores";
 //   // address: string;
 // }
 
-const store = useServiceStore();
+const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 
