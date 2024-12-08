@@ -20,7 +20,7 @@ export const useServicesStore = defineStore("services", () => {
 
 // services
 
-const services = ref<Service[]>([
+const dummyServices = ref<Service[]>([
   {
     id: 1,
     service: "Post Office Account",
