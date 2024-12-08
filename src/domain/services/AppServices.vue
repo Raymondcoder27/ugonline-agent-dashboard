@@ -103,9 +103,9 @@ const services = ref<Service[]>([
     // address: '',
   },
   {
-    id: "10",
+    id: 10,
     thumbnail: niraThumbnail,
-    name: "Driver's Permit Application",
+   service: "Driver's Permit Application",
     description: "Apply for a Driver's Permit",
     // accessibilityTier: "Public",
     // featureId: "7",
