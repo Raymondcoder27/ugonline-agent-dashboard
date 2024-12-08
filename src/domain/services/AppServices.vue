@@ -9,16 +9,16 @@ import naroThumbnail from "@/assets/images/naro.png";
 import ursbThumbnail from "@/assets/images/ursb.png";
 import ministryThumbnail from "@/assets/images/ministry.png";
 
-interface Service {
-  id: number;
-  service: string;
-  description: string;
-  // name: string;
-  thumbnail: string;
-  // email: string;
-  // phone: string;
-  // address: string;
-}
+// interface Service {
+//   id: number;
+//   service: string;
+//   description: string;
+//   // name: string;
+//   thumbnail: string;
+//   // email: string;
+//   // phone: string;
+//   // address: string;
+// }
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 
