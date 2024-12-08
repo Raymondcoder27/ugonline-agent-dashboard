@@ -3,11 +3,12 @@ import { ref, watch, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
-import niraThumbnail from "@/assets/images/nira.png";
-import epostaThumbnail from "@/assets/images/eposta.png";
-import naroThumbnail from "@/assets/images/naro.png";
-import ursbThumbnail from "@/assets/images/ursb.png";
-import ministryThumbnail from "@/assets/images/ministry.png";
+import { useServicesStore } from "@/domain/services/stores";
+// import niraThumbnail from "@/assets/images/nira.png";
+// import epostaThumbnail from "@/assets/images/eposta.png";
+// import naroThumbnail from "@/assets/images/naro.png";
+// import ursbThumbnail from "@/assets/images/ursb.png";
+// import ministryThumbnail from "@/assets/images/ministry.png";
 
 // interface Service {
 //   id: number;

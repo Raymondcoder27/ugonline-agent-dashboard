@@ -11,8 +11,8 @@ import ministryThumbnail from "@/assets/images/ministry.png";
 
 
 export const useServicesStore = defineStore("services", () => {
-  const services: Ref<Service[] | undefined> = ref()
-  const service: Ref<Service | undefined> = ref()
+  // const services: Ref<Service[] | undefined> = ref()
+  // const service: Ref<Service | undefined> = ref()
   const serviceSpecification: Ref<ServiceSpecification | undefined> = ref()
   const serviceSpecifications: Ref<ServiceSpecification[] | undefined> = ref()
   const createServiceResponse: Ref<ServiceResponseInterface | undefined> = ref()
