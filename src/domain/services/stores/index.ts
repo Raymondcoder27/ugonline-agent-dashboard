@@ -15,6 +15,122 @@ export const useServicesStore = defineStore("services", () => {
   const statusUpdateResponse: Ref<ServiceResponseInterface | undefined> = ref()
   const createSpecificationResponse: Ref<ServiceResponseInterface | undefined> = ref()
 
+
+
+
+// services
+
+const services = ref<Service[]>([
+  {
+    id: 1,
+    service: "Post Office Account",
+    description: "Open a Post Office Account",
+    thumbnail: epostaThumbnail,
+    // name: 'Posta Uganda',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@ugapost.co.ug',
+    // phone: '+256784944479',
+    // address: 'Plot 35 Kampala Road, Kampala',
+  },
+  // {
+  //   id: 2,
+  //   service: "Driver's Permit Application",
+  //   description: "Apply for a Driver's Permit",
+  //   thumbnail: niraThumbnail,
+  //   // name: 'National Agricultural Research Organization',
+  //   // thumbnail: '/assets/coa-19c4edfc.png',
+  //   // email: 'info@naro.go.ug',
+  //   // phone: '+256-41-320512',
+  //   // address: 'Plot 11-13, Lugard Avenue, Entebbe',
+  // },
+  {
+    id: 3,
+    service: "National ID Registration",
+    description: "Register for a National ID",
+    thumbnail: niraThumbnail,
+    // name: 'National Identification & Registration Authority',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@nira.com',
+    // phone: '0800211700',
+    // address: 'National Independence Grounds, Kololo Airstrip',
+  },
+  {
+    id: 4,
+    service: "Land Title Registration",
+    description: "Register a land title",
+    thumbnail: ministryThumbnail,
+    // name: 'Ministry of Lands and Urban Development',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@mlhud.go.ug',
+    // phone: '0414355355',
+    // address: 'Dewinton Road',
+  },
+  {
+    id: 5,
+    service: "Name Reservation",
+    description: "Reserve a company name",
+    thumbnail: ursbThumbnail,
+    // name: 'URSB',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'ursb@ursb.go.ug',
+    // phone: '0312211211',
+    // address: 'Plot 1 Baskerville Avenue',
+  },
+  {
+    id: 9,
+    service: "Passport Application",
+    description: "Apply for a passport",
+    thumbnail: niraThumbnail,
+    // name: 'Ministry of Internal Affairs',
+    // thumbnail: '/assets/coa-19c4edfc.png',
+    // email: 'info@moia.go.ug',
+    // phone: '0312123123',
+    // address: '',
+  },
+  {
+    id: 10,
+    thumbnail: naroThumbnail,
+   service: "Agricultural Research",
+    description: "Get agricultural Research Services",
+    // accessibilityTier: "Public",
+    // featureId: "7",
+    // requirements: ["National ID", "Passport"],
+    // providerId: "4",
+    // providerName: "Ministry of Works and Transport",
+    // createdAt: { Time: "2021-09-07", Valid: true },
+    // status: "listed",
+    // currentVersionId: "4",
+  },
+  {
+    id: 10,
+    thumbnail: ursbThumbnail,
+   service: "File Company Returns",
+    description: "Company File Resolution for private and public companies",
+    // accessibilityTier: "Public",
+    // featureId: "7",
+    // requirements: ["National ID", "Passport"],
+    // providerId: "4",
+    // providerName: "Ministry of Works and Transport",
+    // createdAt: { Time: "2021-09-07", Valid: true },
+    // status: "listed",
+    // currentVersionId: "4",
+  },
+  {
+    id: 10,
+    thumbnail: ursbThumbnail,
+   service: "Company Dissolution",
+    description: "Dissolve a private or public company",
+    // accessibilityTier: "Public",
+    // featureId: "7",
+    // requirements: ["National ID", "Passport"],
+    // providerId: "4",
+    // providerName: "Ministry of Works and Transport",
+    // createdAt: { Time: "2021-09-07", Valid: true },
+    // status: "listed",
+    // currentVersionId: "4",
+  },
+]);
+
   const createService = async (payload:any) => {
     return api.post<ServiceResponseInterface>("/registry/v1/create", payload)
         .then((response:any) => {
