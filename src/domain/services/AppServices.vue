@@ -3,12 +3,11 @@ import { ref, watch, reactive } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
-import niraThumbnail from '@/assets/images/nira.png';
-import epostaThumbnail from '@/assets/images/eposta.png';
-import naroThumbnail from '@/assets/images/naro.png';
-import ursbThumbnail from '@/assets/images/ursb.png';
-import ministryThumbnail from '@/assets/images/ministry.png';
-
+import niraThumbnail from "@/assets/images/nira.png";
+import epostaThumbnail from "@/assets/images/eposta.png";
+import naroThumbnail from "@/assets/images/naro.png";
+import ursbThumbnail from "@/assets/images/ursb.png";
+import ministryThumbnail from "@/assets/images/ministry.png";
 
 interface Service {
   id: number;
@@ -23,12 +22,11 @@ interface Service {
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 
-
 function serviceForm(id: string) {
-// Logic to open the modal or start the process
-// console.log(`Assigning manager for branch: ${branch.name}`);
-// Example: modalOpen.value = true;
-serviceFormModalOpen.value = true;
+  // Logic to open the modal or start the process
+  // console.log(`Assigning manager for branch: ${branch.name}`);
+  // Example: modalOpen.value = true;
+  serviceFormModalOpen.value = true;
 }
 
 const close = () => {
@@ -103,6 +101,20 @@ const services = ref<Service[]>([
     // email: 'info@moia.go.ug',
     // phone: '0312123123',
     // address: '',
+  },
+  {
+    id: "10",
+    thumbnail: niraThumbnail,
+    name: "Driver's Permit Application",
+    description: "Apply for a Driver's Permit",
+    // accessibilityTier: "Public",
+    // featureId: "7",
+    // requirements: ["National ID", "Passport"],
+    // providerId: "4",
+    // providerName: "Ministry of Works and Transport",
+    // createdAt: { Time: "2021-09-07", Valid: true },
+    // status: "listed",
+    // currentVersionId: "4",
   },
 ]);
 
@@ -200,7 +212,9 @@ watch(
       Search
     </button> -->
     </div>
-    <div class="font-semibold text-gray-500 text-sm mr-5">BALANCE: 16,000,000/=</div>
+    <div class="font-semibold text-gray-500 text-sm mr-5">
+      BALANCE: 16,000,000/=
+    </div>
   </div>
 
   <!-- Service Cards Section -->
