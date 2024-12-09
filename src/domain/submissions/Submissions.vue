@@ -269,7 +269,7 @@ watch(
                 </div>
                 <div class="" v-else>
                   <span
-                    class="bg-blue-200 rounded-md font-semibold text-blue-700 p-1"
+                    class="bg-blue-200 rounded-md font-semibold text-blue-700 p-1 border border-blue-300"
                     @click="confirm(transaction)"
                   >
                     Confirmed
