@@ -106,17 +106,6 @@ export const useBilling = defineStore("billing", () => {
     })
   }
 
-     // allocate float allocation to float ledger array
-  // function adjustFloatLedger(payload: AllocateFloat) {
-  //   floatLedgers.value.push({
-  //     id: floatLedgers.value.length + 1,
-  //     date: new Date().toISOString(),
-  //     // description: "Branch " + payload.branchId,
-  //     description: payload.branchId,
-  //     amount: -payload.amount,
-  //     // balance: totalBalance.value + payload.amount,
-  //   })
-  // }
 
   // adjust float ledgers with float request
   function adjustFloatLedger(payload: RequestFloat) {
@@ -137,6 +126,7 @@ export const useBilling = defineStore("billing", () => {
     floatLedgers,
     floatRequests,
     requestFloat,
+    adjustFloatLedger,
     fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
