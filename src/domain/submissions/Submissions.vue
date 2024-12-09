@@ -208,6 +208,8 @@ watch(
 
       <!-- Table -->
       <!-- Table -->
+      <span v-if="copied">Copied!</span>
+
       <div class="flex my-1">
         <table class="table tr">
           <thead>
@@ -225,7 +227,6 @@ watch(
             </tr>
           </thead>
           <tbody>
-            <span v-if="copied">Copied!</span>
             <tr
               class="text-left"
               v-for="(transaction, idx) in store.submissions"
