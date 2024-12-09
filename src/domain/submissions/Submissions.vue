@@ -10,7 +10,7 @@ import TransactionDetails from "@/domain/submissions/components/TransactionDetai
 //   FloatLedger,
 //   FloatRequest,
 //   FloatManagement,
-// } from "./types"; 
+// } from "./types";
 // Import billing types
 import moment from "moment/moment";
 
@@ -200,7 +200,7 @@ watch(
               <!-- <th>Fee</th> -->
               <!-- <th>Status</th> -->
               <th>Date</th>
-             <th>Actions</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -225,7 +225,7 @@ watch(
               <!-- <td class="text-left">{{ transaction.status }}</td> -->
               <td class="text-left">{{ convertDate(transaction.date) }}</td>
               <!-- <td class="text-left"> -->
-                <!-- <td class="text-black-700 text-center">
+              <!-- <td class="text-black-700 text-center">
               <div v-if="getManagerByBranch(branch.name)">
                 <label>
                   {{ getManagerByBranch(branch.name).firstName }}
@@ -249,10 +249,10 @@ watch(
               </div>
             </td> -->
               <!-- actions -->
-               <!-- use the same v-if, v-else-if and v-else to make scenarios for draft, repay, or confirmed -->
+              <!-- use the same v-if, v-else-if and v-else to make scenarios for draft, repay, or confirmed -->
               <td class="text-left">
                 <!-- <div class="" v-if="submissionDraft(transaction.name)"> -->
-                  <!-- use transaction.status = draft -->
+                <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
                     class="bg-gray-200 rounded-md font-semibold text-gray-700 p-1 hover:underline border border-gray-300"
@@ -262,7 +262,7 @@ watch(
                   </button>
                 </div>
                 <!-- <div class="" v-else-if="submissionRepay(transaction.name)"> -->
-                  <!-- use transaction.status = repay -->
+                <!-- use transaction.status = repay -->
                 <div class="" v-else-if="transaction.status === 'repay'">
                   <button
                     class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline border border-green-300"
@@ -280,7 +280,6 @@ watch(
                   </span>
                 </div>
               </td>
-
 
               <!-- </td> -->
 
