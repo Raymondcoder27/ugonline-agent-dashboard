@@ -29,6 +29,31 @@ function submit() {
       loading.value = false
     })
 }
+
+function submit() {
+  const payload = {
+    amount: form.amount,
+    branchId: form.branchId,
+  };
+  
+  console.log("Submitting payload:", payload);
+
+  loading.value = true;
+  store.allocateFloat(payload) // API call to allocate float
+    // .then(() => {
+      billingStore.adjustFloatLedger(payload); // Adjust ledger
+      balanceStore.decreaseTotalBalance(payload.amount); // Update balance
+      notify.success(`Float allocated to branch: ${form.branchId}`);
+      emit("floatAllocated");
+    // })
+    // .catch((err) => {
+      // console.error("Error allocating float:", err);
+      // notify.error("Failed to allocate float.");
+    // })
+    // .finally(() => {
+      // loading.value = false;
+    // });
+}
 </script>
 
 <template>
