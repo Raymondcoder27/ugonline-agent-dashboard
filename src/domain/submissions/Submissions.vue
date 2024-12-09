@@ -4,7 +4,7 @@ import { onMounted, ref, reactive, watch } from "vue";
 import { useSubmissions } from "@/domain/submissions/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import TransactionDetails from "@/domain/submissions/components/TransactionDetails.vue";
-
+import { useNotificationsStore } from "@/stores/notifications";
 // import type {
 //   Submission,
 //   FloatLedger,
@@ -153,6 +153,7 @@ const copyToClipboard = async () => {
     setTimeout(() => {
       copied.value = false;
     }, 2000);
+    notify.success("Copied to clipboard");
   } catch (error) {
     console.error("Failed to copy text: ", error);
   }
@@ -208,7 +209,7 @@ watch(
 
       <!-- Table -->
       <!-- Table -->
-      <span v-if="copied">Copied!</span>
+      <!-- <span v-if="copied">Copied!</span> -->
 
       <div class="flex my-1">
         <table class="table tr">
