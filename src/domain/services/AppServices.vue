@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, reactive } from "vue";
+import { ref, watch, reactive, onMounted } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
@@ -76,6 +76,11 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+onMounted(() => {
+  balanceStore.
+  fetchTotalBalance();
+});
 </script>
 
 <template>
