@@ -4,6 +4,18 @@ import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
+import { defineEmits } from "vue";
+import { useBilling } from "@/domain/billing/stores";
+import { useBalance } from "@/domain/balance/stores";
+
+const billingStore = useBilling();
+const balanceStore = useBalance();
+
+// const form: CreateAccount = reactive({
+//   amount: "",
+//   branchId: "",
+//   description: "",
+// });
 
 let form: CreateAccount = reactive({
   firstName: "",
