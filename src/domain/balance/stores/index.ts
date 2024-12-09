@@ -86,8 +86,8 @@ export const useBalance = defineStore("balance", () => {
    async function fetchTotalBalance() {
     // Simulate fetching updated balance data
     const fetchedBalance = {
-      prev: totalBalance.current,
-      current: 15000000, // Example fetched balance
+      prev: totalBalance.prev,
+      current: totalBalance.current, // Example fetched balance
     };
     Object.assign(totalBalance, fetchedBalance);
   }
