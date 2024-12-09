@@ -137,6 +137,27 @@ watch(
   }
 );
 
+// Ref to track if content was copied
+const copied = ref(false);
+
+const copyToClipboard = async () => {
+  try {
+    // You can replace this with any string you want to copy
+    const textToCopy = "Text to copy to clipboard";
+
+    // Using the Clipboard API
+    await navigator.clipboard.writeText(textToCopy);
+
+    // Show "Copied!" for 2 seconds
+    copied.value = true;
+    setTimeout(() => {
+      copied.value = false;
+    }, 2000);
+  } catch (error) {
+    console.error("Failed to copy text: ", error);
+  }
+};
+
 // Watch for changes in the filter object
 watch(
   () => filter,
@@ -204,6 +225,7 @@ watch(
             </tr>
           </thead>
           <tbody>
+            <span v-if="copied">Copied!</span>
             <tr
               class="text-left"
               v-for="(transaction, idx) in store.submissions"
@@ -216,6 +238,8 @@ watch(
                 @click="transactionDetails(transaction.id)"
               >
                 {{ transaction.trackingNumber }}
+                <!-- make it copy to clipboard -->
+                <i @click="copyToClipboard" class="fa-regular fa-copy mx-1"></i>
               </td>
               <td>{{ transaction.service }}</td>
               <td class="text-left">{{ transaction.provider }}</td>
