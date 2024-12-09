@@ -251,7 +251,9 @@ watch(
               <!-- actions -->
                <!-- use the same v-if, v-else-if and v-else to make scenarios for draft, repay, or confirmed -->
               <td class="text-left">
-                <div class="" v-if="submissionDraft(transaction.name)">
+                <!-- <div class="" v-if="submissionDraft(transaction.name)"> -->
+                  <!-- use transaction.status = draft -->
+                <div class="" v-if="transaction.name === 'draft'">
                   <button
                     class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
                     @click="submitDraft(transaction)"
@@ -259,7 +261,9 @@ watch(
                     Draft
                   </button>
                 </div>
-                <div class="" v-else-if="submissionRepay(transaction.name)">
+                <!-- <div class="" v-else-if="submissionRepay(transaction.name)"> -->
+                  <!-- use transaction.status = repay -->
+                <div class="" v-else-if="transaction.name === 'repay'">
                   <button
                     class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline"
                     @click="repay(transaction)"
