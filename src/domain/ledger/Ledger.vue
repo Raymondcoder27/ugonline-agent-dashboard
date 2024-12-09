@@ -126,7 +126,7 @@ computed(() => {
 
 
 watch(
-  () => totalBalance.value,
+  () => balanceStore.totalBalance.value,
   (newVal, oldVal) => {
     console.log("Balance updated:", oldVal, "->", newVal);
   },
