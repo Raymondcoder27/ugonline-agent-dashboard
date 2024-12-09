@@ -84,6 +84,27 @@ export const useBilling = defineStore("billing", () => {
     floatRequests.value = dummyFloatRequests;
   }
 
+   // allocate float function, push to the float allocation array
+  //  function allocateFloat(payload: AllocateFloat) {
+  //   floatAllocations.value.push({
+  //     id: floatAllocations.value.length + 1,
+  //     dateAssigned: new Date().toISOString(),
+  //     amount: payload.amount,
+  //     status: "Allocated",
+  //     branch: payload.branchId,
+  //   })
+  // }
+
+  // request float function, push to the float requests array
+  function requestFloat(payload: RequestFloat) {
+    floatRequests.value.push({
+      id: floatRequests.value.length + 1,
+      dateRequested: new Date().toISOString(),
+      amount: payload.amount,
+      status: "Pending",
+      tillId: payload.tillId,
+    })
+
   return {
     transactions,
     totalAmount,
