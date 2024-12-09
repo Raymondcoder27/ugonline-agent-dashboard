@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import AppModal from "@/components/AppModal.vue";
-import { onMounted, ref, reactive, watch } from "vue";
+import { onMounted, ref, reactive, watch, computed } from "vue";
 import { useBilling } from "@/domain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
 import type {
@@ -114,6 +114,25 @@ watch(
   () => updateFilter(),
   { deep: true }
 );
+
+computed(() => {
+  const initialBalance = 15000000; // From store or static reference
+  const transactions = store.floatLedgers;
+  
+  return transactions.reduce((balance, tx) => {
+    return balance + tx.amount;
+  }, initialBalance);
+});
+
+
+watch(
+  () => totalBalance.value,
+  (newVal, oldVal) => {
+    console.log("Balance updated:", oldVal, "->", newVal);
+  },
+  { deep: true }
+);
+
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
