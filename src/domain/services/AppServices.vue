@@ -244,7 +244,7 @@ watch(
     </button> -->
     </div>
     <div class="font-semibold text-gray-500 text-sm mr-5">
-      BALANCE: 16,000,000/=
+      BALANCE: 15,000,000/=
     </div>
   </div>
 
