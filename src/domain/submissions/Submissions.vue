@@ -142,13 +142,14 @@ watch(
 // Ref to track if content was copied
 const copied = ref(false);
 
-const copyToClipboard = async () => {
+
+const copyToClipboard = async (trackingNumber: string) => {
   try {
     // You can replace this with any string you want to copy
-    const textToCopy = "Text to copy to clipboard";
+    // const textToCopy = "Text to copy to clipboard";
 
     // Using the Clipboard API
-    await navigator.clipboard.writeText(textToCopy);
+    await navigator.clipboard.writeText(trackingNumber);
 
     // Show "Copied!" for 2 seconds
     copied.value = true;
@@ -245,7 +246,7 @@ watch(
 
               </span>
                 <!-- make it copy to clipboard -->
-                <i @click="copyToClipboard" class="fa-regular fa-copy mx-1 ml-4"></i>
+                <i @click="copyToClipboard(transaction.trackingNumber)" class="fa-regular fa-copy mx-1 ml-4 hover:text-gray-800"></i>
               </td>
               <td>{{ transaction.service }}</td>
               <td class="text-left">{{ transaction.provider }}</td>
