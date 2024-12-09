@@ -77,7 +77,7 @@ function submit() {
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
-          <input autocomplete="off" type="text" v-model="form.firstName" class="noFocus form-element e-input w-full"
+          <input autocomplete="off" type="text" v-model="form.amount" class="noFocus form-element e-input w-full"
             required />
         </div>
       </div>
@@ -93,13 +93,13 @@ function submit() {
         </div>
       </div> -->
 
-      <div class="flex">
+      <!-- <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">NOTE</label>
           <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
                  required />
         </div>
-      </div>
+      </div> -->
 
       <div class="flex my-2 py-5">
         <div class="w-6/12 px-1">
