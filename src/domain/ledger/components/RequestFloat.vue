@@ -1,5 +1,4 @@
 <script setup lang="ts">
-
 import type { CreateAccount } from "@/types";
 import { type Ref, ref, reactive, watch } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
@@ -24,11 +23,11 @@ let form: CreateAccount = reactive({
   role: "admin",
   username: "",
   phone: "",
-})
-const notify = useNotificationsStore()
+});
+const notify = useNotificationsStore();
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel', 'floatAllocated'])
-const store = useAccounts()
+const emit = defineEmits(["cancel", "floatAllocated"]);
+const store = useAccounts();
 // function submit() {
 //   loading.value = true
 //   store.createAccount(form)
@@ -48,53 +47,65 @@ function submit() {
     tillId: form.tillId,
     description: form.description,
   };
-  
+
   console.log("Submitting payload:", payload);
 
   loading.value = true;
-  billingStore.requestFloat(payload) // API call to allocate float
-    // .then(() => {
-      billingStore.adjustFloatLedger(payload); // Adjust ledger
-      balanceStore.decreaseTotalBalance(payload.amount); // Update balance
-      // notify.success(`Float allocated to branch: ${form.branchId}`);
-      notify.success(`Float request submitted successfully.`);  
-      emit("floatAllocated");
-    // })
-    // .catch((err) => {
-      // console.error("Error allocating float:", err);
-      // notify.error("Failed to allocate float.");
-    // })
-    // .finally(() => {
-      // loading.value = false;
-    // });
+  billingStore.requestFloat(payload); // API call to allocate float
+  // .then(() => {
+  billingStore.adjustFloatLedger(payload); // Adjust ledger
+  balanceStore.decreaseTotalBalance(payload.amount); // Update balance
+  // notify.success(`Float allocated to branch: ${form.branchId}`);
+  notify.success(`Float request submitted successfully.`);
+  emit("floatAllocated");
+  // })
+  // .catch((err) => {
+  // console.error("Error allocating float:", err);
+  // notify.error("Failed to allocate float.");
+  // })
+  // .finally(() => {
+  // loading.value = false;
+  // });
 }
 
 //watch amount being typed and display the amount the span below
-watch(() => form.amount, (value) => {
-  console.log("Amount changed:", value);
-});
+watch(
+  () => form.amount,
+  (value) => {
+    console.log("Amount changed:", value);
+  }
+);
 </script>
 
 <template>
   <div class="bg-white py-5">
-    <p class="text-xl font-bold"> Request Float</p>
-    <p class="text-sm text-gray-500">The allocation of funds by a Super Agent to a designated branch or till to ensure liquidity for transactions and service delivery.</p>
+    <p class="text-xl font-bold">Request Float</p>
+    <p class="text-sm text-gray-500">
+      The allocation of funds by a Super Agent to a designated branch or till to
+      ensure liquidity for transactions and service delivery.
+    </p>
     <form @submit.prevent="submit" class="pt-5">
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
-          <input autocomplete="off" type="number" v-model="form.amount" class="noFocus form-element e-input w-full"
-            required />
-            <!-- <span v-if="form.amount" class="font-semibold text-green-600">
-               {{ form.amount }}
-            </span> -->
-            <span v-if="form.amount">
-            <pre  class="font-semibold text-green-600">{{ form.amount.toLocaleString() }}/=</pre>
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >Amount (UGX)</label
+          >
+          <input
+            autocomplete="off"
+            type="number"
+            v-model.number="form.amount"
+            class="noFocus form-element e-input w-full"
+            required
+          />
+          <span v-if="form.amount">
+            <pre class="font-semibold text-green-600 py-2"
+              >{{ form.amount.toLocaleString() }}/=</pre
+            >
           </span>
         </div>
       </div>
-     
-<!-- 
+
+      <!-- 
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Select a Role</label>
@@ -107,9 +118,15 @@ watch(() => form.amount, (value) => {
 
       <div class="flex">
         <div class="cell-full">
-          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">NOTE</label>
-          <textarea rows="4" v-model="form.description" class="noFocus form-element e-input w-full"
-                 required />
+          <label class="block uppercase text-neutral-600 text-xs font-bold mb-1"
+            >NOTE</label
+          >
+          <textarea
+            rows="4"
+            v-model="form.description"
+            class="noFocus form-element e-input w-full"
+            required
+          />
         </div>
       </div>
 
@@ -129,7 +146,6 @@ watch(() => form.amount, (value) => {
               <div></div>
               <div></div>
             </span>
-
           </button>
         </div>
       </div>
