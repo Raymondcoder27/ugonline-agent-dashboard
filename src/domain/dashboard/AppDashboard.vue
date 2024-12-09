@@ -58,7 +58,7 @@ const services = ref<Service[]>([
   },
   {
     id: 5,
-    service: "Name Reservation",
+    service: "Company Name Reservation",
     description: "Reserve a company name",
     // name: 'URSB',
     // thumbnail: '/assets/coa-19c4edfc.png',
