@@ -179,11 +179,30 @@ watch(
       <div class="flex-grow">
         <div class="grid grid-cols-5 gap-2 bg-gray-10 border border-gray-200 rounded px-2 py-3">
           <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[0].operand"
-            class="filter-element e-input" type="text" placeholder="Search by Name" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
-            class="filter-element e-input" type="text" placeholder="Email Address" />
-          <input v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
-            class="filter-element e-input" type="text" placeholder="Phone Number" />
+            class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
+            class="filter-element e-input" type="text" placeholder="Filter by Status">
+            <option value="" disabled selected>Filter by Status</option>
+            <option value="PENDING">PENDING</option>
+            <option value="COMPLETED">COMPLETED</option>
+            <option value="BLOCKED">BLOCKED</option>
+          </select>
+          <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Drop down provider">
+            <option value="" disabled selected>Filter by Provider</option>
+            <option value="NIRA">NIRA</option>
+            <option value="URSB">URSB</option>
+            <!-- <option value="UMEME">UMEME</option> -->
+            <option value="NARO">Posta Uganda</option>
+          </select>
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            class="filter-element e-input" type="text" placeholder="Search by Service">
+            <option value="" disabled selected>Filter by Service</option>
+            <option value="companyNameReservation">Company Name Reservation</option>
+            <option value="companyRegistration">Company Registration</option>
+            <option value="companyNameSearch">Company Name Search</option>
+            <option value="companyNameChange">Company Name Change</option>
+          </select>
           <!-- <select class="filter-element e-select">
             <option :value="null">- Select Status -</option>
             <option value="pending">Pending</option>
