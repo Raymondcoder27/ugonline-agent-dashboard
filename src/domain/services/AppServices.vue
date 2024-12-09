@@ -12,6 +12,8 @@ import { useBalance } from "@/domain/balance/stores";
 // import ursbThumbnail from "@/assets/images/ursb.png";
 // import ministryThumbnail from "@/assets/images/ministry.png";
 
+const balanceStore = useBalance();
+
 // interface Service {
 //   id: number;
 //   service: string;
