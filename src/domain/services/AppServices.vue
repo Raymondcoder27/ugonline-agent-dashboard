@@ -14,17 +14,6 @@ import { useBalance } from "@/domain/balance/stores";
 
 const balanceStore = useBalance();
 
-// interface Service {
-//   id: number;
-//   service: string;
-//   description: string;
-//   // name: string;
-//   thumbnail: string;
-//   // email: string;
-//   // phone: string;
-//   // address: string;
-// }
-
 const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
