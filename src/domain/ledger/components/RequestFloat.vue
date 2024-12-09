@@ -1,7 +1,7 @@
 <script setup lang="ts">
 
 import type { CreateAccount } from "@/types";
-import { type Ref, ref, reactive } from "vue";
+import { type Ref, ref, reactive, watch } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
@@ -68,6 +68,11 @@ function submit() {
       // loading.value = false;
     // });
 }
+
+//watch amount being typed and display the amount the span below
+watch(() => form.amount, (value) => {
+  console.log("Amount changed:", value);
+});
 </script>
 
 <template>
@@ -80,6 +85,10 @@ function submit() {
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
           <input autocomplete="off" type="text" v-model="form.amount" class="noFocus form-element e-input w-full"
             required />
+            <!-- <span v-if="form.amount" class="font-semibold text-green-600">
+               {{ form.amount }}
+            </span> -->
+            <pre  class="font-semibold text-green-600">{{ form.amount }}</pre>
         </div>
       </div>
      
