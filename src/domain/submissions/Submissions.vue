@@ -238,14 +238,14 @@ watch(
             >
               <!-- <td>{{ idx + 1 }}</td> -->
               <td
-                class="rounded-md font-semibold text-red-700 hover:underline"
+                class="rounded-md font-semibold text-red-700"
               >
-              <span @click="transactionDetails(transaction.id)">
+              <span @click="transactionDetails(transaction.id)" class="hover:underline">
                 {{ transaction.trackingNumber }}
 
               </span>
                 <!-- make it copy to clipboard -->
-                <i @click="copyToClipboard" class="fa-regular fa-copy mx-1"></i>
+                <i @click="copyToClipboard" class="fa-regular fa-copy mx-1 ml-4"></i>
               </td>
               <td>{{ transaction.service }}</td>
               <td class="text-left">{{ transaction.provider }}</td>
