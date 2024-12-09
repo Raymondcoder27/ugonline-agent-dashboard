@@ -125,48 +125,63 @@ onMounted(() => {
   <div class="">
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2">
-      <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
-        <div>
-          <label for="date-range" class="mr-2 text-sm text-gray-600 justify-end">Date Range:</label>
-          <input
-            type="date"
-            id="date-range"
-            class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-          />
-        </div>
-      </div> -->
-      <div class="flex items-center justify-end border-b pb-4 mb-4">
-        <div class="flex space-x-4">
-          <div>
-            <label for="date-from" class="mr-2 text-sm text-gray-600"
-              >From:</label
+      <div class="flex space-x-2 my-1 pt-1 pb-3">
+      <div class="flex-grow">
+        <div
+          class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
+        >
+          <div class="flex">
+            <select
+              v-if="filter.filter !== undefined"
+              input-type="text"
+              v-model="filter.filter[2].operand"
+              class="filter-element e-input"
+              type="text"
+              placeholder="Drop down provider"
             >
-            <input
-              type="date"
-              id="date-from"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.fromDate"
-            />
+              <option value="" disabled selected>Filter by Description</option>
+              <option value="recharge">Recharge</option>
+              <option value="floatAllocation">Float Allocation</option>
+              <!-- <option value="UMEME">UMEME</option> -->
+            </select>
+            <div class="flex">
+              <div class="flex items-center mr-2">
+                <label for="date-from" class="mr-2 text-sm text-gray-600"
+                  >From:</label
+                >
+                <input
+                  type="date"
+                  id="date-from"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.fromDate"
+                />
+              </div>
+              <div class="flex items-center mr-2">
+                <label for="date-to" class="mr-2 text-sm text-gray-600"
+                  >To:</label
+                >
+                <input
+                  type="date"
+                  id="date-to"
+                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  v-model="filter.toDate"
+                />
+              </div>
+            </div>
           </div>
-          <div>
-            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
-            <input
-              type="date"
-              id="date-to"
-              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-              v-model="filter.toDate"
-            />
-          </div>
-
+         <div class="">
           <button
             @click="modalOpen = true"
-            class="button btn-sm my-auto mt-6"
+            class="button btn-sm"
             type="button"
           >
             <i class="px-1 fa-solid fa-plus"></i> Request Float
           </button>
+         </div>
         </div>
       </div>
+    </div>
+
 
       <div class="flex my-1">
         <table class="table w-full">
