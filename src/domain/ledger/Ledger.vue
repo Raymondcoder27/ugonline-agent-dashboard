@@ -115,15 +115,40 @@ watch(
   { deep: true }
 );
 
-computed(() => {
-  const initialBalance = 15000000; // From store or static reference
-  const transactions = store.floatLedgers;
+// computed(() => {
+//   const initialBalance = 15000000; // From store or static reference
+//   const transactions = store.floatLedgers;
   
-  return transactions.reduce((balance, tx) => {
-    return balance + tx.amount;
-  }, initialBalance);
+//   return transactions.reduce((balance, tx) => {
+//     return balance + tx.amount;
+//   }, initialBalance);
+// });
+
+// Compute running balance
+const computedTransactions = computed(() => {
+  if (store.floatLedgers.length === 0) {
+    return [];
+  }
+
+  let runningBalance = balanceStore.totalBalance.current || 0;
+
+  return store.floatLedgers.map((transaction) => {
+    runningBalance += transaction.amount;
+
+    return {
+      ...transaction,
+      balance: runningBalance,
+    };
+  });
 });
 
+watch(
+  computedTransactions,
+  (transactions) => {
+    console.log("Computed transactions:", transactions);
+  },
+  { deep: true }
+);
 
 watch(
   () => balanceStore.totalBalance.value,
@@ -226,7 +251,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="transaction in store.floatLedgers"
+              v-for="transaction in computedTransactions"
               :key="transaction.id"
               class="body-tr"
             >
