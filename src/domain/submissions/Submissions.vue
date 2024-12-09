@@ -5,6 +5,8 @@ import { useSubmissions } from "@/domain/submissions/stores"; // Import the appr
 import { useDebounceFn } from "@vueuse/core";
 import TransactionDetails from "@/domain/submissions/components/TransactionDetails.vue";
 import { useNotificationsStore } from "@/stores/notifications";
+
+const notify = useNotificationsStore()
 // import type {
 //   Submission,
 //   FloatLedger,
