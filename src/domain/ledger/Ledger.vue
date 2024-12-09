@@ -11,7 +11,7 @@ import type {
 } from "./types"; // Import billing types
 import moment from "moment/moment";
 import RequestFloat from "@/domain/ledger/components/RequestFloat.vue";
-import { useBalance } from "@/stores/balance";
+import { useBalance } from "@/domain/balance/stores";
 const balanceStore = useBalance();
 
 const store = useBilling(); // Assuming you have a billing store that handles transactions, float ledgers, etc.
