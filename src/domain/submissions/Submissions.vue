@@ -81,6 +81,18 @@ function fetchSubmissions() {
   store.fetchSubmissions(filter); // Fetch transactions based on filter
 }
 
+// Function to handle submission draft
+function submissionDraft(name: string) {
+  // Logic to check if submission is a draft
+  return name === "DRAFT";
+}
+
+// Function to handle submission repay
+function submissionRepay(name: string) {
+  // Logic to check if submission is a repay
+  return name === "REPAY";
+}
+
 function next() {
   page.value += 1;
   fetchSubmissions();
