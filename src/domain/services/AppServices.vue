@@ -6,11 +6,6 @@ import AppModal from "@/components/AppModal.vue";
 import { useServicesStore } from "@/domain/services/stores";
 import { IGoFilter } from "@/types";
 import { useBalance } from "@/domain/balance/stores";
-// import niraThumbnail from "@/assets/images/nira.png";
-// import epostaThumbnail from "@/assets/images/eposta.png";
-// import naroThumbnail from "@/assets/images/naro.png";
-// import ursbThumbnail from "@/assets/images/ursb.png";
-// import ministryThumbnail from "@/assets/images/ministry.png";
 
 const balanceStore = useBalance();
 
