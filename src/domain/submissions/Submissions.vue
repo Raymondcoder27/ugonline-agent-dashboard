@@ -268,12 +268,12 @@ watch(
                   </button>
                 </div>
                 <div class="" v-else>
-                  <button
+                  <span
                     class="bg-blue-200 rounded-md font-semibold text-blue-700 p-1 hover:underline"
                     @click="confirm(transaction)"
                   >
                     Confirm
-                  </button>
+                  </span>
                 </div>
               </td>
 
