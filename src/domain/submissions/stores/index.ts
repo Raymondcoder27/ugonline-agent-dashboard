@@ -52,15 +52,15 @@ export const useSubmissions = defineStore("submissions", () => {
 
   const dummySubmissions: Submission[] = [
     { id: 1, trackingNumber: "TA123456",
-      service: "Name Reservation", provider: "URSB", till: "Till 001",
+      service: "Name Reservation", status: "confirmed", provider: "URSB", till: "Till 001",
       fee: 25000, date: "2021-09-01" 
     },
     { id: 2, trackingNumber: "TB123457",
-      service: "Create Postal Account", provider: "Posta Uganda",
+      service: "Create Postal Account", status: "draft", provider: "Posta Uganda",
        till: "Till 002", fee: 20000, date: "2021-09-02"
       },
     { id: 3, trackingNumber: "TC123458",
-      service: "National ID registration", provider: "NIRA",
+      service: "National ID registration", status: "repay", provider: "NIRA",
        till: "Till 003", fee: 35000, date: "2021-09-03" },
   ];
 
