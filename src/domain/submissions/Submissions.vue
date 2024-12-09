@@ -188,7 +188,7 @@ watch(
               <!-- <th>Fee</th> -->
               <!-- <th>Status</th> -->
               <th>Date</th>
-              <!-- <th>Actions</th> -->
+             <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -215,6 +215,7 @@ watch(
               <!-- <td class="text-left"> -->
               <!-- <button @click="openTransaction(transaction)">Edit</button> -->
               <!-- actions -->
+              
 
               <!-- </td> -->
 
