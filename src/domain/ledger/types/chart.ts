@@ -19,3 +19,8 @@ export interface FloatRequest {
     status:string
     branchId:number
 }
+
+export interface RequestFloat {
+    amount:number
+    tillId:number
+}
