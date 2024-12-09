@@ -28,6 +28,14 @@ export const useBilling = defineStore("billing", () => {
     { id: 4, date: "2021-09-04", description: "Service Fee", amount: -30000, balance: 5430000 },
   ];
 
+  // dummy float requests
+  const dummyFloatRequests: FloatRequest[] = [
+    { id: 1, dateRequested: "2021-09-01", amount: 15000000, status: "Pending", branchId: 1 },
+    { id: 2, dateRequested: "2021-09-02", amount: 500000, status: "Approved", branchId: 2 },
+    { id: 3, dateRequested: "2021-09-03", amount: 40000, status: "Rejected", branchId: 3 },
+    { id: 4, dateRequested: "2021-09-04", amount: 30000, status: "Pending", branchId: 4 },
+  ];
+
   // State variables
   const transactions = ref<Transaction[]>(dummyTransactions); // Use dummy data for now
   const totalAmount = ref(600); // Set a test value
@@ -51,6 +59,29 @@ export const useBilling = defineStore("billing", () => {
     // const data = await response.json();
     // Use dummy data for now
     floatLedgers.value = dummyFloatLedgers;
+  }
+
+   // allocate float function, push to the float allocation array
+  //  function allocateFloat(payload: AllocateFloat) {
+  //   floatAllocations.value.push({
+  //     id: floatAllocations.value.length + 1,
+  //     dateAssigned: new Date().toISOString(),
+  //     amount: payload.amount,
+  //     status: "Allocated",
+  //     branch: payload.branchId,
+  //   })
+  // }
+
+  //first make float requests array with statuses: pending, approved, rejected
+  const floatRequests = ref<FloatRequest[]>(dummyFloatRequests);
+
+  //fetch float requests
+  async function fetchFloatRequests() {
+    // Simulate API call
+    // const response = await fetch(`/api/float-requests?limit=${filter.limit}&page=${filter.page}`);
+    // const data = await response.json();
+    // Use dummy data for now
+    floatRequests.value = dummyFloatRequests;
   }
 
   return {
