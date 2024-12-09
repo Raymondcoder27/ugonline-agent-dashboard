@@ -127,6 +127,7 @@ export const useBilling = defineStore("billing", () => {
       amount: -payload.amount,
       balance: totalBalance.value + payload.amount,
     })
+  }
 
 
   return {
