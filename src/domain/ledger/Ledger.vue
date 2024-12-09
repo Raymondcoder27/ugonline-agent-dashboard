@@ -131,7 +131,7 @@ const computedTransactions = computed(() => {
   }
 
   // let runningBalance = balanceStore.totalBalance.current || 0;
-  let runningBalance = balanceStore.totalBalance.current || 0;
+  let runningBalance = 0;
 
   return store.floatLedgers.map((transaction) => {
     runningBalance += transaction.amount;
