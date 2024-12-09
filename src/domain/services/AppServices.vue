@@ -4,6 +4,8 @@ import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
 import { useServicesStore } from "@/domain/services/stores";
+import { IGoFilter } from "@/types";
+import { useBalance } from "@/domain/balance/stores";
 // import niraThumbnail from "@/assets/images/nira.png";
 // import epostaThumbnail from "@/assets/images/eposta.png";
 // import naroThumbnail from "@/assets/images/naro.png";
@@ -244,7 +246,8 @@ watch(
     </button> -->
     </div>
     <div class="font-semibold text-gray-500 text-sm mr-5">
-      BALANCE: 15,000,000/=
+      <!-- BALANCE: 15,000,000/= -->
+      {{ balanceStore.totalBalance.toLocaleString() }}
     </div>
   </div>
 
