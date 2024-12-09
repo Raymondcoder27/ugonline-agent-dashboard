@@ -213,9 +213,57 @@ watch(
               <!-- <td class="text-left">{{ transaction.status }}</td> -->
               <td class="text-left">{{ convertDate(transaction.date) }}</td>
               <!-- <td class="text-left"> -->
-              <!-- <button @click="openTransaction(transaction)">Edit</button> -->
+                <!-- <td class="text-black-700 text-center">
+              <div v-if="getManagerByBranch(branch.name)">
+                <label>
+                  {{ getManagerByBranch(branch.name).firstName }}
+                  {{ getManagerByBranch(branch.name).lastName }}
+                </label>
+              </div>
+
+              <div v-else-if="branch.manager">
+                <label>
+                  {{ branch.manager.firstName }} {{ branch.manager.lastName }}
+                </label>
+              </div>
+
+              <div v-else>
+                <button
+                  class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                  @click="allocateManager(branch)"
+                >
+                  Assign Manager
+                </button>
+              </div>
+            </td> -->
               <!-- actions -->
-              
+               <!-- use the same v-if, v-else-if and v-else to make scenarios for draft, repay, or confirmed -->
+              <td class="text-left">
+                <div class="" v-if="submissionDraft(transaction.name)">
+                  <button
+                    class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                    @click="submitDraft(transaction)"
+                  >
+                    Draft
+                  </button>
+                </div>
+                <div class="" v-else-if="submissionRepay(transaction.name)">
+                  <button
+                    class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline"
+                    @click="repay(transaction)"
+                  >
+                    Repay
+                  </button>
+                </div>
+                <div class="" v-else>
+                  <button
+                    class="bg-blue-200 rounded-md font-semibold text-blue-700 p-1 hover:underline"
+                    @click="confirm(transaction)"
+                  >
+                    Confirm
+                  </button>
+                </div>
+
 
               <!-- </td> -->
 
