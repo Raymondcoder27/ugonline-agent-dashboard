@@ -88,7 +88,7 @@ watch(() => form.amount, (value) => {
             <!-- <span v-if="form.amount" class="font-semibold text-green-600">
                {{ form.amount }}
             </span> -->
-            <pre  class="font-semibold text-green-600">{{ form.amount.toLocaleString() }}</pre>
+            <pre  class="font-semibold text-green-600">{{ form.amount.toLocaleString() }}/=</pre>
         </div>
       </div>
      
