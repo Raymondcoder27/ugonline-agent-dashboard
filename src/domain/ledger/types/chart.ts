@@ -11,3 +11,11 @@ export interface ProviderRegistrationStatistic {
     date:string
     providers:number
 }
+
+export interface FloatRequest {
+    id:number
+    dateRequested:string
+    amount:number
+    status:string
+    branchId:number
+}

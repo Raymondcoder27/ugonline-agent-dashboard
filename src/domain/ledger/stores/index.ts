@@ -2,7 +2,7 @@
 
 import { defineStore } from "pinia";
 import { ref } from "vue";
-import type { Transaction, FloatLedger } from "@/domain/billing/types";
+import type { Transaction, FloatLedger, FloatRequest } from "@/domain/billing/types";
 
 export const useBilling = defineStore("billing", () => {
   // Dummy data for testing
@@ -89,6 +89,8 @@ export const useBilling = defineStore("billing", () => {
     totalAmount,
     totalBalance,
     floatLedgers,
+    floatRequests,
+    fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
   };
