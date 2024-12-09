@@ -255,7 +255,7 @@ watch(
                   <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-red-200 rounded-md font-semibold text-red-700 p-1 hover:underline"
+                    class="bg-gray-200 rounded-md font-semibold text-gray-700 p-1 hover:underline border border-gray-300"
                     @click="submitDraft(transaction)"
                   >
                     Draft
@@ -265,7 +265,7 @@ watch(
                   <!-- use transaction.status = repay -->
                 <div class="" v-else-if="transaction.status === 'repay'">
                   <button
-                    class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline"
+                    class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline border border-green-300"
                     @click="repay(transaction)"
                   >
                     Repay
