@@ -8,20 +8,6 @@ export interface TotalBalance {
 
 export const useBalance = defineStore("balance", () => {
   // Initial dummy data for total balance
-  // const dummyTotalBalance = {
-  //   prev: 0,
-  //   current: 300000000, // Initial dummy balance
-  // };
-
-  // const dummyTotalBalance = reactive({
-  //   prev: 0,
-  //   current: 15000000, // Initial dummy balance
-  // });
-
-  
-
-  // // Reactive totalBalance state
-  // const totalBalance = ref<TotalBalance>({ ...dummyTotalBalance });
 
   const totalBalance = reactive<TotalBalance>({
     prev: 0,
