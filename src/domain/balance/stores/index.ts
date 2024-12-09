@@ -13,29 +13,44 @@ export const useBalance = defineStore("balance", () => {
   //   current: 300000000, // Initial dummy balance
   // };
 
-  const dummyTotalBalance = reactive({
-    prev: 0,
-    current: 15000000, // Initial dummy balance
-  });
+  // const dummyTotalBalance = reactive({
+  //   prev: 0,
+  //   current: 15000000, // Initial dummy balance
+  // });
 
   
 
-  // Reactive totalBalance state
-  const totalBalance = ref<TotalBalance>({ ...dummyTotalBalance });
+  // // Reactive totalBalance state
+  // const totalBalance = ref<TotalBalance>({ ...dummyTotalBalance });
+
+  const totalBalance = reactive<TotalBalance>({
+    prev: 0,
+    current: 15000000, // Initial balance
+  });
 
   // Fetch the total balance (dummy data for now)
-  async function fetchTotalBalance() {
-    // Simulate API call
-    totalBalance.value = { ...dummyTotalBalance };
+  // async function fetchTotalBalance() {
+  //   // Simulate API call
+  //   totalBalance.value = { ...dummyTotalBalance };
+  // }
+
+   // Fetch the total balance (Simulate API call)
+   async function fetchTotalBalance() {
+    // Simulate fetching updated balance data
+    const fetchedBalance = {
+      prev: totalBalance.current,
+      current: 15000000, // Example fetched balance
+    };
+    Object.assign(totalBalance, fetchedBalance);
   }
 
   // Increase the total balance and update the "prev" value
-  async function increaseTotalBalance(amount: number) {
-    totalBalance.value = {
-      prev: totalBalance.value.current,
-      current: totalBalance.value.current + amount,
-    };
-  }
+  // async function increaseTotalBalance(amount: number) {
+  //   totalBalance.value = {
+  //     prev: totalBalance.value.current,
+  //     current: totalBalance.value.current + amount,
+  //   };
+  // }
 
   // Increase balance
 // async function increaseTotalBalance(amount: number) {
@@ -52,18 +67,30 @@ export const useBalance = defineStore("balance", () => {
   //   };
   // }
 
-  async function decreaseTotalBalance(amount: number) {
-    console.log("Previous:", totalBalance.value.prev, "Current:", totalBalance.value.current);
-    totalBalance.value = {
-      prev: totalBalance.value.current,
-      current: totalBalance.value.current - amount,
-    };
-    console.log("Updated:", totalBalance.value);
-  }
+  // async function decreaseTotalBalance(amount: number) {
+  //   console.log("Previous:", totalBalance.value.prev, "Current:", totalBalance.value.current);
+  //   totalBalance.value = {
+  //     prev: totalBalance.value.current,
+  //     current: totalBalance.value.current - amount,
+  //   };
+  //   console.log("Updated:", totalBalance.value);
+  // }
 
-  dummyTotalBalance.current = totalBalance.value.current;
+  // dummyTotalBalance.current = totalBalance.value.current;
 
-  totalBalance.value = { ...dummyTotalBalance };
+  // totalBalance.value = { ...dummyTotalBalance };
+
+    // Increase the total balance and update the "prev" value
+    async function increaseTotalBalance(amount: number) {
+      totalBalance.prev = totalBalance.current;
+      totalBalance.current += amount;
+    }
+  
+    // Decrease the total balance and update the "prev" value
+    async function decreaseTotalBalance(amount: number) {
+      totalBalance.prev = totalBalance.current;
+      totalBalance.current -= amount;
+    }
 
   // Decrease balance
 // async function decreaseTotalBalance(amount: number) {
