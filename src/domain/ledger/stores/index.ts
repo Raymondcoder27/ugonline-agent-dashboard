@@ -111,6 +111,7 @@ export const useBilling = defineStore("billing", () => {
     totalBalance,
     floatLedgers,
     floatRequests,
+    requestFloat,
     fetchFloatRequests,
     fetchTransactions,
     fetchFloatLedgers,
