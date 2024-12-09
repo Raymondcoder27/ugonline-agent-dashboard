@@ -5,7 +5,7 @@ import { type Ref, ref, reactive } from "vue";
 import { useAccounts } from "@/domain/accounts/stores";
 import { useNotificationsStore } from "@/stores/notifications";
 import { defineEmits } from "vue";
-import { useBilling } from "@/domain/finances/stores";
+import { useBilling } from "@/domain/ledger/stores";
 import { useBalance } from "@/domain/balance/stores";
 
 const billingStore = useBilling();
