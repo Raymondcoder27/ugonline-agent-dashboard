@@ -190,10 +190,33 @@ watch(
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-          <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
+          <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
             <i class="px-1 fa-solid fa-plus"></i> Add Account
-          </button>
+          </button> -->
+          <div class="flex space-x-4">
+          <div class="block">
+            <label for="date-from" class="mr-2 text-sm text-gray-600"
+              >From:</label
+            >
+            <input
+              type="date"
+              id="date-from"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.fromDate"
+            />
+          </div>
+          <div class="block">
+            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              id="date-to"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.toDate"
+            />
+          </div>
         </div>
+        </div>
+        
       </div>
     </div>
       <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
