@@ -3,7 +3,12 @@ import AppModal from "@/components/AppModal.vue";
 import { onMounted, ref, reactive, watch } from "vue";
 import { useBilling } from "@/domain/ledger/stores"; // Import the appropriate store
 import { useDebounceFn } from "@vueuse/core";
-import type { Transaction, FloatLedger, FloatRequest, FloatManagement } from "./types"; // Import billing types
+import type {
+  Transaction,
+  FloatLedger,
+  FloatRequest,
+  FloatManagement,
+} from "./types"; // Import billing types
 import moment from "moment/moment";
 import RequestFloat from "./components/RequestFloat.vue";
 
@@ -20,31 +25,29 @@ const filter = reactive({
   sort: [
     {
       field: "date",
-      order: "ASC"
-    }
+      order: "ASC",
+    },
   ],
   filter: [
     {
       field: "description",
       operand: "",
-      operator: "CONTAINS"
+      operator: "CONTAINS",
     },
     {
       field: "amount",
       operand: "",
-      operator: "GREATER_THAN"
+      operator: "GREATER_THAN",
     },
     {
       field: "balance",
       operand: "",
-      operator: "GREATER_THAN"
+      operator: "GREATER_THAN",
     },
   ],
   fromDate: "", // Add fromDate
-  toDate: "" // Add toDate
+  toDate: "", // Add toDate
 });
-
-
 
 function fetchTransactions() {
   filter.limit = limit.value;
@@ -55,7 +58,7 @@ function fetchTransactions() {
     filter.filter.push({
       field: "date",
       operator: "BETWEEN",
-      operand: [filter.fromDate, filter.toDate]
+      operand: [filter.fromDate, filter.toDate],
     });
   }
 
@@ -85,19 +88,30 @@ function convertDateTime(date: string) {
 }
 
 // Debounced filter update function
-const updateFilter = useDebounceFn(() => {
-  fetchTransactions();
-}, 300, { maxWait: 5000 });
+const updateFilter = useDebounceFn(
+  () => {
+    fetchTransactions();
+  },
+  300,
+  { maxWait: 5000 }
+);
 
 // Watch for changes in the modal state
-watch(() => modalOpen.value, (isOpen) => {
-  if (!isOpen) {
-    // Handle modal close if needed
+watch(
+  () => modalOpen.value,
+  (isOpen) => {
+    if (!isOpen) {
+      // Handle modal close if needed
+    }
   }
-});
+);
 
 // Watch for changes in the filter object
-watch(() => filter, () => updateFilter(), { deep: true });
+watch(
+  () => filter,
+  () => updateFilter(),
+  { deep: true }
+);
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
@@ -109,7 +123,6 @@ onMounted(() => {
 
 <template>
   <div class="">
-
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2">
       <!-- <div class="flex items-center justify-end border-b pb-4 mb-4 mt-3">
@@ -123,34 +136,39 @@ onMounted(() => {
         </div>
       </div> -->
       <div class="flex items-center justify-end border-b pb-4 mb-4">
-  <div class="flex space-x-4">
-    <div>
-      <label for="date-from" class="mr-2 text-sm text-gray-600">From:</label>
-      <input
-        type="date"
-        id="date-from"
-        class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        v-model="filter.fromDate"
-      />
-    </div>
-    <div>
-      <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
-      <input
-        type="date"
-        id="date-to"
-        class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-        v-model="filter.toDate"
-      />
-    </div>
+        <div class="flex space-x-4">
+          <div>
+            <label for="date-from" class="mr-2 text-sm text-gray-600"
+              >From:</label
+            >
+            <input
+              type="date"
+              id="date-from"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.fromDate"
+            />
+          </div>
+          <div>
+            <label for="date-to" class="mr-2 text-sm text-gray-600">To:</label>
+            <input
+              type="date"
+              id="date-to"
+              class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              v-model="filter.toDate"
+            />
+          </div>
 
-    <button @click="modalOpen = true" class="button btn-sm my-auto mt-6" type="button">
+          <button
+            @click="modalOpen = true"
+            class="button btn-sm my-auto mt-6"
+            type="button"
+          >
             <i class="px-1 fa-solid fa-plus"></i> Request Float
           </button>
-  </div>
-</div>
+        </div>
+      </div>
 
-
-<div class="flex my-1">
+      <div class="flex my-1">
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
@@ -172,7 +190,7 @@ onMounted(() => {
           </thead>
           <tbody>
             <tr
-              v-for="(transaction) in store.floatLedgers"
+              v-for="transaction in store.floatLedgers"
               :key="transaction.id"
               class="body-tr"
             >
@@ -234,10 +252,9 @@ onMounted(() => {
         </table>
       </div>
 
-
       <!-- Table -->
-     <!-- Table -->
-     <!-- <div class="flex my-1">
+      <!-- Table -->
+      <!-- <div class="flex my-1">
         <table class="table w-full">
           <thead>
             <tr class="header-tr">
@@ -283,13 +300,12 @@ onMounted(() => {
           </tfoot>
         </table>
       </div> -->
-
     </div>
 
     <!-- Modal -->
     <AppModal v-model="modalOpen" xl2>
       <!-- Your modal content goes here -->
-       <RequestFloat :close="close" />
+      <RequestFloat :close="close" />
     </AppModal>
   </div>
 </template>
