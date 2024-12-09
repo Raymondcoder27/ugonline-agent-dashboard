@@ -368,7 +368,7 @@ onMounted(() => {
     <!-- Modal -->
     <AppModal v-model="modalOpen" xl2>
       <!-- Your modal content goes here -->
-      <RequestFloat :close="close" />
+      <RequestFloat @floatAllocated="close" :close="close" />
     </AppModal>
   </div>
 </template>

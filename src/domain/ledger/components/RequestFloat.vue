@@ -45,7 +45,7 @@ const store = useAccounts()
 function submit() {
   const payload = {
     amount: form.amount,
-    // tillId: form.tillId,
+    tillId: form.tillId,
   };
   
   console.log("Submitting payload:", payload);
