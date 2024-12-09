@@ -83,12 +83,14 @@ watch(() => form.amount, (value) => {
       <div class="flex">
         <div class="cell-full">
           <label class="block uppercase text-neutral-600 text-xs font-bold mb-1">Amount (UGX)</label>
-          <input autocomplete="off" type="text" v-model="form.amount" class="noFocus form-element e-input w-full"
+          <input autocomplete="off" type="number" v-model="form.amount" class="noFocus form-element e-input w-full"
             required />
             <!-- <span v-if="form.amount" class="font-semibold text-green-600">
                {{ form.amount }}
             </span> -->
+            <span v-if="form.amount">
             <pre  class="font-semibold text-green-600">{{ form.amount.toLocaleString() }}/=</pre>
+          </span>
         </div>
       </div>
      
