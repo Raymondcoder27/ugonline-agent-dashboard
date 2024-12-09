@@ -103,6 +103,7 @@ export const useBilling = defineStore("billing", () => {
       amount: payload.amount,
       status: "Pending",
       tillId: payload.tillId,
+      description: "Till " + payload.tillId,
     })
   }
 
