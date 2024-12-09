@@ -27,7 +27,7 @@ let form: CreateAccount = reactive({
 })
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel, floatAllocated'])
+const emit = defineEmits(['cancel', 'floatAllocated'])
 const store = useAccounts()
 // function submit() {
 //   loading.value = true
