@@ -27,20 +27,20 @@ let form: CreateAccount = reactive({
 })
 const notify = useNotificationsStore()
 const loading: Ref<boolean> = ref(false);
-const emit = defineEmits(['cancel'])
+const emit = defineEmits(['cancel, floatAllocated'])
 const store = useAccounts()
-function submit() {
-  loading.value = true
-  store.createAccount(form)
-    .then(() => {
-      loading.value = false
-      notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
-      emit("cancel")
-    })
-    .catch(() => {
-      loading.value = false
-    })
-}
+// function submit() {
+//   loading.value = true
+//   store.createAccount(form)
+//     .then(() => {
+//       loading.value = false
+//       notify.success(`An account verification email has been sent to ${form.username.toLowerCase()}.`)
+//       emit("cancel")
+//     })
+//     .catch(() => {
+//       loading.value = false
+//     })
+// }
 
 function submit() {
   const payload = {
