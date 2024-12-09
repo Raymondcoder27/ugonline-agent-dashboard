@@ -190,10 +190,6 @@ watch(
             <option value="active">Active</option>
             <option value="blocked">Blocked</option>
           </select> -->
-          <!-- <button @click="modalOpen = true" class="button btn-sm my-auto" type="button">
-            <i class="px-1 fa-solid fa-plus"></i> Add Account
-          </button> -->
-          <div class="flex space-x-4">
           <div class="block">
             <label for="date-from" class="mr-2 text-sm text-gray-600"
               >From:</label
@@ -214,7 +210,6 @@ watch(
               v-model="filter.toDate"
             />
           </div>
-        </div>
         </div>
         
       </div>
