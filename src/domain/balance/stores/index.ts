@@ -34,16 +34,6 @@ export const useBalance = defineStore("balance", () => {
   //   totalBalance.value = { ...dummyTotalBalance };
   // }
 
-   // Fetch the total balance (Simulate API call)
-   async function fetchTotalBalance() {
-    // Simulate fetching updated balance data
-    const fetchedBalance = {
-      prev: totalBalance.current,
-      current: 15000000, // Example fetched balance
-    };
-    Object.assign(totalBalance, fetchedBalance);
-  }
-
   // Increase the total balance and update the "prev" value
   // async function increaseTotalBalance(amount: number) {
   //   totalBalance.value = {
@@ -92,11 +82,16 @@ export const useBalance = defineStore("balance", () => {
       totalBalance.current -= amount;
     }
 
-  // Decrease balance
-// async function decreaseTotalBalance(amount: number) {
-//   totalBalance.value.prev = totalBalance.value.current;
-//   totalBalance.value.current -= amount; // Mutating individual properties
-// }
+   // Fetch the total balance (Simulate API call)
+   async function fetchTotalBalance() {
+    // Simulate fetching updated balance data
+    const fetchedBalance = {
+      prev: totalBalance.current,
+      current: 15000000, // Example fetched balance
+    };
+    Object.assign(totalBalance, fetchedBalance);
+  }
+
   
 
   return {
