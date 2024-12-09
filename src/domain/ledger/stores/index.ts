@@ -113,7 +113,7 @@ export const useBilling = defineStore("billing", () => {
     floatLedgers.value.push({
       id: floatLedgers.value.length + 1,
       date: new Date().toISOString(),
-      description: "Till " + payload.tillId,
+      description: payload.description,
       amount: -payload.amount,
       balance: totalBalance.value + payload.amount,
     })
