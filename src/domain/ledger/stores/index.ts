@@ -55,14 +55,38 @@ export const useBilling = defineStore("billing", () => {
 
   async function fetchTransactions(filter: any) {
     const filteredData = dummyTransactions.filter((transaction) => {
-      if (filter.filter[0].operand) {
-        return transaction.description.includes(filter.filter[0].operand);
+      // Check the description filter
+      if (filter.filter[0].operand && !transaction.description.includes(filter.filter[0].operand)) {
+        return false;
       }
+  
+      // Check the amount filter (greater than)
+      if (filter.filter[1].operand && transaction.amount <= Number(filter.filter[1].operand)) {
+        return false;
+      }
+  
+      // Check the balance filter (greater than)
+      if (filter.filter[2].operand && transaction.balance <= Number(filter.filter[2].operand)) {
+        return false;
+      }
+  
+      // Handle date range filter
+      if (filter.fromDate && filter.toDate) {
+        const transactionDate = moment(transaction.date);
+        const fromDate = moment(filter.fromDate);
+        const toDate = moment(filter.toDate);
+        if (transactionDate.isBefore(fromDate) || transactionDate.isAfter(toDate)) {
+          return false;
+        }
+      }
+  
       return true;
     });
+  
     transactions.value = filteredData;
     console.log("Filtered transactions:", filteredData);
   }
+  
   
 
   // async function fetchFloatLedgers(filter: any) {
