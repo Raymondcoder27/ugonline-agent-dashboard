@@ -133,19 +133,30 @@ function convertDateTime(date: string) {
 //   store.fetchTransactions(filter);
 // }, 300);
 
+const description = ref("");
+
 const updateFilter = useDebounceFn(() => {
   console.log("Filter updated, fetching transactions...");
   store.fetchFloatLedgers(filter);
 }, 300);
 
 watch(
-  () => filter,
+  () => [filter.fromDate, filter.toDate, description.value],
   () => {
-    console.log("Filter updated:", filter);
     updateFilter();
   },
   { deep: true }
 );
+
+
+// watch(
+//   () => filter,
+//   () => {
+//     console.log("Filter updated:", filter);
+//     updateFilter();
+//   },
+//   { deep: true }
+// );
 
 // watch(
 //   () => filter.filter,
@@ -154,24 +165,24 @@ watch(
 // );
 
 // Watch for changes in the modal state
-watch(
-  () => modalOpen.value,
-  (isOpen) => {
-    if (!isOpen) {
-      // Handle modal close if needed
-    }
-  }
-);
+// watch(
+//   () => modalOpen.value,
+//   (isOpen) => {
+//     if (!isOpen) {
+//       // Handle modal close if needed
+//     }
+//   }
+// );
 
-// Watch for changes in the filter object
-watch(
-  () => filter,
-  () => {
-    console.log("Filter updated:", filter);
-    updateFilter();
-  },
-  { deep: true }
-);
+// // Watch for changes in the filter object
+// watch(
+//   () => filter,
+//   () => {
+//     console.log("Filter updated:", filter);
+//     updateFilter();
+//   },
+//   { deep: true }
+// );
 
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
@@ -201,44 +212,44 @@ const computedTransactions = computed(() => {
   });
 });
 
-watch(
-  computedTransactions,
-  (transactions) => {
-    console.log("Computed transactions:", transactions);
-  },
-  { deep: true }
-);
+// watch(
+//   computedTransactions,
+//   (transactions) => {
+//     console.log("Computed transactions:", transactions);
+//   },
+//   { deep: true }
+// );
 
-watch(
-  () => balanceStore.totalBalance.value,
-  (newVal, oldVal) => {
-    console.log("Balance updated:", oldVal, "->", newVal);
-  },
-  { deep: true }
-);
+// watch(
+//   () => balanceStore.totalBalance.value,
+//   (newVal, oldVal) => {
+//     console.log("Balance updated:", oldVal, "->", newVal);
+//   },
+//   { deep: true }
+// );
 
-let description = ref("")
-watch(
-    () => description.value,
-    () => {
-      fetchFloatLedgers()
-    },
-);
+// let description = ref("")
+// watch(
+//     () => description.value,
+//     () => {
+//       fetchFloatLedgers()
+//     },
+// );
 
-watch(
-  () => description.value,
-  () => {
-    filter.filter = filter.filter.filter((f) => f.field !== "description");
-    if (description.value) {
-      filter.filter.push({
-        field: "description",
-        operand: description.value,
-        operator: "EQUALS",
-      });
-    }
-    fetchFloatLedgers();
-  }
-);
+// watch(
+//   () => description.value,
+//   () => {
+//     filter.filter = filter.filter.filter((f) => f.field !== "description");
+//     if (description.value) {
+//       filter.filter.push({
+//         field: "description",
+//         operand: description.value,
+//         operator: "EQUALS",
+//       });
+//     }
+//     fetchFloatLedgers();
+//   }
+// );
 
 
 // Fetch billing data (transactions, float ledgers)
@@ -276,11 +287,14 @@ onMounted(() => {
                 v-if="filter.filter"
                 v-model="description"
                 class="filter-element e-input"
-                @change="fetchTransactions"
+                @change="fetchFloatLedgers"
               >
                 <option value="">All Transactions</option>
-                <option value="Recharge">Recharge</option>
-                <option value="serviceFee">Service Fee</option>
+                <!-- <option value="Recharge">Recharge</option>
+                <option value="serviceFee">Service Fee</option> -->
+                <option value="recharge">Recharge</option>
+<option value="service_fee">Service Fee</option>
+
               </select>
 
               <div class="flex">
