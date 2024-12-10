@@ -319,7 +319,7 @@ watch(
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-gray-100 rounded-md font-semibold text-gray-600 p-1 hover:underline border border-gray-300"
+                    class="bg-gray-100 rounded-md font-semibold text-gray-600 px-1 py-0.5 hover:underline border border-gray-300"
                     @click="submitDraft(transaction)"
                   >
                     Draft
@@ -329,7 +329,7 @@ watch(
                 <!-- use transaction.status = repay -->
                 <div class="" v-else-if="transaction.status === 'repay'">
                   <button
-                    class="bg-green-100 rounded-md font-semibold text-green-700 p-1 hover:underline border border-green-300"
+                    class="bg-green-100 rounded-md font-semibold text-green-700 px-1 py-0.5 hover:underline border border-green-300"
                     @click="repay(transaction)"
                   >
                     Repay
@@ -337,7 +337,7 @@ watch(
                 </div>
                 <div class="" v-else>
                   <span
-                    class="bg-blue-100 rounded-md font-semibold text-blue-700 p-1 border border-blue-300"
+                    class="bg-blue-100 rounded-md font-semibold text-blue-700 px-1 py-0.5 border border-blue-300"
                     @click="confirm(transaction)"
                   >
                     Confirmed
