@@ -63,7 +63,7 @@ function fetchTransactions() {
       operand: [filter.fromDate, filter.toDate],
     });
   }
-
+  console.log("Filter object sent to fetchTransactions:", filter);
   store.fetchTransactions(filter); // Fetch transactions based on filter
 }
 
