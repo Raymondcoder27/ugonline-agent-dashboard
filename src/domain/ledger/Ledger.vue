@@ -258,6 +258,7 @@ onMounted(() => {
                 v-if="filter.filter"
                 v-model="filter.filter[0].operand"
                 class="filter-element e-input"
+                @change="fetchTransactions"
               >
                 <option value="">All Transactions</option>
                 <option value="recharge">Recharge</option>
