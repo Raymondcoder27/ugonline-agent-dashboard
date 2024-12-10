@@ -53,7 +53,7 @@ export const useBilling = defineStore("billing", () => {
   //   totalBalance.value = 3000; // Set a test value
   // }
 
-  async function fetchTransactions(filter) {
+  async function fetchTransactions(filter: any) {
     const filteredData = dummyTransactions.filter((transaction) => {
       if (filter.filter[0].operand) {
         return transaction.description.includes(filter.filter[0].operand);
