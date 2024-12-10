@@ -159,6 +159,11 @@ watch(
   { deep: true }
 );
 
+watch(() => filter.filter[2].operand, (newValue) => {
+  console.log("Filter description operand updated:", newValue);
+});
+
+
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
