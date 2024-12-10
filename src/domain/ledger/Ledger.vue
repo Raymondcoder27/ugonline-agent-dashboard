@@ -78,12 +78,12 @@ const filter = reactive({
 
 async function fetchTransactions() {
     // Remove any previous 'status' filters
-    filter.filter = filter.filter.filter((f) => f.field !== "status");
+    filter.filter = filter.filter.filter((f) => f.field !== "description");
 
-    if (status.value) {
+    if (description.value) {
         filter.filter.push({
-            field: "status",
-            operand: status.value,
+            field: "description",
+            operand: description.value,
             operator: "EQUALS",
         });
     }
@@ -212,9 +212,9 @@ watch(
   { deep: true }
 );
 
-let status = ref("")
+let description = ref("")
 watch(
-    () => status.value,
+    () => description.value,
     () => {
       fetchTransactions()
     },
@@ -260,13 +260,13 @@ onMounted(() => {
 
               <select
                 v-if="filter.filter"
-                v-model="status"
+                v-model="description"
                 class="filter-element e-input"
                 @change="fetchTransactions"
               >
                 <option value="">All Transactions</option>
-                <option value="recharge">Recharge</option>
-                <option value="servicefee">Service Fee</option>
+                <option value="Recharge">Recharge</option>
+                <option value="serviceFee">Service Fee</option>
               </select>
 
               <div class="flex">
