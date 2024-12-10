@@ -124,7 +124,7 @@ function convertDateTime(date: string) {
 
 const updateFilter = useDebounceFn(() => {
   console.log("Filter updated, fetching transactions...");
-  fetchTransactions(filter);
+  store.fetchTransactions(filter);
 }, 300);
 
 watch(
