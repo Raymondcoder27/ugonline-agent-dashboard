@@ -215,6 +215,13 @@ watch(
   { deep: true }
 );
 
+let status = ref("")
+watch(
+    () => status.value,
+    () => {
+      fetchTransactions()
+    },
+);
 // watch(
 //   () => filter.filter[0].operand,
 //   (newValue, oldValue) => {
@@ -256,7 +263,7 @@ onMounted(() => {
 
               <select
                 v-if="filter.filter"
-                v-model="filter.filter[0].operand"
+                v-model="status"
                 class="filter-element e-input"
                 @change="fetchTransactions"
               >
