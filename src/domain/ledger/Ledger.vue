@@ -138,6 +138,16 @@ const updateFilter = useDebounceFn(() => {
   store.fetchTransactions(filter);
 }, 300);
 
+watch(
+  () => filter,
+  () => {
+    console.log("Filter updated:", filter);
+    updateFilter();
+  },
+  { deep: true }
+);
+
+
 // watch(
 //   () => filter.filter,
 //   () => updateFilter(),
