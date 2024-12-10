@@ -61,15 +61,17 @@ export const useBilling = defineStore("billing", () => {
   //   floatLedgers.value = dummyFloatLedgers;
   // }
 
-  async function fetchFloatLedgers(filter: any) {
-    // Simulate filtering with dummy data
-    const filteredData = dummyFloatLedgers.filter(item => {
-      // Example: filter by status
-      return !filter.status || item.status === filter.status;
-    }).slice(0, filter.limit || dummyFloatLedgers.length);
-  
-    floatLedgers.value = filteredData;
+  async function fetchTransactions(filter) {
+    const filteredData = dummyTransactions.filter((transaction) => {
+      if (filter.filter[0].operand) {
+        return transaction.description.includes(filter.filter[0].operand);
+      }
+      return true;
+    });
+    transactions.value = filteredData;
+    console.log("Filtered transactions:", filteredData);
   }
+  
   
 
    // allocate float function, push to the float allocation array

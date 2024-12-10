@@ -114,13 +114,25 @@ function convertDateTime(date: string) {
 }
 
 // Debounced filter update function
-const updateFilter = useDebounceFn(
-  () => {
-    fetchTransactions();
-  },
-  300,
-  { maxWait: 5000 }
+// const updateFilter = useDebounceFn(
+//   () => {
+//     fetchTransactions();
+//   },
+//   300,
+//   { maxWait: 5000 }
+// );
+
+const updateFilter = useDebounceFn(() => {
+  console.log("Filter updated, fetching transactions...");
+  fetchTransactions(filter);
+}, 300);
+
+watch(
+  () => filter.filter,
+  () => updateFilter(),
+  { deep: true }
 );
+
 
 // Watch for changes in the modal state
 watch(
