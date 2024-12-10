@@ -224,18 +224,27 @@ watch(
       fetchFloatLedgers()
     },
 );
-// watch(
-//   () => filter.filter[0].operand,
-//   (newValue, oldValue) => {
-//     console.log("Operand updated:", oldValue, "->", newValue);
-//     fetchTransactions(); // Trigger data fetch whenever operand changes
-//   }
-// );
+
+watch(
+  () => description.value,
+  () => {
+    filter.filter = filter.filter.filter((f) => f.field !== "description");
+    if (description.value) {
+      filter.filter.push({
+        field: "description",
+        operand: description.value,
+        operator: "EQUALS",
+      });
+    }
+    fetchFloatLedgers();
+  }
+);
+
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
-  fetchTransactions();
-  store.fetchFloatLedgers();
+  fetchFloatLedgers();
+  // store.fetchFloatLedgers();
 });
 </script>
 
