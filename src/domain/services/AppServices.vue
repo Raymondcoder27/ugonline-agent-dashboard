@@ -133,7 +133,7 @@ onMounted(() => {
 
   <!-- Styled Search Bar -->
   <div
-    class="flex px-4 py-3 border border-gray-600 w-full justify-between items-center mb-6 bg-white"
+    class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
   >
     <div
       class="w-1/3 bg-white rounded-full flex items-center justify-center border border-gray-50 px-4 focus:ring-2 focus:ring-red-500"
@@ -160,7 +160,7 @@ onMounted(() => {
 
 
 
-  <div class="flex justify-end items-center mt-2 mb-2">
+  <div class="flex justify-end items-center mt-1 mb-1">
         <!-- Previous Button -->
         <button
           class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
