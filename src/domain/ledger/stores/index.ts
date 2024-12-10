@@ -43,22 +43,14 @@ export const useBilling = defineStore("billing", () => {
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
 
   // Actions to fetch data
-  async function fetchTransactions(filter: any) {
-    // Simulate API call
-    // const response = await fetch(`/api/transactions?limit=${filter.limit}&page=${filter.page}`);
-    // const data = await response.json();
-    // Use dummy data for now
-    transactions.value = dummyTransactions;
-    totalAmount.value = 600;  // Set a test value
-    totalBalance.value = 3000; // Set a test value
-  }
-
-  // async function fetchFloatLedgers(filter: any) {
+  // async function fetchTransactions(filter: any) {
   //   // Simulate API call
-  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
+  //   // const response = await fetch(`/api/transactions?limit=${filter.limit}&page=${filter.page}`);
   //   // const data = await response.json();
   //   // Use dummy data for now
-  //   floatLedgers.value = dummyFloatLedgers;
+  //   transactions.value = dummyTransactions;
+  //   totalAmount.value = 600;  // Set a test value
+  //   totalBalance.value = 3000; // Set a test value
   // }
 
   async function fetchTransactions(filter) {
@@ -72,6 +64,24 @@ export const useBilling = defineStore("billing", () => {
     console.log("Filtered transactions:", filteredData);
   }
   
+
+  // async function fetchFloatLedgers(filter: any) {
+  //   // Simulate API call
+  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
+  //   // const data = await response.json();
+  //   // Use dummy data for now
+  //   floatLedgers.value = dummyFloatLedgers;
+  // }
+
+  async function fetchFloatLedgers(filter: any) {
+    // Simulate filtering with dummy data
+    const filteredData = dummyFloatLedgers.filter(item => {
+      // Example: filter by status
+      return !filter.status || item.status === filter.status;
+    }).slice(0, filter.limit || dummyFloatLedgers.length);
+  
+    floatLedgers.value = filteredData;
+  }
   
 
    // allocate float function, push to the float allocation array
