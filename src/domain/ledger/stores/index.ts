@@ -78,15 +78,64 @@ export const useBilling = defineStore("billing", () => {
   //   floatLedgers.value = dummyFloatLedgers;
   // }
 
-  async function fetchFloatLedgers(filter: any) {
-    // Simulate filtering with dummy data
-    const filteredData = dummyFloatLedgers.filter(item => {
-      // Example: filter by status
-      return !filter.status || item.status === filter.status;
-    }).slice(0, filter.limit || dummyFloatLedgers.length);
+  // async function fetchFloatLedgers(filter: any) {
+  //   // Simulate filtering with dummy data
+  //   const filteredData = dummyFloatLedgers.filter(item => {
+  //     // Example: filter by status
+  //     return !filter.status || item.status === filter.status;
+  //   }).slice(0, filter.limit || dummyFloatLedgers.length);
   
-    floatLedgers.value = filteredData;
+  //   floatLedgers.value = filteredData;
+  // }
+
+  async function fetchFloatLedgers(filter: any) {
+    console.log("Fetching Float Ledgers with filter:", filter);
+  
+    // Filter float ledgers based on the provided filter criteria
+    const filteredData = dummyFloatLedgers.filter(item => {
+      // Filter by status if available in the filter
+      const statusFilter = filter.filter.find(f => f.field === 'status');
+      if (statusFilter && statusFilter.operand && statusFilter.operator === "EQUALS") {
+        if (item.status !== statusFilter.operand) {
+          return false;
+        }
+      }
+  
+      // Filter by date range (fromDate, toDate)
+      if (filter.fromDate && moment(item.date).isBefore(moment(filter.fromDate))) {
+        return false;
+      }
+      if (filter.toDate && moment(item.date).isAfter(moment(filter.toDate))) {
+        return false;
+      }
+  
+      // Optionally filter by other fields (balance, amount, etc.)
+      const balanceFilter = filter.filter.find(f => f.field === 'balance');
+      if (balanceFilter && balanceFilter.operand && balanceFilter.operator === "GREATER_THAN") {
+        if (item.balance <= Number(balanceFilter.operand)) {
+          return false;
+        }
+      }
+  
+      const amountFilter = filter.filter.find(f => f.field === 'amount');
+      if (amountFilter && amountFilter.operand && amountFilter.operator === "GREATER_THAN") {
+        if (item.amount <= Number(amountFilter.operand)) {
+          return false;
+        }
+      }
+  
+      // Pass the item if it passes all filters
+      return true;
+    });
+  
+    // Apply the limit to the filtered data
+    const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
+    
+    // Update the state with the filtered and limited data
+    floatLedgers.value = limitedData;
+    console.log("Filtered float ledgers:", limitedData);
   }
+  
   
 
    // allocate float function, push to the float allocation array
