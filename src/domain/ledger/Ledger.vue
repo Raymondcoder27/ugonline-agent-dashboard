@@ -77,18 +77,28 @@ const filter = reactive({
 // }
 
 function fetchTransactions() {
-  console.log("Filter before fetch:", filter);
+    // Remove any previous 'status' filters
+    filter.filter = filter.filter.filter((f) => f.field !== "status");
 
-  // Ensure `description` filter is applied properly
-  const descriptionFilter = filter.filter.find(
-    (f) => f.field === "description"
-  );
-  if (descriptionFilter && descriptionFilter.operand) {
-    console.log(
-      "Applying description filter with operand:",
-      descriptionFilter.operand
-    );
-  }
+    if (status.value) {
+        filter.filter.push({
+            field: "status",
+            operand: status.value,
+            operator: "EQUALS",
+        });
+    }
+
+    console.log("Filter before fetch:", filter);
+    store.fetchTransactions(filter)
+        .then((response) => {
+            console.log("Fetched transactions:", response);
+        })
+        .catch((error) => {
+            console.error("Error fetching transactions:", error);
+        });
+}
+
+
 
   store
     .fetchTransactions(filter)
