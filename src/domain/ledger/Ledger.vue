@@ -67,6 +67,17 @@ const filter = reactive({
 //   store.fetchTransactions(filter); // Fetch transactions based on filter
 // }
 
+// if (filter.fromDate || filter.toDate) {
+//   const dateFilter = {
+//     field: "date",
+//     operator: "BETWEEN",
+//     operand: [filter.fromDate || "1900-01-01", filter.toDate || "2100-12-31"],
+//   };
+//   filter.filter.push(dateFilter);
+// }
+
+
+
 function fetchTransactions() {
   console.log("Filter before fetch:", filter);
 
@@ -127,11 +138,11 @@ const updateFilter = useDebounceFn(() => {
   store.fetchTransactions(filter);
 }, 300);
 
-watch(
-  () => filter.filter,
-  () => updateFilter(),
-  { deep: true }
-);
+// watch(
+//   () => filter.filter,
+//   () => updateFilter(),
+//   { deep: true }
+// );
 
 
 // Watch for changes in the modal state
@@ -147,9 +158,13 @@ watch(
 // Watch for changes in the filter object
 watch(
   () => filter,
-  () => updateFilter(),
+  () => {
+    console.log("Filter updated:", filter);
+    updateFilter();
+  },
   { deep: true }
 );
+
 
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
@@ -195,13 +210,13 @@ watch(
   { deep: true }
 );
 
-watch(
-  () => filter.filter[0].operand,
-  (newValue, oldValue) => {
-    console.log("Operand updated:", oldValue, "->", newValue);
-    fetchTransactions(); // Trigger data fetch whenever operand changes
-  }
-);
+// watch(
+//   () => filter.filter[0].operand,
+//   (newValue, oldValue) => {
+//     console.log("Operand updated:", oldValue, "->", newValue);
+//     fetchTransactions(); // Trigger data fetch whenever operand changes
+//   }
+// );
 
 
 // Fetch billing data (transactions, float ledgers)
