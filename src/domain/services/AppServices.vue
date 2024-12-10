@@ -13,6 +13,9 @@ const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
 
+  const page: Ref<number> = ref(1);
+    const limit: Ref<number> = ref(16);
+
 function serviceForm(id: string) {
   // Logic to open the modal or start the process
   // console.log(`Assigning manager for branch: ${branch.name}`);
@@ -77,6 +80,24 @@ watch(
   { deep: true }
 );
 
+function next() {
+  page.value += 1;
+  fetch();
+}
+
+function previous() {
+  page.value -= 1;
+  fetch();
+}
+
+
+function fetchServices() {
+  filter.offset = (page.value - 1) * limit.value; // Update offset
+  filter.limit = limit.value;
+  filter.page = page.value; // Ensure pagination is aligned
+  store.fetchServices(filter); // Fetch services
+}
+
 onMounted(() => {
   balanceStore.
   fetchTotalBalance();
@@ -109,7 +130,32 @@ onMounted(() => {
       </table>
     </div> -->
 
-  <!-- <div class="block"> -->
+    <div class="flex justify-end items-center mt-2 mb-2">
+        <!-- Previous Button -->
+        <button
+          class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
+          :disabled="page <= 1"
+          @click="previous"
+        >
+          <i class="fa-solid fa-arrow-left"></i>
+        </button>
+
+        <!-- Page Number Display -->
+        <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+
+        <!-- Next Button -->
+        <button
+          class="px-1 py-0.5 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          :class="{
+            'opacity-50 cursor-not-allowed': store.services.length < limit,
+          }"
+          :disabled="store.services.length < limit"
+          @click="next"
+        >
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
   <!-- Styled Search Bar -->
   <div
     class="flex px-4 py-3 shadow-md w-full justify-between items-center mb-6 bg-white"
