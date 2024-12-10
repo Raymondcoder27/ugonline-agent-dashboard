@@ -319,7 +319,7 @@ watch(
                 <!-- use transaction.status = draft -->
                 <div class="" v-if="transaction.status === 'draft'">
                   <button
-                    class="bg-gray-200 rounded-md font-semibold text-gray-600 p-1 hover:underline border border-gray-300"
+                    class="bg-gray-100 rounded-md font-semibold text-gray-600 p-1 hover:underline border border-gray-300"
                     @click="submitDraft(transaction)"
                   >
                     Draft
