@@ -214,11 +214,9 @@ onMounted(() => {
                 input-type="text"
                 class="filter-element e-input"
                 type="text"
-                placeholder="Drop down provider"
+                placeholder="Filter by Description"
               >
-                <option value="" disabled selected>
-                  Filter by Description
-                </option>
+                <option value="">All Transactions</option>
                 <option value="recharge">Recharge</option>
                 <option value="floatAllocation">Float Allocation</option>
                 <!-- <option value="UMEME">UMEME</option> -->
