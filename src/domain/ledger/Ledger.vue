@@ -76,8 +76,6 @@ const filter = reactive({
 //   filter.filter.push(dateFilter);
 // }
 
-
-
 function fetchTransactions() {
   console.log("Filter before fetch:", filter);
 
@@ -147,13 +145,11 @@ watch(
   { deep: true }
 );
 
-
 // watch(
 //   () => filter.filter,
 //   () => updateFilter(),
 //   { deep: true }
 // );
-
 
 // Watch for changes in the modal state
 watch(
@@ -174,7 +170,6 @@ watch(
   },
   { deep: true }
 );
-
 
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
@@ -228,7 +223,6 @@ watch(
 //   }
 // );
 
-
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchTransactions();
@@ -247,7 +241,7 @@ onMounted(() => {
             class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
           >
             <div class="flex">
-              <select
+              <!-- <select
                 v-if="filter.filter"
                 v-model="filter.filter[0].operand"
                 input-type="text"
@@ -258,8 +252,18 @@ onMounted(() => {
                 <option value="">All Transactions</option>
                 <option value="recharge">Recharge</option>
                 <option value="servicefee">Service Fee</option>
-                <!-- <option value="UMEME">UMEME</option> -->
+              </select> -->
+
+              <select
+                v-if="filter.filter"
+                v-model="filter.filter[0].operand"
+                class="filter-element e-input"
+              >
+                <option value="">All Transactions</option>
+                <option value="recharge">Recharge</option>
+                <option value="servicefee">Service Fee</option>
               </select>
+
               <div class="flex">
                 <div class="flex items-center mr-2">
                   <label for="date-from" class="mr-2 text-sm text-gray-600"
