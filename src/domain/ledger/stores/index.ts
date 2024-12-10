@@ -53,13 +53,24 @@ export const useBilling = defineStore("billing", () => {
     totalBalance.value = 3000; // Set a test value
   }
 
+  // async function fetchFloatLedgers(filter: any) {
+  //   // Simulate API call
+  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
+  //   // const data = await response.json();
+  //   // Use dummy data for now
+  //   floatLedgers.value = dummyFloatLedgers;
+  // }
+
   async function fetchFloatLedgers(filter: any) {
-    // Simulate API call
-    // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
-    // const data = await response.json();
-    // Use dummy data for now
-    floatLedgers.value = dummyFloatLedgers;
+    // Simulate filtering with dummy data
+    const filteredData = dummyFloatLedgers.filter(item => {
+      // Example: filter by status
+      return !filter.status || item.status === filter.status;
+    }).slice(0, filter.limit || dummyFloatLedgers.length);
+  
+    floatLedgers.value = filteredData;
   }
+  
 
    // allocate float function, push to the float allocation array
   //  function allocateFloat(payload: AllocateFloat) {
