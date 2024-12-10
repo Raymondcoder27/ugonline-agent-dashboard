@@ -51,21 +51,40 @@ const filter = reactive({
   toDate: "", // Add toDate
 });
 
-function fetchTransactions() {
-  filter.limit = limit.value;
-  filter.page = page.value;
+// function fetchTransactions() {
+//   filter.limit = limit.value;
+//   filter.page = page.value;
 
-  // Add date filter if both dates are provided
-  if (filter.fromDate && filter.toDate) {
-    filter.filter.push({
-      field: "date",
-      operator: "BETWEEN",
-      operand: [filter.fromDate, filter.toDate],
-    });
+//   // Add date filter if both dates are provided
+//   if (filter.fromDate && filter.toDate) {
+//     filter.filter.push({
+//       field: "date",
+//       operator: "BETWEEN",
+//       operand: [filter.fromDate, filter.toDate],
+//     });
+//   }
+//   console.log("Filter object sent to fetchTransactions:", filter);
+//   store.fetchTransactions(filter); // Fetch transactions based on filter
+// }
+
+function fetchTransactions() {
+  console.log("Filter before fetch:", filter);
+
+  // Ensure `description` filter is applied properly
+  const descriptionFilter = filter.filter.find((f) => f.field === "description");
+  if (descriptionFilter && descriptionFilter.operand) {
+    console.log("Applying description filter with operand:", descriptionFilter.operand);
   }
-  console.log("Filter object sent to fetchTransactions:", filter);
-  store.fetchTransactions(filter); // Fetch transactions based on filter
+
+  store.fetchTransactions(filter)
+    .then((response) => {
+      console.log("Fetched transactions:", response);
+    })
+    .catch((error) => {
+      console.error("Error fetching transactions:", error);
+    });
 }
+
 
 function next() {
   page.value += 1;
