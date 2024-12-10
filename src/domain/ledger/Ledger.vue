@@ -210,7 +210,8 @@ onMounted(() => {
               type="text"
               placeholder="Drop down provider"
             >
-              <option value="" disabled selected>Filter by Description</option>
+              <option value="">-- Select Filter --</option>
+              <option value="description" disabled selected>Filter by Description</option>
               <option value="recharge">Recharge</option>
               <option value="floatAllocation">Float Allocation</option>
               <!-- <option value="UMEME">UMEME</option> -->
