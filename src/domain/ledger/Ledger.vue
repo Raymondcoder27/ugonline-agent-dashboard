@@ -97,20 +97,6 @@ async function fetchTransactions() {
     console.log("Fetched transactions:", response);
 }
 
-
-
-
-
-  store
-    .fetchTransactions(filter)
-    .then((response) => {
-      console.log("Fetched transactions:", response);
-    })
-    .catch((error) => {
-      console.error("Error fetching transactions:", error);
-    });
-}
-
 function next() {
   page.value += 1;
   fetchTransactions();
