@@ -71,12 +71,18 @@ function fetchTransactions() {
   console.log("Filter before fetch:", filter);
 
   // Ensure `description` filter is applied properly
-  const descriptionFilter = filter.filter.find((f) => f.field === "description");
+  const descriptionFilter = filter.filter.find(
+    (f) => f.field === "description"
+  );
   if (descriptionFilter && descriptionFilter.operand) {
-    console.log("Applying description filter with operand:", descriptionFilter.operand);
+    console.log(
+      "Applying description filter with operand:",
+      descriptionFilter.operand
+    );
   }
 
-  store.fetchTransactions(filter)
+  store
+    .fetchTransactions(filter)
     .then((response) => {
       console.log("Fetched transactions:", response);
     })
@@ -84,7 +90,6 @@ function fetchTransactions() {
       console.error("Error fetching transactions:", error);
     });
 }
-
 
 function next() {
   page.value += 1;
@@ -137,7 +142,7 @@ watch(
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
 //   const transactions = store.floatLedgers;
-  
+
 //   return transactions.reduce((balance, tx) => {
 //     return balance + tx.amount;
 //   }, initialBalance);
@@ -178,11 +183,12 @@ watch(
   { deep: true }
 );
 
-watch(() => filter.filter[2].operand, (newValue) => {
-  console.log("Filter description operand updated:", newValue);
-});
-
-
+watch(
+  () => filter.filter[2].operand,
+  (newValue) => {
+    console.log("Filter description operand updated:", newValue);
+  }
+);
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
@@ -197,63 +203,63 @@ onMounted(() => {
     <!-- Header -->
     <div class="max-w-7xl mx-auto bg-white p-2">
       <div class="flex space-x-2 my-1 pt-1 pb-3">
-      <div class="flex-grow">
-        <div
-          class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
-        >
-          <div class="flex">
-            <select
-              v-if="filter.filter !== undefined"
-              input-type="text"
-              v-model="filter.filter[2].operand"
-              class="filter-element e-input"
-              type="text"
-              placeholder="Drop down provider"
-            >
-              <option disabled selected>-- Select Filter --</option>
-              <option value="description">Filter by Description</option>
-              <option value="recharge">Recharge</option>
-              <option value="floatAllocation">Float Allocation</option>
-              <!-- <option value="UMEME">UMEME</option> -->
-            </select>
+        <div class="flex-grow">
+          <div
+            class="flex justify-between bg-gray-10 border border-gray-200 rounded px-2 py-3"
+          >
             <div class="flex">
-              <div class="flex items-center mr-2">
-                <label for="date-from" class="mr-2 text-sm text-gray-600"
-                  >From:</label
-                >
-                <input
-                  type="date"
-                  id="date-from"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  v-model="filter.fromDate"
-                />
-              </div>
-              <div class="flex items-center mr-2">
-                <label for="date-to" class="mr-2 text-sm text-gray-600"
-                  >To:</label
-                >
-                <input
-                  type="date"
-                  id="date-to"
-                  class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-                  v-model="filter.toDate"
-                />
+              <select
+                v-if="filter.filter"
+                v-model="filter.filter[0].operand"
+                input-type="text"
+                class="filter-element e-input"
+                type="text"
+                placeholder="Drop down provider"
+              >
+                <option value="" disabled selected>
+                  Filter by Description
+                </option>
+                <option value="recharge">Recharge</option>
+                <option value="floatAllocation">Float Allocation</option>
+                <!-- <option value="UMEME">UMEME</option> -->
+              </select>
+              <div class="flex">
+                <div class="flex items-center mr-2">
+                  <label for="date-from" class="mr-2 text-sm text-gray-600"
+                    >From:</label
+                  >
+                  <input
+                    type="date"
+                    id="date-from"
+                    class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    v-model="filter.fromDate"
+                  />
+                </div>
+                <div class="flex items-center mr-2">
+                  <label for="date-to" class="mr-2 text-sm text-gray-600"
+                    >To:</label
+                  >
+                  <input
+                    type="date"
+                    id="date-to"
+                    class="border rounded-md px-3 py-2 text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    v-model="filter.toDate"
+                  />
+                </div>
               </div>
             </div>
+            <div class="">
+              <button
+                @click="modalOpen = true"
+                class="button btn-sm"
+                type="button"
+              >
+                <i class="px-1 fa-solid fa-plus"></i> Request Float
+              </button>
+            </div>
           </div>
-         <div class="">
-          <button
-            @click="modalOpen = true"
-            class="button btn-sm"
-            type="button"
-          >
-            <i class="px-1 fa-solid fa-plus"></i> Request Float
-          </button>
-         </div>
         </div>
       </div>
-    </div>
-
 
       <div class="flex my-1">
         <table class="table w-full">
@@ -263,7 +269,9 @@ onMounted(() => {
               <th class="t-header">Date</th>
               <th class="t-header">Description</th>
               <th class="text-right t-header">Amount</th>
-              <th class="text-right first-letter:capitalize t-header">Status</th>
+              <th class="text-right first-letter:capitalize t-header">
+                Status
+              </th>
               <th class="text-right t-header">Balance</th>
             </tr>
           </thead>
@@ -320,47 +328,46 @@ onMounted(() => {
                 <span>{{ transaction.amount.toLocaleString() }}</span>
               </td>
               <td class="text-left">
-              <!-- First Case: float request approved -->
-              <div v-if="transaction.status === 'pending'">
-                <!-- <td> -->
-                <!-- <label> -->
-                <span
-                  class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-gray-200"
-                  @click="open(transaction)"
-                  >Pending</span
-                >
-                <!-- </label> -->
-                <!-- </td> -->
-              </div>
-
-              <!-- Second Case: Manager directly assigned to branch -->
-              <div v-else-if="transaction.status === 'failed'">
-                <!-- <td> -->
-                <label>
+                <!-- First Case: float request approved -->
+                <div v-if="transaction.status === 'pending'">
+                  <!-- <td> -->
+                  <!-- <label> -->
                   <span
-                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                    class="text-xs cursor-pointer rounded-md p-1 font-semibold text-gray-600 bg-gray-50 border border-gray-200 hover:text-gray-700 hover:bg-gray-200"
                     @click="open(transaction)"
-                    >Failed</span
+                    >Pending</span
                   >
-                </label>
-                <!-- </td> -->
-              </div>
+                  <!-- </label> -->
+                  <!-- </td> -->
+                </div>
 
-              <!-- Third Case: Fallback, no manager assigned -->
-              <div v-else>
-                <!-- <td> -->
-                <span
-                  class="text-xs rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
-                  >Success</span
-                >
-              </div>
-            </td>
+                <!-- Second Case: Manager directly assigned to branch -->
+                <div v-else-if="transaction.status === 'failed'">
+                  <!-- <td> -->
+                  <label>
+                    <span
+                      class="text-xs cursor-pointer rounded-md p-1 font-semibold text-red-600 bg-red-100 border border-red-200 hover:text-red-700 hover:bg-red-200"
+                      @click="open(transaction)"
+                      >Failed</span
+                    >
+                  </label>
+                  <!-- </td> -->
+                </div>
 
-            <td class="text-left text-gray-800">
+                <!-- Third Case: Fallback, no manager assigned -->
+                <div v-else>
+                  <!-- <td> -->
+                  <span
+                    class="text-xs rounded-md p-1 font-semibold text-green-600 bg-green-100 border border-green-200 hover:text-green-700 hover:bg-green-200"
+                    >Success</span
+                  >
+                </div>
+              </td>
+
+              <td class="text-left text-gray-800">
                 <!-- <span>{{ transaction.balance.toLocaleString() }}</span> -->
                 <span>{{ transaction.balance.toLocaleString() }}</span>
               </td>
-
             </tr>
           </tbody>
           <!-- <tfoot>
