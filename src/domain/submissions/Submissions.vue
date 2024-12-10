@@ -329,7 +329,7 @@ watch(
                 <!-- use transaction.status = repay -->
                 <div class="" v-else-if="transaction.status === 'repay'">
                   <button
-                    class="bg-green-200 rounded-md font-semibold text-green-700 p-1 hover:underline border border-green-300"
+                    class="bg-green-100 rounded-md font-semibold text-green-700 p-1 hover:underline border border-green-300"
                     @click="repay(transaction)"
                   >
                     Repay
