@@ -220,7 +220,7 @@ onMounted(() => {
               >
                 <option value="">All Transactions</option>
                 <option value="recharge">Recharge</option>
-                <option value="floatAllocation">Float Allocation</option>
+                <option value="servicefee">Service Fee</option>
                 <!-- <option value="UMEME">UMEME</option> -->
               </select>
               <div class="flex">
