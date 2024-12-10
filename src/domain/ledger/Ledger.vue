@@ -76,27 +76,33 @@ const filter = reactive({
 //   filter.filter.push(dateFilter);
 // }
 
-function fetchTransactions() {
-    // Remove any previous 'status' filters
-    filter.filter = filter.filter.filter((f) => f.field !== "status");
+async function fetchTransactions() {
+    try {
+        // Remove any previous 'status' filters
+        filter.filter = filter.filter.filter((f) => f.field !== "status");
 
-    if (status.value) {
-        filter.filter.push({
-            field: "status",
-            operand: status.value,
-            operator: "EQUALS",
-        });
-    }
+        if (status.value) {
+            filter.filter.push({
+                field: "status",
+                operand: status.value,
+                operator: "EQUALS",
+            });
+        }
 
-    console.log("Filter before fetch:", filter);
-    store.fetchTransactions(filter)
-        .then((response) => {
+        console.log("Filter before fetch:", filter);
+
+        // Use `await` to fetch transactions synchronously
+        const response = await store.fetchTransactions(filter);
+
+        // Handle fetched transactions
+        if (response) {
             console.log("Fetched transactions:", response);
-        })
-        .catch((error) => {
-            console.error("Error fetching transactions:", error);
-        });
+        }
+    } catch (error) {
+        console.error("Error fetching transactions:", error);
+    }
 }
+
 
 
 
