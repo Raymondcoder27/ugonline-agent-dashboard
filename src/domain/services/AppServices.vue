@@ -82,12 +82,12 @@ watch(
 
 function next() {
   page.value += 1;
-  fetch();
+  fetchServices();
 }
 
 function previous() {
   page.value -= 1;
-  fetch();
+  fetchServices();
 }
 
 
