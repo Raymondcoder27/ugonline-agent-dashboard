@@ -76,7 +76,7 @@ const filter = reactive({
 //   filter.filter.push(dateFilter);
 // }
 
-async function fetchTransactions() {
+async function fetchFloatLedgers() {
     // Remove any previous 'status' filters
     filter.filter = filter.filter.filter((f) => f.field !== "description");
 
@@ -128,9 +128,14 @@ function convertDateTime(date: string) {
 //   { maxWait: 5000 }
 // );
 
+// const updateFilter = useDebounceFn(() => {
+//   console.log("Filter updated, fetching transactions...");
+//   store.fetchTransactions(filter);
+// }, 300);
+
 const updateFilter = useDebounceFn(() => {
   console.log("Filter updated, fetching transactions...");
-  store.fetchTransactions(filter);
+  store.fetchFloatLedgers(filter);
 }, 300);
 
 watch(
@@ -216,7 +221,7 @@ let description = ref("")
 watch(
     () => description.value,
     () => {
-      fetchTransactions()
+      fetchFloatLedgers()
     },
 );
 // watch(
