@@ -43,12 +43,13 @@ async function fetchFloatLedgers() {
 
   // Add description filter if provided
   if (description.value) {
-    filter.filter.push({
-      field: "description",
-      operand: description.value,
-      operator: "EQUALS",
-    });
-  }
+  filter.filter.push({
+    field: "description",
+    operand: description.value,
+    operator: "EQUALS",
+  });
+}
+
 
   // Add date range filter if both dates are specified
   if (filter.fromDate && filter.toDate) {
