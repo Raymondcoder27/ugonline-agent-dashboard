@@ -68,8 +68,8 @@ export const useBilling = defineStore("billing", () => {
              (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
     });
     
-    transactions.value = filteredData;
-    console.log("Filtered transactions:", filteredData);
+    floatLedgers.value = filteredData;
+    console.log("Filtered ledgers:", filteredData);
   }
   
   
