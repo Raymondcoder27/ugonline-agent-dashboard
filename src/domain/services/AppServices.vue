@@ -182,27 +182,27 @@ onMounted(() => {
   <div class="flex justify-end items-center mt-2 mb-2">
         <!-- Previous Button -->
         <button
-          class="px-1 py-0 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-xl text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
           :disabled="page <= 1"
           @click="previous"
         >
-          <i class="fa-solid fa-arrow-left text-xs"></i>
+          <i class="fa-solid fa-arrow-left text-md"></i>
         </button>
 
         <!-- Page Number Display -->
-        <span class="mx-4 text-lg font-semibold text-gray-700">{{ page }}</span>
+        <span class="mx-4 text-lg font-semibold text-red-600">{{ page }}</span>
 
         <!-- Next Button -->
         <button
-          class="px-1 py-0 text-white bg-red-600 rounded-md hover:bg-red-700 focus:outline-none focus:ring focus:ring-red-300 disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-xl text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{
             'opacity-50 cursor-not-allowed': store.services.length < limit,
           }"
           :disabled="store.services.length < limit"
           @click="next"
         >
-          <i class="fa-solid fa-arrow-right text-xs"></i>
+          <i class="fa-solid fa-arrow-right text-md"></i>
         </button>
       </div>
 
