@@ -91,10 +91,10 @@ async function fetchFloatLedgers() {
   console.log("Filter before fetch:", filter);
 
   // Await the fetch operation
-  const response = await store.fetchTransactions(filter);
+  const response = await store.fetchFloatLedgers(filter);
 
   // Log the response or handle it
-  console.log("Fetched transactions:", response);
+  console.log("Fetched float ledgers:", response);
 }
 
 function next() {
