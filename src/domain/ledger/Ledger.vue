@@ -292,8 +292,8 @@ onMounted(() => {
                 <option value="">All Transactions</option>
                 <!-- <option value="Recharge">Recharge</option>
                 <option value="serviceFee">Service Fee</option> -->
-                <option value="recharge">Recharge</option>
-<option value="service_fee">Service Fee</option>
+                <option value="success">SUCCESS</option>
+<option value="">Service Fee</option>
 
               </select>
 
