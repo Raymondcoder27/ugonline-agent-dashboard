@@ -58,11 +58,6 @@ const appRoutes: RouteRecordRaw[] = [
         component: AppEntities,
       },
       {
-        name: "app-agents",
-        path: "/agent/agents",
-        component: AppAgents,
-      },
-      {
         name: "app-services",
         path: "/agent/services",
         component: Services,
