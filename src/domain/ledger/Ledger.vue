@@ -188,9 +188,9 @@ watch(
 );
 
 // Fetch billing data (transactions, float ledgers)
-onMounted(() => {
-  fetchFloatLedgers();
-  // store.fetchFloatLedgers();
+onMounted(async () => {
+  await fetchFloatLedgers(); // Wait for the data fetch
+  console.log('Component mounted, data fetched');
 });
 </script>
 
