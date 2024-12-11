@@ -78,12 +78,12 @@ const filter = reactive({
 
 async function fetchFloatLedgers() {
   // Remove any previous 'status' filters
-  filter.filter = filter.filter.filter((f) => f.field !== "description");
+  filter.filter = filter.filter.filter((f) => f.field !== "status");
 
-  if (description.value) {
+  if (status.value) {
     filter.filter.push({
-      field: "description",
-      operand: description.value,
+      field: "status",
+      operand: status.value,
       operator: "EQUALS",
     });
   }
@@ -133,7 +133,7 @@ function convertDateTime(date: string) {
 //   store.fetchTransactions(filter);
 // }, 300);
 
-const description = ref("");
+const status = ref("");
 
 const updateFilter = useDebounceFn(() => {
   console.log("Filter updated, fetching transactions...");
@@ -141,7 +141,7 @@ const updateFilter = useDebounceFn(() => {
 }, 300);
 
 watch(
-  () => [filter.fromDate, filter.toDate, description.value],
+  () => [filter.fromDate, filter.toDate, status.value],
   () => {
     updateFilter();
   },
