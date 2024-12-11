@@ -148,40 +148,6 @@ watch(
   { deep: true }
 );
 
-// watch(
-//   () => filter,
-//   () => {
-//     console.log("Filter updated:", filter);
-//     updateFilter();
-//   },
-//   { deep: true }
-// );
-
-// watch(
-//   () => filter.filter,
-//   () => updateFilter(),
-//   { deep: true }
-// );
-
-// Watch for changes in the modal state
-// watch(
-//   () => modalOpen.value,
-//   (isOpen) => {
-//     if (!isOpen) {
-//       // Handle modal close if needed
-//     }
-//   }
-// );
-
-// // Watch for changes in the filter object
-// watch(
-//   () => filter,
-//   () => {
-//     console.log("Filter updated:", filter);
-//     updateFilter();
-//   },
-//   { deep: true }
-// );
 
 // computed(() => {
 //   const initialBalance = 15000000; // From store or static reference
