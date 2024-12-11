@@ -77,24 +77,24 @@ const filter = reactive({
 // }
 
 async function fetchFloatLedgers() {
-    // Remove any previous 'status' filters
-    filter.filter = filter.filter.filter((f) => f.field !== "description");
+  // Remove any previous 'status' filters
+  filter.filter = filter.filter.filter((f) => f.field !== "description");
 
-    if (description.value) {
-        filter.filter.push({
-            field: "description",
-            operand: description.value,
-            operator: "EQUALS",
-        });
-    }
+  if (description.value) {
+    filter.filter.push({
+      field: "description",
+      operand: description.value,
+      operator: "EQUALS",
+    });
+  }
 
-    console.log("Filter before fetch:", filter);
+  console.log("Filter before fetch:", filter);
 
-    // Await the fetch operation
-    const response = await store.fetchTransactions(filter);
+  // Await the fetch operation
+  const response = await store.fetchTransactions(filter);
 
-    // Log the response or handle it
-    console.log("Fetched transactions:", response);
+  // Log the response or handle it
+  console.log("Fetched transactions:", response);
 }
 
 function next() {
@@ -147,7 +147,6 @@ watch(
   },
   { deep: true }
 );
-
 
 // watch(
 //   () => filter,
@@ -251,7 +250,6 @@ const computedTransactions = computed(() => {
 //   }
 // );
 
-
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
   fetchFloatLedgers();
@@ -293,8 +291,7 @@ onMounted(() => {
                 <!-- <option value="Recharge">Recharge</option>
                 <option value="serviceFee">Service Fee</option> -->
                 <option value="success">SUCCESS</option>
-<option value="">Service Fee</option>
-
+                <option value="">Service Fee</option>
               </select>
 
               <div class="flex">
