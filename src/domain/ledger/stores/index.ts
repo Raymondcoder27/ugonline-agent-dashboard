@@ -1,5 +1,3 @@
-// domain/billing/stores.ts
-
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import moment from "moment";
@@ -12,13 +10,6 @@ export const useBilling = defineStore("billing", () => {
     { id: 2, amount: 200, description: "Sample Transaction 2" },
     { id: 3, amount: 300, description: "Sample Transaction 3" },
   ];
-
-  // const dummyFloatLedgers: FloatLedger[] = [
-  //   { id: 1, name: "Sample FloatLedger 1", balance: 500 },
-  //   { id: 2, name: "Sample FloatLedger 2", balance: 1000 },
-  //   { id: 3, name: "Sample FloatLedger 3", balance: 1500 },
-  // ];
-
 
   const dummyFloatLedgers: FloatLedger[] = [
     //15000000 recharge
@@ -56,56 +47,6 @@ export const useBilling = defineStore("billing", () => {
     transactions.value = filteredData;
     console.log("Filtered transactions:", filteredData);
   }
-
-
-  // async function fetchTransactions(filter: any) {
-  //   console.log("Incoming filter:", filter);
-  //   const filteredData = dummyFloatLedgers.filter(transaction => {
-  //     return (!filter.filter[0]?.operand || transaction.status.includes(filter.filter[0].operand)) &&
-  //            (!filter.filter[1]?.operand || transaction.amount > Number(filter.filter[1].operand)) &&
-  //            (!filter.filter[2]?.operand || transaction.balance > Number(filter.filter[2].operand)) &&
-  //            (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
-  //            (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
-  //   });
-    
-  //   floatLedgers.value = filteredData;
-  //   console.log("Filtered ledgers:", filteredData);
-  // }
-  
-  
-  
-
-  // async function fetchFloatLedgers(filter: any) {
-  //   // Simulate API call
-  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
-  //   // const data = await response.json();
-  //   // Use dummy data for now
-  //   floatLedgers.value = dummyFloatLedgers;
-  // }
-
-  // async function fetchFloatLedgers(filter: any) {
-  //   // Simulate filtering with dummy data
-  //   const filteredData = dummyFloatLedgers.filter(item => {
-  //     // Example: filter by status
-  //     return !filter.status || item.status === filter.status;
-  //   }).slice(0, filter.limit || dummyFloatLedgers.length);
-  
-  //   floatLedgers.value = filteredData;
-  // }
-
-  // async function fetchFloatLedgers(filter: any) {
-  //   console.log("Fetching Float Ledgers with filter:", filter);
-  
-  //   const filteredData = dummyFloatLedgers.filter(item => {
-  //     // Filter logic...
-  //   });
-  
-  //   const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
-  //   floatLedgers.value = limitedData;
-  //   console.log("Filtered float ledgers:", limitedData);
-  //   return limitedData;  // Add this return to make the data available for use
-  // }
-
 
   async function fetchFloatLedgers(filter: any) {
     console.log("Fetching Float Ledgers with filter:", filter);

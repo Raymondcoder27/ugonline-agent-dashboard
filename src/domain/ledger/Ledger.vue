@@ -98,15 +98,18 @@ async function fetchFloatLedgers() {
     store.floatLedgers = response; // Ensure this triggers reactivity
   }
 
-function next() {
+  function next() {
   page.value += 1;
-  fetchTransactions();
+  filter.page = page.value;  // Make sure filter reflects the updated page
+  fetchFloatLedgers();
 }
 
 function previous() {
   page.value -= 1;
-  fetchTransactions();
+  filter.page = page.value;
+  fetchFloatLedgers();
 }
+
 
 function open() {
   modalOpen.value = true;
