@@ -182,7 +182,7 @@ onMounted(() => {
   <div class="flex justify-end items-center mt-2 mb-2">
         <!-- Previous Button -->
         <button
-          class="text-xl text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-md text-red-600 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{ 'opacity-50 cursor-not-allowed': page <= 1 }"
           :disabled="page <= 1"
           @click="previous"
@@ -195,7 +195,7 @@ onMounted(() => {
 
         <!-- Next Button -->
         <button
-          class="text-xl text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
+          class="text-md text-red-600 focus:outline-none font-bold disabled:opacity-50 disabled:cursor-not-allowed"
           :class="{
             'opacity-50 cursor-not-allowed': store.services.length < limit,
           }"
