@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, reactive, onMounted } from "vue";
+import { ref, watch, reactive, onMounted, computed, type Ref } from "vue";
 import { useDebounceFn } from "@vueuse/core";
 import ServiceForm from "@/domain/services/components/ServiceForm.vue";
 import AppModal from "@/components/AppModal.vue";
@@ -12,9 +12,11 @@ const balanceStore = useBalance();
 const store = useServicesStore();
 
 const serviceFormModalOpen: Ref<boolean> = ref(false);
-
   const page: Ref<number> = ref(1);
-    const limit: Ref<number> = ref(16);
+const limit: Ref<number> = ref(8);
+const loading: Ref<boolean> = ref(false);
+const services: Ref<any[]> = ref([]); 
+
 
 function serviceForm(id: string) {
   // Logic to open the modal or start the process
@@ -80,23 +82,40 @@ watch(
   { deep: true }
 );
 
+function fetchServices() {
+  loading.value = true;
+  // Fetch the services based on the page and limit
+  const startIndex = (page.value - 1) * limit.value;
+  const endIndex = startIndex + limit.value;
+  services.value = store.services.slice(startIndex, endIndex);
+  loading.value = false;
+}
+
+
+// Go to the next page
 function next() {
   page.value += 1;
   fetchServices();
 }
 
+// Go to the previous page
 function previous() {
   page.value -= 1;
   fetchServices();
 }
 
+const paginatedServices = computed(() => {
+  const start = (page.value - 1) * limit.value;
+  const end = start + limit.value;
+  return store.services.slice(start, end);  // Adjust according to your page & limit
+});
 
-function fetchServices() {
-  filter.offset = (page.value - 1) * limit.value; // Update offset
-  filter.limit = limit.value;
-  filter.page = page.value; // Ensure pagination is aligned
-  store.fetchServices(filter); // Fetch services
-}
+// function fetchServices() {
+//   filter.offset = (page.value - 1) * limit.value; // Update offset
+//   filter.limit = limit.value;
+//   filter.page = page.value; // Ensure pagination is aligned
+//   store.fetchServices(filter); // Fetch services
+// }
 
 onMounted(() => {
   balanceStore.
@@ -189,8 +208,14 @@ onMounted(() => {
 
   <!-- Service Cards Section -->
   <div class="grid grid-cols-4 gap-3 mt-3">
-    <div
+    <!-- <div
       v-for="service in store.services"
+      :key="service.id"
+      @click="serviceForm(service)"
+      class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"
+    > -->
+    <div
+      v-for="service in paginatedServices"
       :key="service.id"
       @click="serviceForm(service)"
       class="service service-active border border-gray-200 bg-white hover:shadow-lg rounded transform transition duration-300 ease-in-out hover:scale-105 hover:cursor-pointer hover:bg-white"

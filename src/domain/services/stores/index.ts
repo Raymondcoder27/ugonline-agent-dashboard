@@ -134,6 +134,12 @@ const dummyServices = ref<Service[]>([
     // status: "listed",
     // currentVersionId: "4",
   },
+  {
+    id: 11,
+    thumbnail: ministryThumbnail,
+    service: "Land Title Verification",
+    description: "Verify a land title",
+  }
 ]);
 
 const services: Ref<Service[] | undefined> = ref(dummyServices)
