@@ -177,44 +177,15 @@ const computedTransactions = computed(() => {
   });
 });
 
-// watch(
-//   computedTransactions,
-//   (transactions) => {
-//     console.log("Computed transactions:", transactions);
-//   },
-//   { deep: true }
-// );
 
-// watch(
-//   () => balanceStore.totalBalance.value,
-//   (newVal, oldVal) => {
-//     console.log("Balance updated:", oldVal, "->", newVal);
-//   },
-//   { deep: true }
-// );
-
-// let description = ref("")
-// watch(
-//     () => description.value,
-//     () => {
-//       fetchFloatLedgers()
-//     },
-// );
-
-// watch(
-//   () => description.value,
-//   () => {
-//     filter.filter = filter.filter.filter((f) => f.field !== "description");
-//     if (description.value) {
-//       filter.filter.push({
-//         field: "description",
-//         operand: description.value,
-//         operator: "EQUALS",
-//       });
-//     }
-//     fetchFloatLedgers();
-//   }
-// );
+watch(
+  () => store.floatLedgers,
+  (newLedgers) => {
+    console.log('Updated float ledgers:', newLedgers);
+    // You can add any extra logic you want to run after the ledgers are updated
+  },
+  { deep: true }
+);
 
 // Fetch billing data (transactions, float ledgers)
 onMounted(() => {
