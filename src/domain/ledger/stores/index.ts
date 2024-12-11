@@ -48,6 +48,7 @@ export const useBilling = defineStore("billing", () => {
     console.log("Filtered transactions:", filteredData);
   }
 
+
   async function fetchFloatLedgers(filter: any) {
     console.log("Fetching Float Ledgers with filter:", filter);
   
@@ -64,6 +65,8 @@ export const useBilling = defineStore("billing", () => {
     console.log("Filtered float ledgers:", limitedData);
     return limitedData;
   }
+
+  
   
   
   
