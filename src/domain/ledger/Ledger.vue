@@ -32,7 +32,7 @@ const filter = reactive({
   ],
   filter: [
     {
-      field: "description",
+      field: "status",
       operand: "",
       operator: "CONTAINS",
     },
@@ -283,7 +283,7 @@ onMounted(() => {
 
               <select
                 v-if="filter.filter"
-                v-model="description"
+                v-model="status"
                 class="filter-element e-input"
                 @change="fetchFloatLedgers"
               >
@@ -291,7 +291,7 @@ onMounted(() => {
                 <!-- <option value="Recharge">Recharge</option>
                 <option value="serviceFee">Service Fee</option> -->
                 <option value="success">SUCCESS</option>
-                <option value="">Service Fee</option>
+                <option value="pending">PENDING</option>
               </select>
 
               <div class="flex">
