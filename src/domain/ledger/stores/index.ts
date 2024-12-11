@@ -93,18 +93,37 @@ export const useBilling = defineStore("billing", () => {
   //   floatLedgers.value = filteredData;
   // }
 
+  // async function fetchFloatLedgers(filter: any) {
+  //   console.log("Fetching Float Ledgers with filter:", filter);
+  
+  //   const filteredData = dummyFloatLedgers.filter(item => {
+  //     // Filter logic...
+  //   });
+  
+  //   const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
+  //   floatLedgers.value = limitedData;
+  //   console.log("Filtered float ledgers:", limitedData);
+  //   return limitedData;  // Add this return to make the data available for use
+  // }
+
+
   async function fetchFloatLedgers(filter: any) {
     console.log("Fetching Float Ledgers with filter:", filter);
   
     const filteredData = dummyFloatLedgers.filter(item => {
-      // Filter logic...
+      return (!filter.status || item.status === filter.status) &&
+             (!filter.fromDate || moment(item.date).isAfter(moment(filter.fromDate))) &&
+             (!filter.toDate || moment(item.date).isBefore(moment(filter.toDate))) &&
+             (!filter.description || item.description.includes(filter.description));
     });
   
-    const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
+    const limitedData = filteredData.slice(0, filter.limit ?? dummyFloatLedgers.length);
     floatLedgers.value = limitedData;
+  
     console.log("Filtered float ledgers:", limitedData);
-    return limitedData;  // Add this return to make the data available for use
+    return limitedData;
   }
+  
   
   
   
