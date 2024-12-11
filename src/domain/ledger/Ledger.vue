@@ -228,7 +228,7 @@ onMounted(async () => {
                 class="filter-element e-input"
                 @change="fetchFloatLedgers"
               >
-                <option value="">All Transactions</option>
+                <option value="">--Filter by status--</option>
                 <!-- <option value="Recharge">Recharge</option>
                 <option value="serviceFee">Service Fee</option> -->
                 <option value="success">SUCCESS</option>
