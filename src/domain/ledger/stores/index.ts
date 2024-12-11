@@ -43,30 +43,35 @@ export const useBilling = defineStore("billing", () => {
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
 
-  // Actions to fetch data
   // async function fetchTransactions(filter: any) {
-  //   // Simulate API call
-  //   // const response = await fetch(`/api/transactions?limit=${filter.limit}&page=${filter.page}`);
-  //   // const data = await response.json();
-  //   // Use dummy data for now
-  //   transactions.value = dummyTransactions;
-  //   totalAmount.value = 600;  // Set a test value
-  //   totalBalance.value = 3000; // Set a test value
+  //   const filteredData = dummyTransactions.filter(transaction => {
+  //     return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
+  //            (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
+  //            (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
+  //            (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
+  //            (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
+  //   });
+    
+  
+  //   transactions.value = filteredData;
+  //   console.log("Filtered transactions:", filteredData);
   // }
 
+
   async function fetchTransactions(filter: any) {
+    console.log("Incoming filter:", filter);
     const filteredData = dummyTransactions.filter(transaction => {
-      return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
-             (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
-             (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
+      return (!filter.filter[0]?.operand || transaction.status.includes(filter.filter[0].operand)) &&
+             (!filter.filter[1]?.operand || transaction.amount > Number(filter.filter[1].operand)) &&
+             (!filter.filter[2]?.operand || transaction.balance > Number(filter.filter[2].operand)) &&
              (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
              (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
     });
     
-  
     transactions.value = filteredData;
     console.log("Filtered transactions:", filteredData);
   }
+  
   
   
 
