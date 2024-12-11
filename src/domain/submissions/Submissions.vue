@@ -182,14 +182,14 @@ watch(
             class="filter-element e-input" type="text" placeholder="Search by Tracking Number" />
             <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[1].operand"
             class="filter-element e-input" type="text" placeholder="Filter by Status">
-            <option value="" disabled selected>Filter by Status</option>
+            <option value="" disabled selected>--Filter by status--</option>
             <option value="PENDING">PENDING</option>
             <option value="COMPLETED">COMPLETED</option>
             <option value="BLOCKED">BLOCKED</option>
           </select>
           <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Drop down provider">
-            <option value="" disabled selected>Filter by Provider</option>
+            <option value="" disabled selected>--Filter by provider--</option>
             <option value="NIRA">NIRA</option>
             <option value="URSB">URSB</option>
             <!-- <option value="UMEME">UMEME</option> -->
@@ -197,7 +197,7 @@ watch(
           </select>
             <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
             class="filter-element e-input" type="text" placeholder="Search by Service">
-            <option value="" disabled selected>Filter by Service</option>
+            <option value="" disabled selected>--Filter by service--</option>
             <option value="companyNameReservation">Company Name Reservation</option>
             <option value="companyRegistration">Company Registration</option>
             <option value="companyNameSearch">Company Name Search</option>
