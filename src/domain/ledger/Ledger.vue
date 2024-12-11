@@ -77,25 +77,26 @@ const filter = reactive({
 // }
 
 async function fetchFloatLedgers() {
-  // Remove any previous 'status' filters
-  filter.filter = filter.filter.filter((f) => f.field !== "status");
-
-  if (status.value) {
-    filter.filter.push({
-      field: "status",
-      operand: status.value,
-      operator: "EQUALS",
-    });
+    filter.filter = filter.filter.filter((f) => f.field !== "status");
+  
+    if (status.value) {
+      filter.filter.push({
+        field: "status",
+        operand: status.value,
+        operator: "EQUALS",
+      });
+    }
+  
+    console.log('Fetching Float Ledgers with filter:', filter);
+  
+    // Await the fetch operation
+    const response = await store.fetchFloatLedgers(filter);
+  
+    console.log('Filtered float ledgers:', response); // Log the response
+  
+    // Update store or state accordingly
+    store.floatLedgers = response; // Ensure this triggers reactivity
   }
-
-  console.log("Filter before fetch:", filter);
-
-  // Await the fetch operation
-  const response = await store.fetchFloatLedgers(filter);
-
-  // Log the response or handle it
-  console.log("Fetched float ledgers:", response);
-}
 
 function next() {
   page.value += 1;

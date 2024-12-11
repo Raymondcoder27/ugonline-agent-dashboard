@@ -72,47 +72,59 @@ export const useBilling = defineStore("billing", () => {
   //   console.log("Filtered ledgers:", filteredData);
   // }
   
+  
+  
 
+  // async function fetchFloatLedgers(filter: any) {
+  //   // Simulate API call
+  //   // const response = await fetch(`/api/float-ledgers?limit=${filter.limit}&page=${filter.page}`);
+  //   // const data = await response.json();
+  //   // Use dummy data for now
+  //   floatLedgers.value = dummyFloatLedgers;
+  // }
+
+  // async function fetchFloatLedgers(filter: any) {
+  //   // Simulate filtering with dummy data
+  //   const filteredData = dummyFloatLedgers.filter(item => {
+  //     // Example: filter by status
+  //     return !filter.status || item.status === filter.status;
+  //   }).slice(0, filter.limit || dummyFloatLedgers.length);
+  
+  //   floatLedgers.value = filteredData;
+  // }
 
   // async function fetchFloatLedgers(filter: any) {
   //   console.log("Fetching Float Ledgers with filter:", filter);
   
   //   const filteredData = dummyFloatLedgers.filter(item => {
-  //     return (!filter.status || item.status === filter.status) &&
-  //            (!filter.fromDate || moment(item.date).isAfter(moment(filter.fromDate))) &&
-  //            (!filter.toDate || moment(item.date).isBefore(moment(filter.toDate))) &&
-  //            (!filter.description || item.description.includes(filter.description));
+  //     // Filter logic...
   //   });
   
-  //   const limitedData = filteredData.slice(0, filter.limit ?? dummyFloatLedgers.length);
+  //   const limitedData = filteredData.slice(0, filter.limit || dummyFloatLedgers.length);
   //   floatLedgers.value = limitedData;
-  
   //   console.log("Filtered float ledgers:", limitedData);
-  //   return limitedData;
+  //   return limitedData;  // Add this return to make the data available for use
   // }
+
+
+  async function fetchFloatLedgers(filter: any) {
+    console.log("Fetching Float Ledgers with filter:", filter);
   
+    const filteredData = dummyFloatLedgers.filter(item => {
+      return (!filter.status || item.status === filter.status) &&
+             (!filter.fromDate || moment(item.date).isAfter(moment(filter.fromDate))) &&
+             (!filter.toDate || moment(item.date).isBefore(moment(filter.toDate))) &&
+             (!filter.description || item.description.includes(filter.description));
+    });
   
-  async function fetchFloatLedgers() {
-    filter.filter = filter.filter.filter((f) => f.field !== "status");
+    const limitedData = filteredData.slice(0, filter.limit ?? dummyFloatLedgers.length);
+    floatLedgers.value = limitedData;
   
-    if (status.value) {
-      filter.filter.push({
-        field: "status",
-        operand: status.value,
-        operator: "EQUALS",
-      });
-    }
-  
-    console.log('Fetching Float Ledgers with filter:', filter);
-  
-    // Await the fetch operation
-    const response = await store.fetchFloatLedgers(filter);
-  
-    console.log('Filtered float ledgers:', response); // Log the response
-  
-    // Update store or state accordingly
-    store.floatLedgers = response; // Ensure this triggers reactivity
+    console.log("Filtered float ledgers:", limitedData);
+    return limitedData;
   }
+  
+  
   
   
 
