@@ -43,34 +43,34 @@ export const useBilling = defineStore("billing", () => {
   const totalBalance = ref(3000); // Set a test value
   const floatLedgers = ref<FloatLedger[]>(dummyFloatLedgers); // Use dummy data for now
 
-  // async function fetchTransactions(filter: any) {
-  //   const filteredData = dummyTransactions.filter(transaction => {
-  //     return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
-  //            (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
-  //            (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
-  //            (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
-  //            (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
-  //   });
-    
-  
-  //   transactions.value = filteredData;
-  //   console.log("Filtered transactions:", filteredData);
-  // }
-
-
   async function fetchTransactions(filter: any) {
-    console.log("Incoming filter:", filter);
-    const filteredData = dummyFloatLedgers.filter(transaction => {
-      return (!filter.filter[0]?.operand || transaction.status.includes(filter.filter[0].operand)) &&
-             (!filter.filter[1]?.operand || transaction.amount > Number(filter.filter[1].operand)) &&
-             (!filter.filter[2]?.operand || transaction.balance > Number(filter.filter[2].operand)) &&
+    const filteredData = dummyTransactions.filter(transaction => {
+      return (!filter.filter[0].operand || transaction.description.includes(filter.filter[0].operand)) &&
+             (!filter.filter[1].operand || transaction.amount > Number(filter.filter[1].operand)) &&
+             (!filter.filter[2].operand || transaction.balance > Number(filter.filter[2].operand)) &&
              (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
              (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
     });
     
-    floatLedgers.value = filteredData;
-    console.log("Filtered ledgers:", filteredData);
+  
+    transactions.value = filteredData;
+    console.log("Filtered transactions:", filteredData);
   }
+
+
+  // async function fetchTransactions(filter: any) {
+  //   console.log("Incoming filter:", filter);
+  //   const filteredData = dummyFloatLedgers.filter(transaction => {
+  //     return (!filter.filter[0]?.operand || transaction.status.includes(filter.filter[0].operand)) &&
+  //            (!filter.filter[1]?.operand || transaction.amount > Number(filter.filter[1].operand)) &&
+  //            (!filter.filter[2]?.operand || transaction.balance > Number(filter.filter[2].operand)) &&
+  //            (!filter.fromDate || moment(transaction.date).isAfter(moment(filter.fromDate))) &&
+  //            (!filter.toDate || moment(transaction.date).isBefore(moment(filter.toDate)));
+  //   });
+    
+  //   floatLedgers.value = filteredData;
+  //   console.log("Filtered ledgers:", filteredData);
+  // }
   
   
   
