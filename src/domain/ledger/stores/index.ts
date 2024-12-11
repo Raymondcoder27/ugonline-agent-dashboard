@@ -60,7 +60,7 @@ export const useBilling = defineStore("billing", () => {
 
   async function fetchTransactions(filter: any) {
     console.log("Incoming filter:", filter);
-    const filteredData = dummyTransactions.filter(transaction => {
+    const filteredData = dummyFloatLedgers.filter(transaction => {
       return (!filter.filter[0]?.operand || transaction.status.includes(filter.filter[0].operand)) &&
              (!filter.filter[1]?.operand || transaction.amount > Number(filter.filter[1].operand)) &&
              (!filter.filter[2]?.operand || transaction.balance > Number(filter.filter[2].operand)) &&

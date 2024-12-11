@@ -292,6 +292,7 @@ onMounted(() => {
                 <option value="serviceFee">Service Fee</option> -->
                 <option value="success">SUCCESS</option>
                 <option value="pending">PENDING</option>
+                <option value="failed">FAILED</option>
               </select>
 
               <div class="flex">
