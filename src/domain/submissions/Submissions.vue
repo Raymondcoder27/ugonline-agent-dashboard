@@ -195,7 +195,7 @@ watch(
             <!-- <option value="UMEME">UMEME</option> -->
             <option value="NARO">Posta Uganda</option>
           </select>
-            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[2].operand"
+            <select v-if="filter.filter !== undefined" input-type="text" v-model="filter.filter[3].operand"
             class="filter-element e-input" type="text" placeholder="Search by Service">
             <option value="" disabled selected>--Filter by service--</option>
             <option value="companyNameReservation">Company Name Reservation</option>
